@@ -1,0 +1,66 @@
+﻿
+@{
+    ViewData["Title"] = "Service";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<section class="contact py-lg-5 py-md-4 py-md-3 py-2">
+    <div class="container py-lg-5 py-md-4 py-md-3 py-2">
+        <div class="w3_mg">
+            <h3>Bảng báo giá</h3>
+                
+        </div>
+        <div class="row">
+            <div class="col-4">
+                <img src="~/images/bang-bao-gia-demo.jpg" width="250" height="250" />
+                <button type="button" class="btn btn-primary mt-2 offset-2" data-toggle="modal" data-target="#exampleModal">
+                    Quick Views
+                </button>
+                <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                    <div class="modal-dialog" role="document">
+                        <div class="modal-content">
+                            <img src="~/images/bang-bao-gia-demo.jpg" /> @*Nhiều hình thù có thể qua gallery để xem xử lý*@
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-4">
+                <img src="~/images/bang-gia-xay-nha-phan-tho.jpg" width="250" height="250" />
+                <button type="button" class="btn btn-primary mt-2 offset-2" data-toggle="modal" data-target="#exampleModal-1">
+                    Quick Views
+                </button>
+                <div class="modal fade" id="exampleModal-1" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                    <div class="modal-dialog" role="document">
+                        <div class="modal-content">
+                            <img src="~/images/bang-gia-xay-nha-phan-tho.jpg" />
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-4">
+                <img src="~/images/xay-dung-nha-tron-goi.jpg" width="250" height="250" />
+                <button type="button" class="btn btn-primary mt-2 offset-2" data-toggle="modal" data-target="#exampleModal-2">
+                    Quick Views
+                </button>
+                <div class="modal fade" id="exampleModal-2" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                    <div class="modal-dialog" role="document">
+                        <div class="modal-content">
+                            <img src="~/images/xay-dung-nha-tron-goi.jpg" />
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+            
+    </div>
+</section>
+@section Scripts
+{
+    <script src="~/lib/bootstrap/dist/js/jquery-1.7.2.js"></script>
+    <script src="~/lib/bootstrap/dist/js/jquery.quicksand.js"></script>
+    <script src="~/lib/bootstrap/dist/js/script.js"></script>
+    <script src="~/lib/bootstrap/dist/js/jquery.prettyPhoto.js"></script>
+}
+

@@ -11,12 +11,14 @@ namespace HomeMaintance.Models
         public int Id { get; set; }
         [Required]
         public string ServiceName { get; set; }
+
+        public string Thumbnail { get; set; }
         public string ShortDescription { get; set; }
         public string Description { get; set; }
         public DateTime CreatedDate { get; set; }
-        public string CreatedBy { get; set; }
+        public string CreatedBy { get; set; } //xem xét lại
         public DateTime ModifiedDate { get; set; }
-        public string ModifiedBy { get; set; }
+        public string ModifiedBy { get; set; } //xem xét lại
         public string MetaTitle { get; set; }
         public string MetaDescription { get; set; }
         public string SEOTitle { get; set; }

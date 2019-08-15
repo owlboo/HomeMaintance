@@ -1,0 +1,144 @@
+﻿@using ElectronicStore.Extensions
+@model HomeMaintance.Models.ViewModels.ServiceViewModel
+@{
+    ViewData["Title"] = "Edit";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<section class="contact py-lg-5 py-md-4 py-md-3 py-2">
+    <div class="container py-lg-5 py-md-4 py-md-3 py-2">
+        <div class="w3_mg">
+            <h3>Cập nhật dịch vụ</h3>
+
+        </div>
+        <form method="post" asp-action="Edit">
+            <div class="p-4 border rounded">
+                <div class="text-danger" asp-validation-summary="ModelOnly"></div>
+
+                <div class="form-group row">
+                    <div class="col-2">
+                        <label asp-for="Services.ServiceName"></label>
+                    </div>
+                    <div class="col-5">
+                        <input asp-for="Services.ServiceName" class="form-control" />
+                    </div>
+                    <span asp-validation-for="Services.ServiceName" class="table-danger"></span>
+                </div>
+                <div class="form-group row">
+                    <div class="col-2">
+                        <label asp-for="Services.Thumbnail"></label>
+                    </div>
+                    <div class="col-5">
+                        <input asp-for="Services.Thumbnail" type="file" name="files" class="form-control" />
+                    </div>
+                    <span asp-validation-for="Services.Thumbnail" class="table-danger"></span>
+                </div>
+                <div class="form-group row">
+                    <div class="col-2">
+                        <label asp-for="Services.SEOTitle"></label>
+                    </div>
+                    <div class="col-5">
+                        <input asp-for="Services.SEOTitle" class="form-control" />
+                    </div>
+                    <span asp-validation-for="Services.SEOTitle" class="table-danger"></span>
+                </div>
+                <div class="form-group row">
+                    <div class="col-2">
+                        <label asp-for="Services.MetaTitle"></label>
+                    </div>
+                    <div class="col-5">
+                        <input asp-for="Services.MetaTitle" class="form-control" />
+                    </div>
+                    <span asp-validation-for="Services.MetaTitle" class="table-danger"></span>
+                </div>
+                <div class="form-group row">
+                    <div class="col-2">
+                        <label asp-for="Services.MetaDescription"></label>
+                    </div>
+                    <div class="col-5">
+                        <input asp-for="Services.MetaDescription" class="form-control" />
+                    </div>
+                    <span asp-validation-for="Services.MetaDescription" class="table-danger"></span>
+                </div>
+                <div class="form-group row">
+                    <div class="col-2">
+                        <label asp-for="Services.ShortDescription"></label>
+                    </div>
+                    <div class="col-5">
+                        <input asp-for="Services.ShortDescription" class="form-control" />
+                    </div>
+                    <span asp-validation-for="Services.ShortDescription" class="table-danger"></span>
+                </div>
+
+                <div class="form-group row">
+                    <div class="col-2">
+                        <label asp-for="Services.Description"></label>
+                    </div>
+                    <div class="col-5">
+                        <textarea id="summernote" asp-for="Services.Description" class="form-control"></textarea>
+                    </div>
+                    <span asp-validation-for="Services.Description" class="table-danger"></span>
+                </div>
+                <div class="form-group row">
+                    <div class="col-2">
+                        <label asp-for="Services.CreatedDate"></label>
+                    </div>
+                    <div class="col-5">
+                        <input asp-for="Services.CreatedDate" class="form-control" />
+                    </div>
+                    <span asp-validation-for="Services.CreatedDate" class="table-danger"></span>
+                </div>
+                <div class="form-group row">
+                    <div class="col-2">
+                        <label asp-for="Services.ModifiedDate"></label>
+                    </div>
+                    <div class="col-5">
+                        <input asp-for="Services.ModifiedDate" class="form-control" />
+                    </div>
+                    <span asp-validation-for="Services.ModifiedDate" class="table-danger"></span>
+                </div>
+
+                <div class="form-group row">
+                    <div class="col-2">
+                        <label asp-for="Services.Category"></label>
+                    </div>
+                    <div class="col-5">
+                        <select asp-for="Services.CategoryId" asp-items="@Model.Categories.ToSelectListItem("CategoryName",@Model.Services.CategoryId)" class="form-control"></select>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <input type="submit" class="btn btn-primary" value="Cập nhật" />
+                    <a asp-action="Index" class="btn btn-success">Back To List</a>
+                </div>
+            </div>
+        </form>
+
+    </div>
+</section>
+@section Scripts
+{
+    @{ await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+    <script>
+        $(document).ready(function () {
+
+            $('#summernote').summernote();
+
+            var d = new Date();
+
+            var month = d.getMonth() + 1;
+            var day = d.getDate();
+
+            var output = d.getFullYear() + '/' +
+                (month < 10 ? '0' : '') + month + '/' +
+                (day < 10 ? '0' : '') + day;
+
+            var h = d.getHours();
+            var m = d.getMinutes();
+            var values = h + ":" + m;
+
+            $("#created").attr('value', output + " " + values);
+            $("#modified").attr('value', output + " " + values);
+        });
+    </script>
+}
+

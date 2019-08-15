@@ -1,0 +1,46 @@
+﻿@model IEnumerable<Services>
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<section class="contact py-lg-5 py-md-4 py-md-3 py-2">
+    <div class="container py-lg-5 py-md-4 py-md-3 py-2">
+        <div class="w3_mg">
+            <h3>Bảng dịch vụ</h3>
+        </div>
+        <div class="offset-10">
+            <a asp-action="Create" class="btn btn-info"><i class="fa fa-plus"></i> &nbsp; Thêm dịch vụ mới</a>
+        </div>
+        <div class="row">
+            <table class="table table-striped" style="font-size: 1.2em">
+                <thead>
+                    <tr>
+                        <th>@Html.DisplayNameFor(m => m.ServiceName)</th>
+                        <th>@Html.DisplayNameFor(m => m.MetaTitle)</th>
+                        <th>@Html.DisplayNameFor(m => m.CreatedDate)</th>
+                        <th>@Html.DisplayNameFor(m => m.ModifiedDate)</th>
+                        <th>@Html.DisplayNameFor(m => m.Category.CategoryName)</th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in Model)
+                    {
+                        <tr>
+                            <td>@Html.DisplayFor(m => item.ServiceName)</td>
+                            <td>@Html.DisplayFor(m => item.MetaTitle)</td>
+                            <td>@item.CreatedDate.ToString("d")</td>
+                            <td>@item.ModifiedDate.ToString("d")</td>
+                            <td>@Html.DisplayFor(m => item.Category.CategoryName)</td>
+                            <td>
+                                <partial model="@item.Id" name="_TableButtonPartial" />
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+
+    </div>
+</section>
+

@@ -1,0 +1,101 @@
+﻿@model Category
+@{
+    ViewData["Title"] = "Create";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<section class="contact py-lg-5 py-md-4 py-md-3 py-2">
+    <div class="container py-lg-5 py-md-4 py-md-3 py-2">
+        <div class="w3_mg">
+            <h3>Tạo loại công việc</h3>
+
+        </div>
+        <form method="post" asp-action="Create" style="font-size: 1.2em">
+            <div class="p-4 border rounded">
+                <div class="text-danger" asp-validation-summary="ModelOnly"></div>
+
+                <div class="form-group row">
+                    <div class="col-2">
+                        <label asp-for="CategoryName"></label>
+                    </div>
+                    <div class="col-10">
+                        <input asp-for="CategoryName" class="form-control" />
+                    </div>
+                    <span asp-validation-for="CategoryName" class="table-danger"></span>
+                </div>
+                <div class="form-group row mt-2">
+                    <div class="col-2">
+                        <label asp-for="MetaTitle"></label>
+                    </div>
+                    <div class="col-10">
+                        <input asp-for="MetaTitle" class="form-control" />
+                    </div>
+                    <span asp-validation-for="MetaTitle" class="table-danger"></span>
+                </div>
+                <div class="form-group row mt-2">
+                    <div class="col-2">
+                        <label asp-for="SEOTitle"></label>
+                    </div>
+                    <div class="col-10">
+                        <input asp-for="SEOTitle" class="form-control" />
+                    </div>
+                    <span asp-validation-for="SEOTitle" class="table-danger"></span>
+                </div>
+                <div class="form-group row mt-2">
+                    <div class="col-2">
+                        <label asp-for="CreatedDate"></label>
+                    </div>
+                    <div class="col-10">
+                        <input asp-for="CreatedDate" class="form-control" type="datetime" value="@DateTime.Now" readonly/>
+                    </div>
+                    <span asp-validation-for="CreatedDate" class="table-danger"></span>
+                </div>
+                <div class="form-group row mt-2">
+                    <div class="col-2">
+                        <label asp-for="ModifiedDate"></label>
+                    </div>
+                    <div class="col-10">
+                        <input asp-for="ModifiedDate" class="form-control" type="datetime" value="@DateTime.Now" readonly/>
+                    </div>
+                    <span asp-validation-for="ModifiedDate" class="table-danger"></span>
+                </div>
+                <div class="form-group row mt-2">
+                    <div class="col-2">
+                        <label asp-for="MetaKeyword"></label>
+                    </div>
+                    <div class="col-10">
+                        <input asp-for="MetaKeyword" class="form-control" />
+                    </div>
+                    <span asp-validation-for="MetaKeyword" class="table-danger"></span>
+                </div>
+
+                <div class="form-group row mt-2">
+                    <div class="col-2">
+                        <label asp-for="MetaDescription"></label>
+                    </div>
+                    <div class="col-10">
+                        <textarea id="summernote" asp-for="MetaDescription" class="form-control"></textarea>
+                    </div>
+                    <span asp-validation-for="MetaDescription" class="table-danger"></span>
+                </div>
+                <div class="form-group offset-3">
+                    <input type="submit" class="btn btn-primary" value="Create" />
+                    <a asp-action="Index" class="btn btn-success">Back To List</a>
+                </div>
+            </div>
+        </form>
+
+    </div>
+</section>
+@section Scripts
+{
+    @{ await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+    <script>
+        $(document).ready(function () {
+
+            $('#summernote').summernote();
+
+        });
+    </script>
+}
+

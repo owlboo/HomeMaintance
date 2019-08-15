@@ -44,7 +44,6 @@ D:\Study\Visual Project\ASP.NET\HomeMaintance\HomeMaintance\bin\Debug\netcoreapp
 D:\Study\Visual Project\ASP.NET\HomeMaintance\HomeMaintance\bin\Debug\netcoreapp2.1\HomeMaintance.pdb
 D:\Study\Visual Project\ASP.NET\HomeMaintance\HomeMaintance\bin\Debug\netcoreapp2.1\HomeMaintance.Views.dll
 D:\Study\Visual Project\ASP.NET\HomeMaintance\HomeMaintance\bin\Debug\netcoreapp2.1\HomeMaintance.Views.pdb
-D:\Study\Visual Project\ASP.NET\HomeMaintance\HomeMaintance\obj\Debug\netcoreapp2.1\HomeMaintance.csprojAssemblyReference.cache
 D:\Study\Visual Project\ASP.NET\HomeMaintance\HomeMaintance\obj\Debug\netcoreapp2.1\HomeMaintance.csproj.CoreCompileInputs.cache
 D:\Study\Visual Project\ASP.NET\HomeMaintance\HomeMaintance\obj\Debug\netcoreapp2.1\HomeMaintance.RazorAssemblyInfo.cache
 D:\Study\Visual Project\ASP.NET\HomeMaintance\HomeMaintance\obj\Debug\netcoreapp2.1\HomeMaintance.RazorAssemblyInfo.cs
@@ -78,3 +77,13 @@ D:\Study\Visual Project\ASP.NET\HomeMaintance\HomeMaintance\obj\Debug\netcoreapp
 D:\Study\Visual Project\ASP.NET\HomeMaintance\HomeMaintance\obj\Debug\netcoreapp2.1\HomeMaintance.csproj.CopyComplete
 D:\Study\Visual Project\ASP.NET\HomeMaintance\HomeMaintance\obj\Debug\netcoreapp2.1\Razor\Areas\Customer\Views\Home\Service.g.cshtml.cs
 D:\Study\Visual Project\ASP.NET\HomeMaintance\HomeMaintance\obj\Debug\netcoreapp2.1\Razor\Areas\Customer\Views\Home\Gallery.g.cshtml.cs
+D:\Study\Visual Project\ASP.NET\HomeMaintance\HomeMaintance\obj\Debug\netcoreapp2.1\Razor\Areas\Admin\Views\Service\Index.g.cshtml.cs
+D:\Study\Visual Project\ASP.NET\HomeMaintance\HomeMaintance\obj\Debug\netcoreapp2.1\Razor\Views\Shared\_TableButtonPartial.g.cshtml.cs
+D:\Study\Visual Project\ASP.NET\HomeMaintance\HomeMaintance\obj\Debug\netcoreapp2.1\Razor\Areas\Admin\Views\Service\Create.g.cshtml.cs
+D:\Study\Visual Project\ASP.NET\HomeMaintance\HomeMaintance\obj\Debug\netcoreapp2.1\Razor\Areas\Admin\Views\Service\Edit.g.cshtml.cs
+D:\Study\Visual Project\ASP.NET\HomeMaintance\HomeMaintance\obj\Debug\netcoreapp2.1\HomeMaintance.csprojAssemblyReference.cache
+D:\Study\Visual Project\ASP.NET\HomeMaintance\HomeMaintance\obj\Debug\netcoreapp2.1\Razor\Areas\Admin\Views\Category\Index.g.cshtml.cs
+D:\Study\Visual Project\ASP.NET\HomeMaintance\HomeMaintance\obj\Debug\netcoreapp2.1\Razor\Areas\Admin\Views\Category\Create.g.cshtml.cs
+D:\Study\Visual Project\ASP.NET\HomeMaintance\HomeMaintance\obj\Debug\netcoreapp2.1\Razor\Areas\Admin\Views\Category\Edit.g.cshtml.cs
+D:\Study\Visual Project\ASP.NET\HomeMaintance\HomeMaintance\obj\Debug\netcoreapp2.1\Razor\Areas\Admin\Views\Category\Details.g.cshtml.cs
+D:\Study\Visual Project\ASP.NET\HomeMaintance\HomeMaintance\obj\Debug\netcoreapp2.1\Razor\Areas\Admin\Views\Service\Details.g.cshtml.cs

@@ -1,0 +1,131 @@
+﻿@using ElectronicStore.Extensions
+@model HomeMaintance.Models.ViewModels.ServiceViewModel
+@{
+    ViewData["Title"] = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<section class="contact py-lg-5 py-md-4 py-md-3 py-2">
+    <div class="container py-lg-5 py-md-4 py-md-3 py-2">
+        <div class="w3_mg">
+            <h3>Chi tiết dịch vụ</h3>
+
+        </div>
+        <div class="p-4 border rounded">
+            <div class="form-group row">
+                <div class="col-2">
+                    <label asp-for="Services.ServiceName"></label>
+                </div>
+                <div class="col-5">
+                    <input asp-for="Services.ServiceName" class="form-control" readonly/>
+                </div>
+            </div>
+            <div class="form-group row">
+                <div class="col-2">
+                    <label asp-for="Services.Thumbnail"></label>
+                </div>
+                <div class="col-5">
+                    <img src="@Model.Services.Thumbnail" width="200" height="200"/>
+                </div>
+            </div>
+            <div class="form-group row">
+                <div class="col-2">
+                    <label asp-for="Services.SEOTitle"></label>
+                </div>
+                <div class="col-5">
+                    <input asp-for="Services.SEOTitle" class="form-control" readonly/>
+                </div>
+            </div>
+            <div class="form-group row">
+                <div class="col-2">
+                    <label asp-for="Services.MetaTitle"></label>
+                </div>
+                <div class="col-5">
+                    <input asp-for="Services.MetaTitle" class="form-control" readonly/>
+                </div>
+            </div>
+            <div class="form-group row">
+                <div class="col-2">
+                    <label asp-for="Services.MetaDescription"></label>
+                </div>
+                <div class="col-5">
+                    <input asp-for="Services.MetaDescription" class="form-control" readonly/>
+                </div>
+            </div>
+            <div class="form-group row">
+                <div class="col-2">
+                    <label asp-for="Services.ShortDescription"></label>
+                </div>
+                <div class="col-5">
+                    <input asp-for="Services.ShortDescription" class="form-control" readonly/>
+                </div>
+            </div>
+
+            <div class="form-group row">
+                <div class="col-2">
+                    <label asp-for="Services.Description"></label>
+                </div>
+                <div class="col-5">
+                    <textarea id="summernote" asp-for="Services.Description" class="form-control" readonly></textarea>
+                </div>
+            </div>
+            <div class="form-group row">
+                <div class="col-2">
+                    <label asp-for="Services.CreatedDate"></label>
+                </div>
+                <div class="col-5">
+                    <input asp-for="Services.CreatedDate" type="datetime" value="@Model.Services.CreatedDate" class="form-control" readonly/>
+                </div>
+            </div>
+            <div class="form-group row">
+                <div class="col-2">
+                    <label asp-for="Services.ModifiedDate"></label>
+                </div>
+                <div class="col-5">
+                    <input asp-for="Services.ModifiedDate" class="form-control" type="datetime" value="@Model.Services.ModifiedDate" readonly/>
+                </div>
+            </div>
+
+            <div class="form-group row">
+                <div class="col-2">
+                    <label asp-for="Services.Category"></label>
+                </div>
+                <div class="col-5">
+                    <input asp-for="Services.CategoryId" value="@Model.Services.Category.CategoryName" class="form-control" readonly/>
+                </div>
+            </div>
+            <div class="form-group">
+                <a asp-action="Edit" class="btn btn-primary">Cập nhật lại</a>
+                <a asp-action="Index" class="btn btn-success">Back To List</a>
+            </div>
+        </div>
+
+    </div>
+</section>
+@section Scripts
+{
+    @{ await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+    <script>
+        $(document).ready(function () {
+
+            $('#summernote').summernote();
+
+            var d = new Date();
+
+            var month = d.getMonth() + 1;
+            var day = d.getDate();
+
+            var output = d.getFullYear() + '/' +
+                (month < 10 ? '0' : '') + month + '/' +
+                (day < 10 ? '0' : '') + day;
+
+            var h = d.getHours();
+            var m = d.getMinutes();
+            var values = h + ":" + m;
+
+            $("#created").attr('value', output + " " + values);
+            $("#modified").attr('value', output + " " + values);
+        });
+    </script>
+}
+

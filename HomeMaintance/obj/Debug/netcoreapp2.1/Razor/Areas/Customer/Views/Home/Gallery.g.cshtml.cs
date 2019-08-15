@@ -100,12 +100,12 @@ using HomeMaintance.Models;
                         ");
             EndContext();
             BeginContext(617, 212, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "fccf705ea2224dea93b1be2464b3e4d1", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "d83ecaf6eab7483b911bcf9774001f2b", async() => {
                 BeginContext(694, 32, true);
                 WriteLiteral("\r\n\r\n                            ");
                 EndContext();
                 BeginContext(726, 71, false);
-                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("img", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagOnly, "232b588a0d4241fda0e2c6b8119dd515", async() => {
+                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("img", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagOnly, "048caa773f354d0b9c32e4d76935e1d3", async() => {
                 }
                 );
                 __Microsoft_AspNetCore_Mvc_Razor_TagHelpers_UrlResolutionTagHelper = CreateTagHelper<global::Microsoft.AspNetCore.Mvc.Razor.TagHelpers.UrlResolutionTagHelper>();
@@ -143,12 +143,12 @@ using HomeMaintance.Models;
             WriteLiteral("\r\n                    </span>\r\n                </div>\r\n            </li>\r\n            <li class=\"portfolio-item2\" data-id=\"id-1\" data-type=\"cat-item-2\">\r\n                <div>\r\n                    <span class=\"image-block\">\r\n                        ");
             EndContext();
             BeginContext(1078, 212, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "5894f58762de4bd48731924b465611d4", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "9967d5b8dd244c2b8b94c32af154e35e", async() => {
                 BeginContext(1155, 32, true);
                 WriteLiteral("\r\n\r\n                            ");
                 EndContext();
                 BeginContext(1187, 71, false);
-                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("img", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagOnly, "7bc07e23065b42be9d9f75074415965c", async() => {
+                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("img", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagOnly, "45071ced0cf04c8a9c9a58f91a9fcd5b", async() => {
                 }
                 );
                 __Microsoft_AspNetCore_Mvc_Razor_TagHelpers_UrlResolutionTagHelper = CreateTagHelper<global::Microsoft.AspNetCore.Mvc.Razor.TagHelpers.UrlResolutionTagHelper>();
@@ -186,12 +186,12 @@ using HomeMaintance.Models;
             WriteLiteral("\r\n                    </span>\r\n                </div>\r\n            </li>\r\n            <li class=\"portfolio-item2\" data-id=\"id-2\" data-type=\"cat-item-1\">\r\n                <div>\r\n                    <span class=\"image-block\">\r\n                        ");
             EndContext();
             BeginContext(1539, 212, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "18c3bce1dbf24389b36be6904246f474", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "437017ec957b4359acc953b22dbdd19a", async() => {
                 BeginContext(1616, 32, true);
                 WriteLiteral("\r\n\r\n                            ");
                 EndContext();
                 BeginContext(1648, 71, false);
-                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("img", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagOnly, "e31c95bac67745e8b654a31dc68af129", async() => {
+                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("img", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagOnly, "69446ea604424a948c70b1e2707188e1", async() => {
                 }
                 );
                 __Microsoft_AspNetCore_Mvc_Razor_TagHelpers_UrlResolutionTagHelper = CreateTagHelper<global::Microsoft.AspNetCore.Mvc.Razor.TagHelpers.UrlResolutionTagHelper>();
@@ -229,12 +229,12 @@ using HomeMaintance.Models;
             WriteLiteral("\r\n                    </span>\r\n                </div>\r\n            </li>\r\n            <li class=\"portfolio-item2\" data-id=\"id-3\" data-type=\"cat-item-4\">\r\n                <div>\r\n                    <span class=\"image-block\">\r\n                        ");
             EndContext();
             BeginContext(2000, 212, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "3f1e175ed73d458594bb48ee925ec334", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "584adf7a0ff44620992701e52e38063e", async() => {
                 BeginContext(2077, 32, true);
                 WriteLiteral("\r\n\r\n                            ");
                 EndContext();
                 BeginContext(2109, 71, false);
-                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("img", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagOnly, "8016c53df6114690955d63707b30fb91", async() => {
+                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("img", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagOnly, "1662280d21694b56803a4761c996e07a", async() => {
                 }
                 );
                 __Microsoft_AspNetCore_Mvc_Razor_TagHelpers_UrlResolutionTagHelper = CreateTagHelper<global::Microsoft.AspNetCore.Mvc.Razor.TagHelpers.UrlResolutionTagHelper>();
@@ -272,12 +272,12 @@ using HomeMaintance.Models;
             WriteLiteral("\r\n                    </span>\r\n                </div>\r\n            </li>\r\n            <li class=\"portfolio-item2\" data-id=\"id-4\" data-type=\"cat-item-3\">\r\n                <div>\r\n                    <span class=\"image-block\">\r\n                        ");
             EndContext();
             BeginContext(2461, 212, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "bc88592e9dc0481a923623bd563761a4", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "dec70720706e48668ed393676fe20af2", async() => {
                 BeginContext(2538, 32, true);
                 WriteLiteral("\r\n\r\n                            ");
                 EndContext();
                 BeginContext(2570, 71, false);
-                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("img", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagOnly, "9fe95e6008e34cf1b87b028f94b1fc52", async() => {
+                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("img", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagOnly, "66946e07483e409a84de9e53f7100f0f", async() => {
                 }
                 );
                 __Microsoft_AspNetCore_Mvc_Razor_TagHelpers_UrlResolutionTagHelper = CreateTagHelper<global::Microsoft.AspNetCore.Mvc.Razor.TagHelpers.UrlResolutionTagHelper>();
@@ -315,12 +315,12 @@ using HomeMaintance.Models;
             WriteLiteral("\r\n                    </span>\r\n                </div>\r\n            </li>\r\n            <li class=\"portfolio-item2\" data-id=\"id-5\" data-type=\"cat-item-2\">\r\n                <div>\r\n                    <span class=\"image-block\">\r\n                        ");
             EndContext();
             BeginContext(2922, 212, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "3fcb475b7d9e48e5abac1be6b2993701", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "ca8ccc18716a4944a928d10fbe8c87e4", async() => {
                 BeginContext(2999, 32, true);
                 WriteLiteral("\r\n\r\n                            ");
                 EndContext();
                 BeginContext(3031, 71, false);
-                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("img", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagOnly, "f302f609217c4915beb263c35875addc", async() => {
+                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("img", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagOnly, "dad8b6f3458b48fc91b8c975e38ab46e", async() => {
                 }
                 );
                 __Microsoft_AspNetCore_Mvc_Razor_TagHelpers_UrlResolutionTagHelper = CreateTagHelper<global::Microsoft.AspNetCore.Mvc.Razor.TagHelpers.UrlResolutionTagHelper>();
@@ -358,12 +358,12 @@ using HomeMaintance.Models;
             WriteLiteral("\r\n                    </span>\r\n                </div>\r\n            </li>\r\n            <li class=\"portfolio-item2\" data-id=\"id-6\" data-type=\"cat-item-1\">\r\n                <div>\r\n                    <span class=\"image-block\">\r\n                        ");
             EndContext();
             BeginContext(3383, 212, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "94335526dce54cf5b6bec9faf9e174b2", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "dd1dde74879a481d99f099fd20f3e5ba", async() => {
                 BeginContext(3460, 32, true);
                 WriteLiteral("\r\n\r\n                            ");
                 EndContext();
                 BeginContext(3492, 71, false);
-                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("img", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagOnly, "53abf9a0d16b424e91c3e89d040e343a", async() => {
+                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("img", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagOnly, "ad89eb06f2884c4aa394e0a2292b45fa", async() => {
                 }
                 );
                 __Microsoft_AspNetCore_Mvc_Razor_TagHelpers_UrlResolutionTagHelper = CreateTagHelper<global::Microsoft.AspNetCore.Mvc.Razor.TagHelpers.UrlResolutionTagHelper>();
@@ -401,12 +401,12 @@ using HomeMaintance.Models;
             WriteLiteral("\r\n                    </span>\r\n                </div>\r\n            </li>\r\n            <li class=\"portfolio-item2\" data-id=\"id-7\" data-type=\"cat-item-1\">\r\n                <div>\r\n                    <span class=\"image-block\">\r\n                        ");
             EndContext();
             BeginContext(3844, 212, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "8dea4c99a9e44721a363996fe7766b51", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "5a44e77362bb4a08ab28b2dab2fb7c64", async() => {
                 BeginContext(3921, 32, true);
                 WriteLiteral("\r\n\r\n                            ");
                 EndContext();
                 BeginContext(3953, 71, false);
-                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("img", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagOnly, "558c5f9304cc47df8ed84b2ccfa8075f", async() => {
+                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("img", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagOnly, "4387f0e2f7174e15b8800abecfe7c981", async() => {
                 }
                 );
                 __Microsoft_AspNetCore_Mvc_Razor_TagHelpers_UrlResolutionTagHelper = CreateTagHelper<global::Microsoft.AspNetCore.Mvc.Razor.TagHelpers.UrlResolutionTagHelper>();
@@ -444,12 +444,12 @@ using HomeMaintance.Models;
             WriteLiteral("\r\n                    </span>\r\n                </div>\r\n            </li>\r\n            <li class=\"portfolio-item2\" data-id=\"id-9\" data-type=\"cat-item-4\">\r\n                <div>\r\n                    <span class=\"image-block\">\r\n                        ");
             EndContext();
             BeginContext(4305, 212, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "ffd9439e1e6145aa807ae800682a66d0", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "34e937bdc82141c4a5aaa84666ee0f10", async() => {
                 BeginContext(4382, 32, true);
                 WriteLiteral("\r\n\r\n                            ");
                 EndContext();
                 BeginContext(4414, 71, false);
-                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("img", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagOnly, "4d52f3a62b1a4c948aa023d185f3cb10", async() => {
+                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("img", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagOnly, "be64ec215f324142957dd785e842808a", async() => {
                 }
                 );
                 __Microsoft_AspNetCore_Mvc_Razor_TagHelpers_UrlResolutionTagHelper = CreateTagHelper<global::Microsoft.AspNetCore.Mvc.Razor.TagHelpers.UrlResolutionTagHelper>();
@@ -487,12 +487,12 @@ using HomeMaintance.Models;
             WriteLiteral("\r\n                    </span>\r\n                </div>\r\n            </li>\r\n            <li class=\"portfolio-item2\" data-id=\"id-9\" data-type=\"cat-item-3\">\r\n                <div>\r\n                    <span class=\"image-block\">\r\n                        ");
             EndContext();
             BeginContext(4766, 214, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "b779a58efd374f39bbe435643c36a870", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "5d5e37f7436d40c39a7ef29b7714d600", async() => {
                 BeginContext(4844, 32, true);
                 WriteLiteral("\r\n\r\n                            ");
                 EndContext();
                 BeginContext(4876, 72, false);
-                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("img", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagOnly, "c5892bb50e774bcf9fe71d78a6fb3c3f", async() => {
+                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("img", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagOnly, "67ca8c296e56499cb6f53a85c58f55cb", async() => {
                 }
                 );
                 __Microsoft_AspNetCore_Mvc_Razor_TagHelpers_UrlResolutionTagHelper = CreateTagHelper<global::Microsoft.AspNetCore.Mvc.Razor.TagHelpers.UrlResolutionTagHelper>();
@@ -530,12 +530,12 @@ using HomeMaintance.Models;
             WriteLiteral("\r\n                    </span>\r\n                </div>\r\n            </li>\r\n            <li class=\"portfolio-item2\" data-id=\"id-10\" data-type=\"cat-item-2\">\r\n                <div>\r\n                    <span class=\"image-block\">\r\n                        ");
             EndContext();
             BeginContext(5230, 214, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "e52d4f810f30426c8a53910d09ae53d9", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "1439a134bd514f89a9ec4dea58aeb079", async() => {
                 BeginContext(5308, 32, true);
                 WriteLiteral("\r\n\r\n                            ");
                 EndContext();
                 BeginContext(5340, 72, false);
-                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("img", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagOnly, "90fdcca632884a64aa2a98cb7c3bdd92", async() => {
+                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("img", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagOnly, "865a4cb28fa34a899c8b5fab216b13ed", async() => {
                 }
                 );
                 __Microsoft_AspNetCore_Mvc_Razor_TagHelpers_UrlResolutionTagHelper = CreateTagHelper<global::Microsoft.AspNetCore.Mvc.Razor.TagHelpers.UrlResolutionTagHelper>();
@@ -573,12 +573,12 @@ using HomeMaintance.Models;
             WriteLiteral("\r\n                    </span>\r\n                </div>\r\n            </li>\r\n            <li class=\"portfolio-item2\" data-id=\"id-8\" data-type=\"cat-item-1\">\r\n                <div>\r\n                    <span class=\"image-block\">\r\n                        ");
             EndContext();
             BeginContext(5693, 214, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "61e35462bd894a1eac3e375eba31678b", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "4666bfce5d5b4912b58c3384a8d70f28", async() => {
                 BeginContext(5771, 32, true);
                 WriteLiteral("\r\n\r\n                            ");
                 EndContext();
                 BeginContext(5803, 72, false);
-                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("img", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagOnly, "6289a5d66c08443d8d2a07ca3fd69f36", async() => {
+                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("img", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagOnly, "967201ea4f90437dbe5d02f56912f29b", async() => {
                 }
                 );
                 __Microsoft_AspNetCore_Mvc_Razor_TagHelpers_UrlResolutionTagHelper = CreateTagHelper<global::Microsoft.AspNetCore.Mvc.Razor.TagHelpers.UrlResolutionTagHelper>();
@@ -616,12 +616,12 @@ using HomeMaintance.Models;
             WriteLiteral("\r\n                    </span>\r\n                </div>\r\n            </li>\r\n            <li class=\"portfolio-item2\" data-id=\"id-9\" data-type=\"cat-item-3\">\r\n                <div>\r\n                    <span class=\"image-block\">\r\n                        ");
             EndContext();
             BeginContext(6156, 214, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "6128a8073eb648a2b88c1b9679eeeb0f", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "c5efbbc312a84c9f8aa62acd2c70c230", async() => {
                 BeginContext(6234, 32, true);
                 WriteLiteral("\r\n\r\n                            ");
                 EndContext();
                 BeginContext(6266, 72, false);
-                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("img", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagOnly, "38bfa354024d49fdb5528611bb0b8caf", async() => {
+                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("img", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagOnly, "8b85086661e9444f8108453bd739cdc6", async() => {
                 }
                 );
                 __Microsoft_AspNetCore_Mvc_Razor_TagHelpers_UrlResolutionTagHelper = CreateTagHelper<global::Microsoft.AspNetCore.Mvc.Razor.TagHelpers.UrlResolutionTagHelper>();
@@ -659,12 +659,12 @@ using HomeMaintance.Models;
             WriteLiteral("\r\n                    </span>\r\n                </div>\r\n            </li>\r\n            <li class=\"portfolio-item2\" data-id=\"id-10\" data-type=\"cat-item-2\">\r\n                <div>\r\n                    <span class=\"image-block\">\r\n                        ");
             EndContext();
             BeginContext(6620, 212, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "46771188547e46e98d97695cccafd0f7", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "4a3ebc1088904531b323f4c327c0b90e", async() => {
                 BeginContext(6697, 32, true);
                 WriteLiteral("\r\n\r\n                            ");
                 EndContext();
                 BeginContext(6729, 71, false);
-                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("img", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagOnly, "10ad7c20f1a34249bff6c07c2101f882", async() => {
+                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("img", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagOnly, "2d29213460c44f3482f7053e72b67e74", async() => {
                 }
                 );
                 __Microsoft_AspNetCore_Mvc_Razor_TagHelpers_UrlResolutionTagHelper = CreateTagHelper<global::Microsoft.AspNetCore.Mvc.Razor.TagHelpers.UrlResolutionTagHelper>();
@@ -702,12 +702,12 @@ using HomeMaintance.Models;
             WriteLiteral("\r\n                    </span>\r\n                </div>\r\n            </li>\r\n            <li class=\"portfolio-item2\" data-id=\"id-8\" data-type=\"cat-item-1\">\r\n                <div>\r\n                    <span class=\"image-block\">\r\n                        ");
             EndContext();
             BeginContext(7081, 212, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "eb70379a70da4aeea07136385ec2f9e9", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "8d4b5d9f85d142b1ab4fa67ee5961d80", async() => {
                 BeginContext(7158, 32, true);
                 WriteLiteral("\r\n\r\n                            ");
                 EndContext();
                 BeginContext(7190, 71, false);
-                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("img", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagOnly, "6f4927035e394ef9b99408ef76d89532", async() => {
+                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("img", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagOnly, "7c03c3865f4440718d6b173a646e51b4", async() => {
                 }
                 );
                 __Microsoft_AspNetCore_Mvc_Razor_TagHelpers_UrlResolutionTagHelper = CreateTagHelper<global::Microsoft.AspNetCore.Mvc.Razor.TagHelpers.UrlResolutionTagHelper>();

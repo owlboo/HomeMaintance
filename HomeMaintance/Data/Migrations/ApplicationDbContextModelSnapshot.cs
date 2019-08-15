@@ -48,6 +48,29 @@ namespace HomeMaintance.Data.Migrations
                     b.ToTable("Categories");
                 });
 
+            modelBuilder.Entity("HomeMaintance.Models.HumanResources", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("Address");
+
+                    b.Property<string>("Description");
+
+                    b.Property<int>("ExperienceYears");
+
+                    b.Property<string>("PersonName");
+
+                    b.Property<string>("PhoneNumber");
+
+                    b.Property<string>("Role");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("HumanResources");
+                });
+
             modelBuilder.Entity("HomeMaintance.Models.Services", b =>
                 {
                     b.Property<int>("Id")

@@ -47,7 +47,8 @@ namespace HomeMaintance.Areas.Admin
                 return View(ServicesVM);
             }
 
-            
+            _unitOfWork.Repository<Services>().Insert(ServicesVM.Services);
+
             string webRootPath = _hostingEnvironment.WebRootPath;
             var files = HttpContext.Request.Form.Files;
             var serviceFromDb = await _unitOfWork.Repository<Services>().GetByIdAsync(ServicesVM.Services.Id);
@@ -64,7 +65,7 @@ namespace HomeMaintance.Areas.Admin
                 ServicesVM.Services.Thumbnail = Path.GetFileName(fileName);
                
             }
-            await _unitOfWork.Repository<Services>().InsertAsync(ServicesVM.Services);
+            await _unitOfWork.Commit();
             return RedirectToAction("Index");
         }
 

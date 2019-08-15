@@ -16,5 +16,6 @@ namespace HomeMaintance.Data
 
         public DbSet<Services> Services { get; set; }
         public DbSet<Category> Categories { get; set; }
+        public DbSet<HumanResources> HumanResources { get; set; }
     }
 }

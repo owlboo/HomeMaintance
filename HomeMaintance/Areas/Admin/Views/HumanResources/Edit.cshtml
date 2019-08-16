@@ -1,0 +1,104 @@
+﻿@model HumanResources
+@{
+    ViewData["Title"] = "Edit";
+    Layout = "~/Views/Admin/_LayoutAdmin.cshtml";
+}
+
+<section class="contact py-lg-5 py-md-4 py-md-3 py-2">
+    <div class="container py-lg-5 py-md-4 py-md-3 py-2">
+        <div class="w3_mg">
+            <h3>Sửa thông tin nhân công</h3>
+
+        </div>
+        <form method="post" asp-action="Edit" style="font-size: 1.2em" enctype="multipart/form-data">
+            <div class="p-4 border rounded">
+                <div class="text-danger" asp-validation-summary="ModelOnly"></div>
+                <input type="hidden" asp-for="Id"/>
+                <div class="form-group row">
+                    <div class="col-2">
+                        <label asp-for="PersonName"></label>
+                    </div>
+                    <div class="col-10">
+                        <input asp-for="PersonName" class="form-control" />
+                    </div>
+                    <span asp-validation-for="PersonName" class="table-danger"></span>
+                </div>
+                <div class="form-group row mt-2">
+                    <div class="col-2">
+                        <label asp-for="Avatar"></label>
+                    </div>
+                    <div class="col-10">
+                        <input asp-for="Avatar" type="file" name="files" class="form-control" />
+                    </div>
+                    <span asp-validation-for="Avatar" class="table-danger"></span>
+                </div>
+                <div class="form-group row mt-2">
+                    <div class="col-2">
+                        <label asp-for="ExperienceYears"></label>
+                    </div>
+                    <div class="col-10">
+                        <input asp-for="ExperienceYears" class="form-control" />
+                    </div>
+                    <span asp-validation-for="ExperienceYears" class="table-danger"></span>
+                </div>
+                <div class="form-group row mt-2">
+                    <div class="col-2">
+                        <label asp-for="PhoneNumber"></label>
+                    </div>
+                    <div class="col-10">
+                        <input asp-for="PhoneNumber" class="form-control" />
+                    </div>
+                    <span asp-validation-for="PhoneNumber" class="table-danger"></span>
+                </div>
+                <div class="form-group row mt-2">
+                    <div class="col-2">
+                        <label asp-for="Address"></label>
+                    </div>
+                    <div class="col-10">
+                        <input asp-for="Address" class="form-control" />
+                    </div>
+                    <span asp-validation-for="Address" class="table-danger"></span>
+                </div>
+                <div class="form-group row mt-2">
+                    <div class="col-2">
+                        <label asp-for="Role"></label>
+                    </div>
+                    <div class="col-10">
+                        <select asp-for="Role" class="form-control">
+                            <option value="Chủ thầu">Chủ thầu</option>
+                            <option value="Thợ chính">Thợ chính</option>
+                            <option value="Thợ phụ">Thợ phụ</option>
+                            <option value="Phụ hồ">Phụ hồ</option>
+                        </select>
+                    </div>
+                    <span asp-validation-for="Role" class="table-danger"></span>
+                </div>
+                <div class="form-group row mt-2">
+                    <div class="col-2">
+                        <label asp-for="Description"></label>
+                    </div>
+                    <div class="col-10">
+                        <textarea id="summernote" asp-for="Description" class="form-control"></textarea>
+                    </div>
+                    <span asp-validation-for="Description" class="table-danger"></span>
+                </div>
+                <div class="form-group offset-3">
+                    <input type="submit" class="btn btn-primary" value="cập nhật lại" />
+                    <a asp-action="Index" class="btn btn-success">Back To List</a>
+                </div>
+            </div>
+        </form>
+
+    </div>
+</section>
+@section Scripts
+{
+    @{ await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+    <script>
+        $(document).ready(function () {
+
+            $('#summernote').summernote();
+
+        });
+    </script>
+}

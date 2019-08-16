@@ -8,6 +8,7 @@ namespace HomeMaintance.Models
     public class HumanResources
     {
         public int Id { get; set; }
+        public string Avatar { get; set; }
         public string PersonName { get; set; }
         public string Role { get; set; }
         public int ExperienceYears { get; set; }

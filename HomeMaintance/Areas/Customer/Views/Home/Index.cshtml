@@ -160,7 +160,18 @@
             <div class="col-md-6 col-sm-12 w3_ms3">
                 <!-- Slideshow container -->
                 <div class="slideshow-container">
-
+                    @foreach (var item in @Model.HumanResources)
+                    {
+                        <div class="mySlides">
+                            <a asp-area="Customer" asp-controller="HumanResourcesDetails" asp-action="Index" asp-route-id="@item.Id"><img src="~/images/HumanImages/@item.Avatar" alt="xyt" class="img-fluid"></a>
+                            <h4>@item.PersonName</h4>
+                            <ul>
+                                <li>Kinh nghiệm: @item.ExperienceYears năm</li>
+                                <li>Số điện thoại: @item.PhoneNumber</li>
+                                <li>Vai trò: @item.Role</li>
+                            </ul>
+                        </div>
+                    }
                     <!-- Full-width slides/quotes -->
                     <div class="mySlides">
                         <img src="images/test1.jpg" alt="xyt" class="img-fluid">
@@ -170,12 +181,6 @@
 
                     <div class="mySlides">
                         <img src="images/test2.jpg" alt="xyt" class="img-fluid">
-                        <h4>Lorem Ipsum is simply dummy text of the printing and typesetting industry</h4>
-
-                    </div>
-
-                    <div class="mySlides">
-                        <img src="images/test3.jpg" alt="xyt" class="img-fluid">
                         <h4>Lorem Ipsum is simply dummy text of the printing and typesetting industry</h4>
 
                     </div>

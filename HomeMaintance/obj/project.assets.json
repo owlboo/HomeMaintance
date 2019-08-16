@@ -12535,23 +12535,23 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\MR-BOO\\.nuget\\packages\\": {},
+    "C:\\Users\\DucPham\\.nuget\\packages\\": {},
     "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\Coding\\ASP.NET\\HomeMaintance\\HomeMaintance\\HomeMaintance.csproj",
+      "projectUniqueName": "D:\\Study\\Visual Project\\ASP.NET\\HomeMaintance\\HomeMaintance\\HomeMaintance.csproj",
       "projectName": "HomeMaintance",
-      "projectPath": "D:\\Coding\\ASP.NET\\HomeMaintance\\HomeMaintance\\HomeMaintance.csproj",
-      "packagesPath": "C:\\Users\\MR-BOO\\.nuget\\packages\\",
-      "outputPath": "D:\\Coding\\ASP.NET\\HomeMaintance\\HomeMaintance\\obj\\",
+      "projectPath": "D:\\Study\\Visual Project\\ASP.NET\\HomeMaintance\\HomeMaintance\\HomeMaintance.csproj",
+      "packagesPath": "C:\\Users\\DucPham\\.nuget\\packages\\",
+      "outputPath": "D:\\Study\\Visual Project\\ASP.NET\\HomeMaintance\\HomeMaintance\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
       ],
       "configFilePaths": [
-        "C:\\Users\\MR-BOO\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\DucPham\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -12587,6 +12587,7 @@
             "version": "[2.1.2, )"
           },
           "Microsoft.NETCore.App": {
+            "suppressParent": "All",
             "target": "Package",
             "version": "[2.1.0, )",
             "autoReferenced": true

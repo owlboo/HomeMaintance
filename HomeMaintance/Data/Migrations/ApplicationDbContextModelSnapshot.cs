@@ -56,6 +56,8 @@ namespace HomeMaintance.Data.Migrations
 
                     b.Property<string>("Address");
 
+                    b.Property<string>("Avatar");
+
                     b.Property<string>("Description");
 
                     b.Property<int>("ExperienceYears");

@@ -1,0 +1,48 @@
+﻿@model IEnumerable<HumanResources>
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Admin/_LayoutAdmin.cshtml";
+}
+
+<section class="contact py-lg-5 py-md-4 py-md-3 py-2">
+    <div class="container py-lg-5 py-md-4 py-md-3 py-2">
+        <div class="w3_mg">
+            <h3>Bảng nhân công</h3>
+        </div>
+        <div class="offset-10">
+            <a asp-action="Create" class="btn btn-info"><i class="fa fa-plus"></i> &nbsp; Thêm nhân công mới</a>
+        </div>
+        <div class="row">
+            <table class="table table-striped" style="font-size: 1.2em">
+                <thead>
+                    <tr>
+                        <th>@Html.DisplayNameFor(m => m.PersonName)</th>
+                        <th>@Html.DisplayNameFor(m => m.ExperienceYears)</th>
+                        <th>@Html.DisplayNameFor(m => m.PhoneNumber)</th>
+                        <th>@Html.DisplayNameFor(m => m.Address)</th>
+                        <th>@Html.DisplayNameFor(m => m.Role)</th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>@Html.DisplayFor(m => item.PersonName)</td>
+                        <td>@Html.DisplayFor(m => item.ExperienceYears)</td>
+                        <td>@Html.DisplayFor(m => item.PhoneNumber)</td>
+                        <td>@Html.DisplayFor(m => item.Address)</td>
+                        <td>@Html.DisplayFor(m => item.Role)</td>
+                        <td>
+                            <partial model="@item.Id" name="_TableButtonPartial" />
+                        </td>
+                    </tr>
+                }
+                </tbody>
+            </table>
+        </div>
+
+    </div>
+</section>
+
+

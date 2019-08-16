@@ -100,3 +100,10 @@ D:\Coding\ASP.NET\HomeMaintance\HomeMaintance\obj\Debug\netcoreapp2.1\Razor\Area
 D:\Coding\ASP.NET\HomeMaintance\HomeMaintance\obj\Debug\netcoreapp2.1\Razor\Views\Shared\_TableButtonPartial.g.cshtml.cs
 D:\Coding\ASP.NET\HomeMaintance\HomeMaintance\obj\Debug\netcoreapp2.1\Razor\Areas\Customer\Views\ServiceDetails\Index.g.cshtml.cs
 D:\Coding\ASP.NET\HomeMaintance\HomeMaintance\obj\Debug\netcoreapp2.1\Razor\Views\Admin\_LayoutAdmin.g.cshtml.cs
+D:\Study\Visual Project\ASP.NET\HomeMaintance\HomeMaintance\obj\Debug\netcoreapp2.1\Razor\Areas\Customer\Views\ServiceDetails\Index.g.cshtml.cs
+D:\Study\Visual Project\ASP.NET\HomeMaintance\HomeMaintance\obj\Debug\netcoreapp2.1\Razor\Views\Admin\_LayoutAdmin.g.cshtml.cs
+D:\Study\Visual Project\ASP.NET\HomeMaintance\HomeMaintance\obj\Debug\netcoreapp2.1\Razor\Areas\Admin\Views\HumanResources\Index.g.cshtml.cs
+D:\Study\Visual Project\ASP.NET\HomeMaintance\HomeMaintance\obj\Debug\netcoreapp2.1\Razor\Areas\Admin\Views\HumanResources\Create.g.cshtml.cs
+D:\Study\Visual Project\ASP.NET\HomeMaintance\HomeMaintance\obj\Debug\netcoreapp2.1\Razor\Areas\Admin\Views\HumanResources\Edit.g.cshtml.cs
+D:\Study\Visual Project\ASP.NET\HomeMaintance\HomeMaintance\obj\Debug\netcoreapp2.1\Razor\Areas\Admin\Views\HumanResources\Details.g.cshtml.cs
+D:\Study\Visual Project\ASP.NET\HomeMaintance\HomeMaintance\obj\Debug\netcoreapp2.1\Razor\Areas\Customer\Views\HumanResourcesDetails\Index.g.cshtml.cs

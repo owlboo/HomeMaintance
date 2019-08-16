@@ -52,7 +52,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
         <!-- header -->
         <!-- header -->
         <nav class="navbar navbar-expand-sm navbar-light bg-dark fixed-top">
-            <a class="navbar-brand" href="index.html" style="font-size:30px;">Bảo trì nhà cửa</a>
+            <a class="navbar-brand" asp-action="Index" asp-area="Customer" asp-controller="Home" style="font-size:30px;">Bảo trì nhà cửa</a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
@@ -83,6 +83,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                             <a class="dropdown-item" asp-area="Admin" asp-controller="Service" asp-action="Index">Dịch vụ</a>
                             <a class="dropdown-item" asp-area="Admin" asp-controller="Category" asp-action="Index">Loại công việc </a>
+                            <a class="dropdown-item" asp-area="Admin" asp-controller="HumanResources" asp-action="Index">Loại công việc </a>
                         </div>
                     </li>
 

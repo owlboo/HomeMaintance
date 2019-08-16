@@ -1,0 +1,58 @@
+﻿@model HumanResources
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Admin/_LayoutAdmin.cshtml";
+}
+
+<section class="contact py-lg-5 py-md-4 py-md-3 py-2">
+    <div class="container py-lg-5 py-md-4 py-md-3 py-2">
+        <div class="w3_mg">
+            <h3>Thông tin #@Model.PersonName</h3>
+
+        </div>
+        <div class="p-4 border rounded" style="font-size: 1.2em;">
+            <div class="row">
+                <div class="col-4">
+                    <img src="~/images/HumanImages/@Model.Avatar" class="rounded-circle img-fluid"/>
+                </div>
+                <div class="col-8">
+                    <div class="row">
+                        <div class="col-4">Họ tên: </div>
+                        <div class="col-8">@Model.PersonName</div>
+                    </div>
+                    <div class="row">
+                        <div class="col-4">Kinh nghiệm: </div>
+                        <div class="col-8">@Model.ExperienceYears năm</div>
+                    </div>
+                    <div class="row">
+                        <div class="col-4">Số điện thoại: </div>
+                        <div class="col-8">@Model.PhoneNumber</div>
+                    </div>
+                    <div class="row">
+                        <div class="col-4">Vai trò: </div>
+                        <div class="col-8">@Model.Role</div>
+                    </div>
+                </div>
+            </div>
+            <br />
+            <br />
+            <div class="row">
+                <div class="col-12">Mô tả:</div>
+                @Html.Raw(@Model.Description)
+            </div>
+        </div>
+
+    </div>
+</section>
+@section Scripts
+{
+    @{ await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+    <script>
+        $(document).ready(function () {
+
+            $('#summernote').summernote('disable');
+
+        });
+    </script>
+}
+

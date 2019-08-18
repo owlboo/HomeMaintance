@@ -157,13 +157,13 @@
                 <h4 class="mb-lg-4 mb-md-3 mb-sm-2 mb-2">Our Mission</h4>
                 <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s</p>
             </div>
-            <div class="col-md-6 col-sm-12 w3_ms3">
+            <div class="col-md-6 col-sm-12 w3_ms3" >
                 <!-- Slideshow container -->
-                <div class="slideshow-container">
+                <div class="slideshow-container" >
                     @foreach (var item in @Model.HumanResources)
                     {
-                        <div class="mySlides">
-                            <a asp-area="Customer" asp-controller="HumanResourcesDetails" asp-action="Index" asp-route-id="@item.Id"><img src="~/images/HumanImages/@item.Avatar" alt="xyt" class="img-fluid"></a>
+                        <div class="mySlides" style="background-color:aliceblue">
+                            <a asp-area="Customer" asp-controller="HumanResourcesDetails" asp-action="Index" asp-route-id="@item.Id"><img src="~/images/HumanImages/@item.Avatar" alt="xyt" class="rounded-circle img-fluid" style="width:150px; height:150px;"></a>
                             <h4>@item.PersonName</h4>
                             <ul>
                                 <li>Kinh nghiệm: @item.ExperienceYears năm</li>
@@ -173,17 +173,6 @@
                         </div>
                     }
                     <!-- Full-width slides/quotes -->
-                    <div class="mySlides">
-                        <img src="images/test1.jpg" alt="xyt" class="img-fluid">
-                        <h4>Lorem Ipsum is simply dummy text of the printing and typesetting industry</h4>
-
-                    </div>
-
-                    <div class="mySlides">
-                        <img src="images/test2.jpg" alt="xyt" class="img-fluid">
-                        <h4>Lorem Ipsum is simply dummy text of the printing and typesetting industry</h4>
-
-                    </div>
 
                     <!-- Next/prev buttons -->
                     <a class="prev" onclick="plusSlides(-1)">&#10094;</a>

@@ -11,10 +11,81 @@
 
 <h2 class="text-dark">Dịch vụ: @Model.Services.ServiceName</h2>
 <hr />
+<p class="text-dark" style="font-style: italic; font-size:10px; padding-left: 10px;">@Model.Services.CreatedDate</p>
+<hr/>
+<br />
 
 @Html.Raw(@Model.Services.Description)
 
 <br />
+<hr />
+<section class="contact py-lg-5 py-md-4 py-md-3 py-2">
+    <div class="container py-lg-5 py-md-4 py-md-3 py-2">
+        <div class="w3_mg">
+            <h3>Fast Service</h3>
+            <p class=" my-lg-4 my-md-3 my-sm-2 my-2">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s</p>
+            <!-- Button trigger modal -->
+            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+                Conatct Page
+            </button>
+
+            <!-- Modal -->
+            <br />
+            <br />
+            <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true" style="padding-top:100px;">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="exampleModalLabel">Fast Service</h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <div class="modal-body">
+                            <div class="contact" id="contact">
+                                <div class="container">
+                                    <h3 class="title clr">CONTACT FORM</h3>
+                                    <div class=" contact-form">
+                                        <form  method="post">
+                                            
+                                            <div class="row contact-bothside-agileinfo">
+                                                <div class="col-md-12 col-sm-12 col-xs-12 form-right form-left">
+                                                    <input type="text" placeholder="Name" asp-for="@Model.Appointments.CustomerName" required="" class="form-control">
+                                                </div>
+
+                                            </div>
+                                            <div class="row contact-bothside-agileinfo">
+                                                <div class="col-md-12 col-sm-12 col-xs-12 form-right form-left">
+                                                    <input type="email" asp-for="@Model.Appointments.CustomerEmail" placeholder="Email" required="" class="form-control">
+                                                </div>
+                                            </div>
+                                            <div class="row contact-bothside-agileinfo">
+                                                <div class="col-md-12 col-sm-12 col-xs-12 form-right form-left ">
+                                                    <input type="text" asp-for="@Model.Appointments.CustomerPhone" placeholder="Phone" required="" class="form-control">
+                                                </div>
+                                            </div>
+                                            <div class="row contact-bothside-agileinfo">
+                                                <textarea asp-for="@Model.Appointments.CustomerMessage" placeholder="Message" required="" class="form-control"></textarea>
+                                            </div>
+                                            <div class="row contact-bothside-agileinfo">
+                                                <input type="submit" asp-action="CreateAppointment" value="SUBMIT">
+                                            </div>
+                                            
+                                            
+                                            
+                                            
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
 
 
 

@@ -33,7 +33,7 @@
                             <td>@item.ModifiedDate.ToString("d")</td>
                             <td>@Html.DisplayFor(m => item.Category.CategoryName)</td>
                             <td>
-                                <partial model="@item.Id" name="_TableButtonPartial" />
+                                <partial model="@item.Id" name="~/Views/Admin/_TableButtonPartial.cshtml" />
                             </td>
                         </tr>
                     }

@@ -1,0 +1,179 @@
+﻿@model HomeMaintance.Models.ViewModels.AppoinmentsViewModel
+@using ElectronicStore.Extensions
+
+
+@{
+    ViewData["Title"] = "Edit";
+    Layout = "~/Views/Admin/_LayoutAdmin.cshtml";
+}
+<br />
+<br />
+<br />
+<br />
+<br />
+<hr />
+<head>
+    <link rel="stylesheet" href="~/css/jquery.timepicker.css" />
+    <link rel="stylesheet" href="~/css/jquery.timepicker.min.css" />
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/jquery-ui.css" />
+</head>
+<body>
+    <section class="contact py-lg-5 py-md-4 py-md-3 py-2">
+        <div class="container py-lg-5 py-md-4 py-md-3 py-2">
+            <div class="w3_mg">
+                <h3>Cập nhật cuộc hẹn</h3>
+
+            </div>
+            <form method="post" asp-action="Edit" enctype="multipart/form-data">
+                <div class="p-4 border rounded">
+                    <div class="text-danger" asp-validation-summary="ModelOnly"></div>
+                    <input type="hidden" asp-for="Appointments.Id" />
+                    <div class="form-group row">
+                        <div class="col-2">
+                            <label asp-for="Appointments.AppointmentContent "></label>
+                        </div>
+                        <div class="col-10">
+                            <input asp-for="Appointments.AppointmentContent" class="form-control" />
+                        </div>
+                        <span asp-validation-for="Appointments.AppointmentContent" class="table-danger"></span>
+                    </div>
+                    <div class="form-group row mt-2">
+                        <div class="col-2">
+                            <label asp-for="Appointments.CustomerName"></label>
+                        </div>
+                        <div class="col-10">
+                            <input asp-for="Appointments.CustomerName" class="form-control" />
+                        </div>
+                        <span asp-validation-for="Appointments.CustomerName" class="table-danger"></span>
+                    </div>
+                    <div class="form-group row mt-2">
+                        <div class="col-2">
+                            <label asp-for="Appointments.AppointmentDate"></label>
+                        </div>
+                        <div class="col-10">
+                            <input asp-for="Appointments.AppointmentDate" id="datepicker" class="form-control datepicker" type="date" />
+                            <p style="font-style:italic; font-size:12px;">Ex: 08/18/2019 12:00 AM</p>
+                        </div>
+                        <span asp-validation-for="Appointments.AppointmentDate" class="table-danger"></span>
+                    </div>
+                    <div class="form-group row mt-2">
+                        <div class="col-2">
+                            <label asp-for="Appointments.AppointmentTime"></label>
+                        </div>
+                        <div class="col-10">
+                            <input asp-for="Appointments.AppointmentTime" type="text" id="timepicker" class="timepicker form-control" />
+                        </div>
+                        <span asp-validation-for="Appointments.AppointmentTime" id="" class=" table-danger"></span>
+                    </div>
+                    <div class="form-group row mt-2">
+                        <div class="col-2">
+                            <label asp-for="Appointments.CustomerName"></label>
+                        </div>
+                        <div class="col-10">
+                            <input asp-for="Appointments.CustomerName" class="form-control" />
+                        </div>
+                        <span asp-validation-for="Appointments.CustomerName" class="table-danger"></span>
+                    </div>
+                    <div class="form-group row mt-2">
+                        <div class="col-2">
+                            <label asp-for="Appointments.CustomerPhone"></label>
+                        </div>
+                        <div class="col-10">
+                            <input asp-for="Appointments.CustomerPhone" class="form-control" />
+                        </div>
+                        <span asp-validation-for="Appointments.CustomerPhone" class="table-danger"></span>
+                    </div>
+
+                    <div class="form-group row mt-2">
+                        <div class="col-2">
+                            <label asp-for="Appointments.CustomerEmail"></label>
+                        </div>
+                        <div class="col-10">
+                            <input asp-for="Appointments.CustomerEmail" class="form-control"></input>
+                        </div>
+                        <span asp-validation-for="Appointments.CustomerEmail" class="table-danger"></span>
+                    </div>
+                    <div class="form-group row mt-2">
+                        <div class="col-2">
+                            <label asp-for="Appointments.CustomerMessage"></label>
+                        </div>
+                        <div class="col-10">
+                            <textarea asp-for="Appointments.CustomerMessage" class="form-control"></textarea>
+                        </div>
+                        <span asp-validation-for="Appointments.CustomerMessage" class="table-danger"></span>
+                    </div>
+
+
+                    <div class="form-group row mt-2">
+                        <div class="col-2">
+                            <label asp-for="Appointments.SalePerson"></label>
+                        </div>
+                        <div class="col-10">
+                            <select asp-for="Appointments.SalePersonId" asp-items="@Model.SalePerson.ToSelectListItemString("DisplayName",@Model.Appointments.SalePersonId)" class="form-control"></select>
+                        </div>
+                    </div>
+                    <div class="form-group row mt-2">
+                        <div class="col-2">
+                            <label asp-for="Appointments.isConfirm"></label>
+                        </div>
+                        <div class="col-10">
+                            <input asp-for="Appointments.isConfirm" type="checkbox" class="form-control"></input>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <input type="submit" class="btn btn-primary" value="Cập nhật" />
+                        <a asp-action="Index" class="btn btn-success">Back To List</a>
+                    </div>
+                </div>
+            </form>
+
+        </div>
+    </section>
+    @section Scripts{
+        @{ await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+         <script src="~/js/jquery.timepicker.js" asp-append-version="true"></script>
+         <script src="~/js/jquery.timepicker.min.js" asp-append-version="true"></script>
+          <script src="~/lib/bootstrap/dist/js/jquery-ui.js" asp-append-version="true"></script>
+        <script>
+            $('.timepicker').timepicker({
+                timeFormat: 'h:mm p',
+                interval: 30,
+                minTime: '10',
+                maxTime: '3:00pm',
+                defaultTime: '11',
+                startTime: '10:00',
+                dynamic: true,
+                dropdown: true,
+                scrollbar: true
+            });
+
+            $(function () {
+                $("#datepicker").datepicker({
+                    minDate: +1, macDate: "+3M"
+                });
+            });
+
+            $(document).ready(function () {
+                var appointmentTime = document.getElementById('datepicker').value;
+                var splitData = "";
+                if (appointmentTime.indexOf(" ") > 0) {
+                    splitData = appointmentTime.Split(" ");
+                } else {
+                    splitData = appointmentTime.Split("T");
+                }
+
+                var time = splitData[1].substring(0, 5);
+                if (time.slice(-1) == ":") {
+                    time = time.substring(0, time.length - 1);
+                }
+                var amPmTime = splitData[2];
+
+                $("#datepicker").attr('value', splitData[0]);
+                $("#timepicker").attr('value', time + ' ' + amPmTime);
+            });
+
+        </script>
+    }
+
+
+</body>

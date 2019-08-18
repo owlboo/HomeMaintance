@@ -12,5 +12,6 @@ namespace HomeMaintance.Ultilities
         public const string AdminEndUser = "Admin";
         public const string SuperAdminEndUser = "Super Admin";
         public const string CustomerUser = "Customer User";
+        public const string EmailDefault = "admin@gmail.com";
     }
 }

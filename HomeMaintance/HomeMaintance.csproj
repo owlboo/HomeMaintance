@@ -24,9 +24,13 @@
     <Content Update="Areas\Customer\Views\_ViewStart.cshtml">
       <Pack>$(IncludeRazorContentInPack)</Pack>
     </Content>
+    <Content Update="Views\Admin\_TableButtonPartial.cshtml">
+      <Pack>$(IncludeRazorContentInPack)</Pack>
+    </Content>
   </ItemGroup>
 
   <ItemGroup>
+    <Folder Include="Areas\Identity\Services\" />
     <Folder Include="wwwroot\images\ServiceImages\" />
   </ItemGroup>
 

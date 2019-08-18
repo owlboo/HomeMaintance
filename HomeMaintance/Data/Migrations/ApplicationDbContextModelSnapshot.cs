@@ -19,6 +19,39 @@ namespace HomeMaintance.Data.Migrations
                 .HasAnnotation("Relational:MaxIdentifierLength", 128)
                 .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
+            modelBuilder.Entity("HomeMaintance.Models.Appointments", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("AppointmentContent");
+
+                    b.Property<DateTime?>("AppointmentDate");
+
+                    b.Property<string>("AppointmentsName");
+
+                    b.Property<DateTime>("CreatedDate");
+
+                    b.Property<string>("CustomerEmail");
+
+                    b.Property<string>("CustomerMessage");
+
+                    b.Property<string>("CustomerName");
+
+                    b.Property<string>("CustomerPhone");
+
+                    b.Property<string>("SalePersonId");
+
+                    b.Property<bool>("isConfirm");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("SalePersonId");
+
+                    b.ToTable("Appointments");
+                });
+
             modelBuilder.Entity("HomeMaintance.Models.Category", b =>
                 {
                     b.Property<int>("Id")
@@ -165,6 +198,9 @@ namespace HomeMaintance.Data.Migrations
                     b.Property<string>("ConcurrencyStamp")
                         .IsConcurrencyToken();
 
+                    b.Property<string>("Discriminator")
+                        .IsRequired();
+
                     b.Property<string>("Email")
                         .HasMaxLength(256);
 
@@ -204,6 +240,8 @@ namespace HomeMaintance.Data.Migrations
                         .HasFilter("[NormalizedUserName] IS NOT NULL");
 
                     b.ToTable("AspNetUsers");
+
+                    b.HasDiscriminator<string>("Discriminator").HasValue("IdentityUser");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserClaim<string>", b =>
@@ -228,11 +266,9 @@ namespace HomeMaintance.Data.Migrations
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserLogin<string>", b =>
                 {
-                    b.Property<string>("LoginProvider")
-                        .HasMaxLength(128);
+                    b.Property<string>("LoginProvider");
 
-                    b.Property<string>("ProviderKey")
-                        .HasMaxLength(128);
+                    b.Property<string>("ProviderKey");
 
                     b.Property<string>("ProviderDisplayName");
 
@@ -263,17 +299,37 @@ namespace HomeMaintance.Data.Migrations
                 {
                     b.Property<string>("UserId");
 
-                    b.Property<string>("LoginProvider")
-                        .HasMaxLength(128);
+                    b.Property<string>("LoginProvider");
 
-                    b.Property<string>("Name")
-                        .HasMaxLength(128);
+                    b.Property<string>("Name");
 
                     b.Property<string>("Value");
 
                     b.HasKey("UserId", "LoginProvider", "Name");
 
                     b.ToTable("AspNetUserTokens");
+                });
+
+            modelBuilder.Entity("HomeMaintance.Models.Users", b =>
+                {
+                    b.HasBaseType("Microsoft.AspNetCore.Identity.IdentityUser");
+
+                    b.Property<string>("Address");
+
+                    b.Property<string>("DisplayName");
+
+                    b.Property<bool>("isMainAdmin");
+
+                    b.ToTable("Users");
+
+                    b.HasDiscriminator().HasValue("Users");
+                });
+
+            modelBuilder.Entity("HomeMaintance.Models.Appointments", b =>
+                {
+                    b.HasOne("HomeMaintance.Models.Users", "SalePerson")
+                        .WithMany()
+                        .HasForeignKey("SalePersonId");
                 });
 
             modelBuilder.Entity("HomeMaintance.Models.Services", b =>

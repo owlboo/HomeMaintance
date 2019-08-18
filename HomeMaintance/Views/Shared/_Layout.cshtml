@@ -1,4 +1,5 @@
-﻿<!DOCTYPE html>
+﻿
+<!DOCTYPE html>
 <html>
 <head>
     <meta charset="utf-8" />
@@ -84,12 +85,26 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                             <a class="dropdown-item" asp-area="Admin" asp-controller="Service" asp-action="Index">Dịch vụ</a>
                             <a class="dropdown-item" asp-area="Admin" asp-controller="Category" asp-action="Index">Loại công việc </a>
                             <a class="dropdown-item" asp-area="Admin" asp-controller="HumanResources" asp-action="Index">Nhân công </a>
+                            <a class="dropdown-item" asp-area="Admin" asp-controller="Appointments" asp-action="Index">Danh sách cuộc hẹn </a>
                         </div>
                     </li>
+                    @*@if (SignInManager.IsSignedIn(User))
+                    {
+                        <form>
+                            <li class="w3">Hello @UserManager.GetUserName(User)</li>
+                            <li class="w3">
+                                <button type="submit" class="btn btn-link navbar-btn navbar-link">Logout</button>
+                            </li>
+                        </form>
+                    }
+                    else
+                    {
+                        <li class="w3">
+                            <a asp-area="Customer" asp-controller="SignIn" asp-action="SignInIndex" class="nav-link">Login</a>
+                        </li>
+                    }*@
+                    <partial name="_LoginPartial.cshtml" />
 
-                    <li class="w3">
-                        <a href="#" class="nav-link" data-toggle="modal" data-target="#myModal">Login</a>
-                    </li>
 
                 </ul>
                 <div class="top-alert"></div> @*Thong bao hoan tat cong viec*@
@@ -229,9 +244,9 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                                 </div>
                                 <div class="form">
                                     <h3>Login to your account</h3>
-                                    <form action="#" method="post">
-                                        <input type="text" name="Username" placeholder="Username" required="">
-                                        <input type="password" name="Password" placeholder="Password" required="">
+                                    <form asp-area="Customer" asp-action="SignIn" method="post">
+                                        <input type="text" placeholder="Email" required="">
+                                        <input type="password" name="" placeholder="Password" required="">
                                         <input type="submit" value="Login">
                                     </form>
                                     <div class="cta">

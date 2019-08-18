@@ -43,7 +43,7 @@ p {
 	margin: 0;
 	letter-spacing:1px;
 	line-height:1.8em;
-	font-size:13px;
+	font-size:19px;
 	font-family: 'Open Sans', sans-serif;
 	
 }
@@ -1826,7 +1826,7 @@ section#tables  p {
 	padding: 15px!important;
 }
 .table > thead > tr > th, .table > tbody > tr > th, .table > tfoot > tr > th, .table > thead > tr > td, .table > tbody > tr > td, .table > tfoot > tr > td {
-	font-size: 0.9em;
+	font-size: 1.2em;
 	color: #999;
 	border-top: none !important;
 }

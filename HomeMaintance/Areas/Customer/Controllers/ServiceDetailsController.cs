@@ -30,6 +30,26 @@ namespace HomeMaintance.Areas.Customer.Controllers
             ServiceDetailVM.Appointments = new Appointments();
             return View(ServiceDetailVM);
         }
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> CreateAppointment()
+        {
+            if (!ModelState.IsValid)
+            {
+                return null;
+            }
+            if(ServiceDetailVM.Appointments == null)
+            {
+                return null;
+            }
+            Random rand = new Random();
+            var appName = "CH" + DateTime.Now.ToString("ddMMyyyy")+ rand.Next(10,99);
+            ServiceDetailVM.Appointments.AppointmentsName = appName;
+            ServiceDetailVM.Appointments.CreatedDate = DateTime.Now;
 
+            _unitOfWork.Repository<Appointments>().Insert(ServiceDetailVM.Appointments);
+            await _unitOfWork.Commit();
+            return RedirectToAction("Index","Home", new { areas = "Customer"});
+        }
     }
 }

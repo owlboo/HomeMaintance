@@ -25,6 +25,9 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
         <link href="//fonts.googleapis.com/css?family=Roboto:400,500,700,900" rel="stylesheet">
         <link href="//fonts.googleapis.com/css?family=Open+Sans:400,600,700,800" rel="stylesheet">
         <link href="https://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.12/summernote-bs4.css" rel="stylesheet">
+        <link rel="stylesheet" href="~/lib//bootstrap/dist/css/jquery-ui.css" />
+        <link rel="stylesheet" href="~/lib/bootstrap/dist/css/jquery-ui.min.css" />
+        <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/timepicker/1.3.5/jquery.timepicker.min.css">
     </environment>
     <environment exclude="Development">
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css"
@@ -44,6 +47,9 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
         <link href="//fonts.googleapis.com/css?family=Roboto:400,500,700,900" rel="stylesheet">
         <link href="//fonts.googleapis.com/css?family=Open+Sans:400,600,700,800" rel="stylesheet">
         <link href="https://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.12/summernote-bs4.css" rel="stylesheet">
+        <link rel="stylesheet" href="~/lib//bootstrap/dist/css/jquery-ui.css" />
+        <link rel="stylesheet" href="~/lib/bootstrap/dist/css/jquery-ui.min.css" />
+        <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/timepicker/1.3.5/jquery.timepicker.min.css">
     </environment>
     <script src="https://kit.fontawesome.com/48bb692534.js"></script>
 </head>
@@ -83,13 +89,15 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                             <a class="dropdown-item" asp-area="Admin" asp-controller="Service" asp-action="Index">Dịch vụ</a>
                             <a class="dropdown-item" asp-area="Admin" asp-controller="Category" asp-action="Index">Loại công việc </a>
-                            <a class="dropdown-item" asp-area="Admin" asp-controller="HumanResources" asp-action="Index">Loại công việc </a>
+                            <a class="dropdown-item" asp-area="Admin" asp-controller="HumanResources" asp-action="Index">Nhân công </a>
+                            <a class="dropdown-item" asp-area="Admin" asp-controller="Appointments" asp-action="Index">Danh sách cuộc hẹn </a>
                         </div>
                     </li>
 
-                    <li class="w3">
+                    @*<li class="w3">
                         <a href="#" class="nav-link" data-toggle="modal" data-target="#myModal">Login</a>
-                    </li>
+                    </li>*@
+                    <partial name="_LoginPartial.cshtml" />
 
                 </ul>
                 <div class="top-alert"></div> @*Thong bao hoan tat cong viec*@
@@ -246,6 +254,9 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
         <script src="~/lib/bootstrap/dist/js/SmoothScroll.min.js"></script>
         <!-- banner Slider -->
         <script src="~/lib/bootstrap/dist/js/responsiveslides.min.js"></script>
+
+        <script src="~/lib/bootstrap/dist/js/jquery-ui.js" asp-append-version="true"></script>
+        <script src="~/lib/bootstrap/dist/js/jquery-ui.min.js" asp-append-version="true"></script>
     </environment>
     <environment exclude="Development">
         <script src="https://ajax.aspnetcdn.com/ajax/jquery/jquery-3.3.1.min.js"
@@ -278,6 +289,9 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
         <script src="~/lib/bootstrap/dist/js/SmoothScroll.min.js"></script>
         <!-- banner Slider -->
         <script src="~/lib/bootstrap/dist/js/responsiveslides.min.js"></script>
+        <script src="~/lib/bootstrap/dist/js/jquery-ui.js" asp-append-version="true"></script>
+        <script src="~/lib/bootstrap/dist/js/jquery-ui.min.js" asp-append-version="true"></script>
+        <script src="//cdnjs.cloudflare.com/ajax/libs/timepicker/1.3.5/jquery.timepicker.min.js"></script>
 
     </environment>
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>

@@ -26,7 +26,7 @@ namespace HomeMaintance.Areas.Customer.Controllers
             HomeVM.Services = _unitOfWork.Repository<Services>().GetAll();
             HomeVM.HumanResources = _unitOfWork.Repository<HumanResources>().GetAll();
 
-            StringBuilder str = new StringBuilder();
+
             return View(HomeVM);
         }
 

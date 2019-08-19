@@ -26,6 +26,8 @@ namespace HomeMaintance.Areas.Customer.Controllers
             {
                 return NotFound();
             }
+
+            ViewData["ListService"] = _unitOfWork.Repository<Services>().GetAllInclude(c => c.Category).Take(5);
             ServiceDetailVM.Services = _unitOfWork.Repository<Services>().GetAllInclude(c =>c.Category).Where(c => c.Id == id).SingleOrDefault();
             ServiceDetailVM.Appointments = new Appointments();
             return View(ServiceDetailVM);

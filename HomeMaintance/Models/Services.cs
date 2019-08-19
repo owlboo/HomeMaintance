@@ -22,6 +22,13 @@ namespace HomeMaintance.Models
         public string MetaTitle { get; set; }
         public string MetaDescription { get; set; }
         public string SEOTitle { get; set; }
+
+        public int ViewCount { get; set; }
+
+        public bool IsDone { get; set; }
+
+        public int LikeCount { get; set; }
+
         [Display(Name = "Category")]
         public int CategoryId { get; set; }
         public virtual Category Category { get; set; }

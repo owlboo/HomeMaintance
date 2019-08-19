@@ -61,21 +61,21 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav ml-auto">
                     <li class="nav-item ">
-                        <a class="nav-link" asp-action="Index">Trang chủ </a>
+                        <a class="nav-link" asp-area="Customer" asp-controller="Home" asp-action="Index">Trang chủ </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" asp-action="About">Giới thiệu</a>
+                        <a class="nav-link" asp-area="Customer" asp-controller="Home" asp-action="About">Giới thiệu</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" asp-action="Service">Hỗ trợ (Bảng báo giá)</a>
+                        <a class="nav-link" asp-area="Customer" asp-controller="Home" asp-action="Service">Hỗ trợ (Bảng báo giá)</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" asp-action="Gallery">
+                        <a class="nav-link" asp-area="Customer" asp-controller="Home" asp-action="Gallery">
                             Công trình tiêu biểu
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link " asp-action="Contact">Liên hệ</a>
+                        <a class="nav-link" asp-area="Customer" asp-controller="Home" asp-action="Contact">Liên hệ</a>
                     </li>
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -90,18 +90,18 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                     </li>
                     @*@if (SignInManager.IsSignedIn(User))
                     {
-                        <form>
-                            <li class="w3">Hello @UserManager.GetUserName(User)</li>
-                            <li class="w3">
-                                <button type="submit" class="btn btn-link navbar-btn navbar-link">Logout</button>
-                            </li>
-                        </form>
+                    <form>
+                        <li class="w3">Hello @UserManager.GetUserName(User)</li>
+                        <li class="w3">
+                            <button type="submit" class="btn btn-link navbar-btn navbar-link">Logout</button>
+                        </li>
+                    </form>
                     }
                     else
                     {
-                        <li class="w3">
-                            <a asp-area="Customer" asp-controller="SignIn" asp-action="SignInIndex" class="nav-link">Login</a>
-                        </li>
+                    <li class="w3">
+                        <a asp-area="Customer" asp-controller="SignIn" asp-action="SignInIndex" class="nav-link">Login</a>
+                    </li>
                     }*@
                     <partial name="_LoginPartial.cshtml" />
 
@@ -117,49 +117,49 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
         <!-- banner -->
         <!-- banner-slider -->
         @*<div class="w3l_banner_info">
-                <div class="slider">
-                    <div class="callbacks_container">
-                        <ul class="rslides" id="slider3">
-                            <li>
-                                <div class="slider-img">
-                                    <div class="image-block">
-                                        <img src="~/images/1.jpg" width="100%" height="50%" alt="Los Angeles">
-                                    </div>
-                                    <div class="slider_banner_info">
-                                        <div class="text">
-                                            <h3 class="word wisteria">We Are The Best Home Service For Making Your Home Shine</h3>
-                                            <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry</p>
-                                        </div>
-
-                                    </div>
+            <div class="slider">
+                <div class="callbacks_container">
+                    <ul class="rslides" id="slider3">
+                        <li>
+                            <div class="slider-img">
+                                <div class="image-block">
+                                    <img src="~/images/1.jpg" width="100%" height="50%" alt="Los Angeles">
                                 </div>
-                            </li>
-                            <li>
-                                <div class="slider-img-2">
-                                    <div class="slider_banner_info">
-                                        <div class="text">
-                                            <h3 class="word wisteria">Making your Home Shine and Spotless Is Our Business And Priority</h3>
-                                            <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry</p>
-                                        </div>
-
+                                <div class="slider_banner_info">
+                                    <div class="text">
+                                        <h3 class="word wisteria">We Are The Best Home Service For Making Your Home Shine</h3>
+                                        <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry</p>
                                     </div>
-                                </div>
-                            </li>
-                            <li>
-                                <div class="slider-img-3">
-                                    <div class="slider_banner_info">
-                                        <div class="text">
-                                            <h3 class="word wisteria">Our Home Service Providers will Make You Proud in Society</h3>
-                                            <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry</p>
-                                        </div>
 
-                                    </div>
                                 </div>
-                            </li>
-                        </ul>
-                    </div>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="slider-img-2">
+                                <div class="slider_banner_info">
+                                    <div class="text">
+                                        <h3 class="word wisteria">Making your Home Shine and Spotless Is Our Business And Priority</h3>
+                                        <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry</p>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="slider-img-3">
+                                <div class="slider_banner_info">
+                                    <div class="text">
+                                        <h3 class="word wisteria">Our Home Service Providers will Make You Proud in Society</h3>
+                                        <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry</p>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </li>
+                    </ul>
                 </div>
-            </div>*@
+            </div>
+        </div>*@
         <!-- //banner-slider -->
 
         <div class="w3_banner_info">
@@ -244,7 +244,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                                 </div>
                                 <div class="form">
                                     <h3>Login to your account</h3>
-                                    <form asp-area="Customer" asp-action="SignIn" method="post">
+                                    <form asp-area="Customer" asp-controller="SignIn" asp-action="SignInIndex" method="post">
                                         <input type="text" placeholder="Email" required="">
                                         <input type="password" name="" placeholder="Password" required="">
                                         <input type="submit" value="Login">

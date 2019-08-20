@@ -125,6 +125,8 @@ namespace HomeMaintance.Areas.Admin
             serviceFromDb.MetaDescription = ServicesVM.Services.MetaDescription;
             serviceFromDb.CategoryId = ServicesVM.Services.CategoryId;
             serviceFromDb.Description = ServicesVM.Services.Description;
+            serviceFromDb.IsDone = ServicesVM.Services.IsDone;
+
             await _unitOfWork.Commit();
             return RedirectToAction("Index");
         }

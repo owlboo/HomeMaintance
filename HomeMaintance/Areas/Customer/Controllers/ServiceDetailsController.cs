@@ -20,16 +20,25 @@ namespace HomeMaintance.Areas.Customer.Controllers
             _unitOfWork = unitOfWork;
             ServiceDetailVM = new ServiceDetailsViewModel();
         }
-        public IActionResult Index(int? id)
+        public async Task<IActionResult> Index(int? id)
         {
             if(id == null)
             {
                 return NotFound();
             }
 
-            ViewData["ListService"] = _unitOfWork.Repository<Services>().GetAllInclude(c => c.Category).Take(5);
-            ServiceDetailVM.Services = _unitOfWork.Repository<Services>().GetAllInclude(c =>c.Category).Where(c => c.Id == id).SingleOrDefault();
+            var curService = _unitOfWork.Repository<Services>().GetAllInclude(s=>s.Category).FirstOrDefault(s => s.Id == id);
+            if (curService != null)
+            {
+                
+                curService.ViewCount++;
+                await _unitOfWork.Repository<Services>().UpdateAsync(curService);
+            }
+
+            ServiceDetailVM.Services = _unitOfWork.Repository<Services>().GetAllInclude(s => s.Category).SingleOrDefault(s => s.Id == id);
             ServiceDetailVM.Appointments = new Appointments();
+            ServiceDetailVM.ServicesTopView = _unitOfWork.Repository<Services>()
+                .GetAllInclude(c => c.Category).OrderBy(s=>s.ViewCount).Take(5).ToList();
             return View(ServiceDetailVM);
         }
         [HttpPost]

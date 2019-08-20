@@ -9,5 +9,7 @@ namespace HomeMaintance.Models.ViewModels
     {
         public Services Services { get; set; }
         public Appointments Appointments { get; set; }
+
+        public List<Services> ServicesTopView { get; set; }
     }
 }

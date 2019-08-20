@@ -19,6 +19,7 @@
                         <th>@Html.DisplayNameFor(m => m.MetaTitle)</th>
                         <th>@Html.DisplayNameFor(m => m.CreatedDate)</th>
                         <th>@Html.DisplayNameFor(m => m.ModifiedDate)</th>
+                        <th>@Html.DisplayNameFor(m => m.IsDone)</th>
                         <th>@Html.DisplayNameFor(m => m.Category.CategoryName)</th>
                         <th></th>
                     </tr>
@@ -26,16 +27,17 @@
                 <tbody>
                     @foreach (var item in Model)
                     {
-                        <tr>
-                            <td>@Html.DisplayFor(m => item.ServiceName)</td>
-                            <td>@Html.DisplayFor(m => item.MetaTitle)</td>
-                            <td>@item.CreatedDate.ToString("d")</td>
-                            <td>@item.ModifiedDate.ToString("d")</td>
-                            <td>@Html.DisplayFor(m => item.Category.CategoryName)</td>
-                            <td>
-                                <partial model="@item.Id" name="~/Views/Admin/_TableButtonPartial.cshtml" />
-                            </td>
-                        </tr>
+                    <tr>
+                        <td>@Html.DisplayFor(m => item.ServiceName)</td>
+                        <td>@Html.DisplayFor(m => item.MetaTitle)</td>
+                        <td>@item.CreatedDate.ToString("d")</td>
+                        <td>@item.ModifiedDate.ToString("d")</td>
+                        <td>@Html.DisplayFor(m => item.IsDone)</td>
+                        <td>@Html.DisplayFor(m => item.Category.CategoryName)</td>
+                        <td>
+                            <partial model="@item.Id" name="~/Views/Admin/_TableButtonPartial.cshtml" />
+                        </td>
+                    </tr>
                     }
                 </tbody>
             </table>

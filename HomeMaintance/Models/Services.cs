@@ -27,7 +27,7 @@ namespace HomeMaintance.Models
 
         public bool IsDone { get; set; }
 
-        public int LikeCount { get; set; }
+        public DateTime TopHot { get; set; }
 
         [Display(Name = "Category")]
         public int CategoryId { get; set; }

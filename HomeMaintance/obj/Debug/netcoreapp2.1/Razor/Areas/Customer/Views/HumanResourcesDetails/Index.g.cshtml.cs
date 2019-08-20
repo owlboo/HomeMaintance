@@ -71,7 +71,7 @@ using HomeMaintance.Models;
             WriteLiteral("</h3>\r\n\r\n        </div>\r\n        <div class=\"p-4 border rounded\" style=\"font-size: 1.2em;\">\r\n            <div class=\"row\">\r\n                <div class=\"col-4\">\r\n                    ");
             EndContext();
             BeginContext(485, 80, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("img", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.SelfClosing, "267ea738e32642dcbab00fd451fa67a6", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("img", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.SelfClosing, "ac9e35148b9545cdbdeec5f6bb6ecc45", async() => {
             }
             );
             __Microsoft_AspNetCore_Mvc_Razor_TagHelpers_UrlResolutionTagHelper = CreateTagHelper<global::Microsoft.AspNetCore.Mvc.Razor.TagHelpers.UrlResolutionTagHelper>();

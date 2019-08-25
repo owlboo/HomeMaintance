@@ -50,7 +50,6 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
     <script src="https://kit.fontawesome.com/48bb692534.js"></script>
 
     <style>
-
     </style>
 </head>
 <body style="background-color:aliceblue">
@@ -91,23 +90,24 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                             <a class="dropdown-item" asp-area="Admin" asp-controller="Category" asp-action="Index">Loại công việc </a>
                             <a class="dropdown-item" asp-area="Admin" asp-controller="HumanResources" asp-action="Index">Nhân công </a>
                             <a class="dropdown-item" asp-area="Admin" asp-controller="Appointments" asp-action="Index">Danh sách cuộc hẹn </a>
+                            <a class="dropdown-item" asp-area="Admin" asp-controller="Slide" asp-action="Index">Danh sách Slide </a>
                         </div>
                     </li>
                     @*@if (SignInManager.IsSignedIn(User))
-                    {
-                    <form>
-                        <li class="w3">Hello @UserManager.GetUserName(User)</li>
+                        {
+                        <form>
+                            <li class="w3">Hello @UserManager.GetUserName(User)</li>
+                            <li class="w3">
+                                <button type="submit" class="btn btn-link navbar-btn navbar-link">Logout</button>
+                            </li>
+                        </form>
+                        }
+                        else
+                        {
                         <li class="w3">
-                            <button type="submit" class="btn btn-link navbar-btn navbar-link">Logout</button>
+                            <a asp-area="Customer" asp-controller="SignIn" asp-action="SignInIndex" class="nav-link">Login</a>
                         </li>
-                    </form>
-                    }
-                    else
-                    {
-                    <li class="w3">
-                        <a asp-area="Customer" asp-controller="SignIn" asp-action="SignInIndex" class="nav-link">Login</a>
-                    </li>
-                    }*@
+                        }*@
                     <partial name="_LoginPartial.cshtml" />
 
 
@@ -117,107 +117,11 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 
 
         </nav>
-
         <!-- //header -->
+        @await Component.InvokeAsync("Slide")
         <!-- banner -->
-        <!-- banner-slider -->
-        @*<div class="w3l_banner_info">
-            <div class="slider">
-                <div class="callbacks_container">
-                    <ul class="rslides" id="slider3">
-                        <li>
-                            <div class="slider-img">
-                                <div class="image-block">
-                                    <img src="~/images/1.jpg" width="100%" height="50%" alt="Los Angeles">
-                                </div>
-                                <div class="slider_banner_info">
-                                    <div class="text">
-                                        <h3 class="word wisteria">We Are The Best Home Service For Making Your Home Shine</h3>
-                                        <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry</p>
-                                    </div>
 
-                                </div>
-                            </div>
-                        </li>
-                        <li>
-                            <div class="slider-img-2">
-                                <div class="slider_banner_info">
-                                    <div class="text">
-                                        <h3 class="word wisteria">Making your Home Shine and Spotless Is Our Business And Priority</h3>
-                                        <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry</p>
-                                    </div>
-
-                                </div>
-                            </div>
-                        </li>
-                        <li>
-                            <div class="slider-img-3">
-                                <div class="slider_banner_info">
-                                    <div class="text">
-                                        <h3 class="word wisteria">Our Home Service Providers will Make You Proud in Society</h3>
-                                        <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry</p>
-                                    </div>
-
-                                </div>
-                            </div>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-        </div>*@
-        <!-- //banner-slider -->
-
-        <div class="w3_banner_info">
-            <div class="slider">
-                <div class="callbacks_container">
-                    <div id="demo" class="carousel slide" data-ride="carousel">
-
-                        <!-- Indicators -->
-                        <ul class="carousel-indicators">
-                            <li data-target="#demo" data-slide-to="0" class="active"></li>
-                            <li data-target="#demo" data-slide-to="1"></li>
-                            <li data-target="#demo" data-slide-to="2"></li>
-                        </ul>
-
-                        <!-- The slideshow -->
-                        <div class="carousel-inner">
-                            <div class="carousel-item active">
-                                <img src="~/images/1.jpg" alt="Los Angeles">
-                                <div class="carousel-caption">
-                                    <h3>DOANH NGHIỆP NAM VIÊT</h3>
-                                    <p>Sự an toàn và hài lòng của bạn là động lực cho chúng tôi</p>
-                                </div>
-                            </div>
-                            <div class="carousel-item">
-                                <img src="~/images/2.jpg" alt="Chicago">
-                                <div class="carousel-caption">
-                                    <h3>DOANH NGHIỆP NAM VIÊT</h3>
-                                    <p>Sự an toàn và hài lòng của bạn là động lực cho chúng tôi</p>
-                                </div>
-                            </div>
-                            <div class="carousel-item">
-                                <img src="~/images/3.jpg" alt="New York">
-                                <div class="carousel-caption">
-                                    <h3>DOANH NGHIỆP NAM VIÊT</h3>
-                                    <p>Sự an toàn và hài lòng của bạn là động lực cho chúng tôi</p>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- Left and right controls -->
-                        <a class="carousel-control-prev" href="#demo" data-slide="prev">
-                            <span class="carousel-control-prev-icon"></span>
-                        </a>
-                        <a class="carousel-control-next" href="#demo" data-slide="next">
-                            <span class="carousel-control-next-icon"></span>
-                        </a>
-
-                    </div>
-                </div>
-
-            </div>
-
-        </div>
+        
     </header>
     <div class="container body-content">
         @RenderBody()

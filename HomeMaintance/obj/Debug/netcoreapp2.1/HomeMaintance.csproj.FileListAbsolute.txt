@@ -296,3 +296,8 @@ D:\Coding\ASP.NET\Home_Maintance_21082019\HomeMaintance\HomeMaintance\obj\Debug\
 D:\Coding\ASP.NET\Home_Maintance_21082019\HomeMaintance\HomeMaintance\obj\Debug\netcoreapp2.1\HomeMaintance.pdb
 D:\Coding\ASP.NET\Home_Maintance_21082019\HomeMaintance\HomeMaintance\obj\Debug\netcoreapp2.1\HomeMaintance.csproj.CopyComplete
 D:\Coding\ASP.NET\Home_Maintance_21082019\HomeMaintance\HomeMaintance\obj\Debug\netcoreapp2.1\Razor\Views\Shared\_RelatedServices.g.cshtml.cs
+D:\Study\Visual Project\ASP.NET\HomeMaintance\HomeMaintance\obj\Debug\netcoreapp2.1\Razor\Views\Shared\_RelatedServices.g.cshtml.cs
+D:\Study\Visual Project\ASP.NET\HomeMaintance\HomeMaintance\obj\Debug\netcoreapp2.1\Razor\Views\Shared\Components\Slide\Slide.g.cshtml.cs
+D:\Study\Visual Project\ASP.NET\HomeMaintance\HomeMaintance\obj\Debug\netcoreapp2.1\Razor\Areas\Admin\Views\Slide\Index.g.cshtml.cs
+D:\Study\Visual Project\ASP.NET\HomeMaintance\HomeMaintance\obj\Debug\netcoreapp2.1\Razor\Areas\Admin\Views\Slide\Create.g.cshtml.cs
+D:\Study\Visual Project\ASP.NET\HomeMaintance\HomeMaintance\obj\Debug\netcoreapp2.1\Razor\Areas\Admin\Views\Slide\Edit.g.cshtml.cs

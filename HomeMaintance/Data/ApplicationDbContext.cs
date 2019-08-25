@@ -22,5 +22,7 @@ namespace HomeMaintance.Data
         public DbSet<HouseModelCategory> HouseModelCategories { get; set; }
         public DbSet<HouseModels> HouseModels { get; set; }
         public DbSet<HouseModelImages> HouseModelImages { get; set; }
+        public DbSet<Contact> Contacts { get; set; }
+        public DbSet<Slide> Slides { get; set; }
     }
 }

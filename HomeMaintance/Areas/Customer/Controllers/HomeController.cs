@@ -34,6 +34,16 @@ namespace HomeMaintance.Areas.Customer.Controllers
         {
             return View();
         }
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> Contact(Contact contact)
+        {
+            if (!ModelState.IsValid) return View();
+
+            await _unitOfWork.Repository<Contact>().InsertAsync(contact);
+
+            return RedirectToAction("Index", "Home");
+        }
 
         public IActionResult About()
         {

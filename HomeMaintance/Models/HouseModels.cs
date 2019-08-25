@@ -12,8 +12,9 @@ namespace HomeMaintance.Models
         public string ImageThumbnail { get; set; }
         public virtual ICollection<HouseModelImages> HouseModelImages { get; set; }
         public int HouseModelCategoryId { get; set; }
-        public virtual HouseModelCategory GetHouseModelCategory { get; set; }
+        public virtual HouseModelCategory HouseModelCategory { get; set; }
         public int ViewCount { get; set; }
+        public string Description { get; set; }
         public DateTime? CreatedDate { get; set; }
         public DateTime? ModifiedDate { get; set; }
         public DateTime? TopHot { get; set; }

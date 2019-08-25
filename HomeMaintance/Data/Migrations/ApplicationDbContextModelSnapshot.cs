@@ -144,6 +144,8 @@ namespace HomeMaintance.Data.Migrations
 
                     b.Property<DateTime?>("CreatedDate");
 
+                    b.Property<string>("Description");
+
                     b.Property<int>("HouseModelCategoryId");
 
                     b.Property<string>("HouseModelName");
@@ -444,7 +446,7 @@ namespace HomeMaintance.Data.Migrations
 
             modelBuilder.Entity("HomeMaintance.Models.HouseModels", b =>
                 {
-                    b.HasOne("HomeMaintance.Models.HouseModelCategory", "GetHouseModelCategory")
+                    b.HasOne("HomeMaintance.Models.HouseModelCategory", "HouseModelCategory")
                         .WithMany()
                         .HasForeignKey("HouseModelCategoryId")
                         .OnDelete(DeleteBehavior.Cascade);

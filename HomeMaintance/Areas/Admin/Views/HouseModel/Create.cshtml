@@ -1,0 +1,124 @@
+﻿@model HomeMaintance.Models.ViewModels.HouseModelViewModel
+@using ElectronicStore.Extensions
+@{
+    ViewData["Title"] = "Create";
+    Layout = "~/Views/Admin/_LayoutAdmin.cshtml";
+}
+
+    <section class="contact py-lg-5 py-md-4 py-md-3 py-2">
+        <div class="container py-lg-5 py-md-4 py-md-3 py-2">
+            <div class="w3_mg">
+                <h3>Tạo loại công việc</h3>
+
+            </div>
+            <form method="post" asp-action="Create" style="font-size: 1.2em" enctype="multipart/form-data">
+                <div class="p-4 border rounded">
+                    <div class="text-danger" asp-validation-summary="ModelOnly"></div>
+
+                    <div class="form-group row">
+                        <div class="col-2">
+                            <label>Tên mẫu nhà</label>
+                        </div>
+                        <div class="col-10">
+                            <input asp-for="HouseModel.HouseModelName" class="form-control" />
+                        </div>
+                        <span asp-validation-for="HouseModel.HouseModelName" class="table-danger"></span>
+                    </div>
+                    <div class="form-group row mt-2">
+                        <div class="col-2">
+                            <label>Danh mục</label>
+                        </div>
+                        <div class="col-10">
+                            <select asp-for="HouseModel.HouseModelCategoryId" asp-items="@Model.ModelCategories.ToSelectListItem("HouseModelCategoryName",@Model.HouseModel.HouseModelCategoryId)" class="form-control"></select>
+
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <div class="col-2">
+                            <label>Ảnh đại diện</label>
+                        </div>
+                        <div class="col-10">
+                            <input asp-for="HouseModel.ImageThumbnail" type="file" name="files" class="form-control" />
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <div class="col-2">
+                            <label>Thêm ảnh</label>
+                        </div>
+                        <div class="col-10">
+                            <input asp-for="HouseModel.HouseModelImages" type="file" name="files" class="form-control" multiple />
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <div class="col-2">
+                            <label>Mô tả ngắn</label>
+                        </div>
+                        <div class="col-10">
+                            <input asp-for="HouseModel.Description" class="form-control" />
+                        </div>
+                        <span asp-validation-for="HouseModel.HouseModelName" class="table-danger"></span>
+                    </div>
+                    <div class="form-group row">
+                        <div class="col-2">
+                            <label>Ngày tạo</label>
+                        </div>
+                        <div class="col-10">
+                            <input asp-for="HouseModel.CreatedDate" type="datetime" value="@DateTime.Now" class="form-control" />
+                        </div>
+                    </div>
+                    @*<div class="form-group row mt-2">
+            <div class="col-2">
+                <label asp-for="SEOTitle"></label>
+            </div>
+            <div class="col-10">
+                <input asp-for="SEOTitle" class="form-control" />
+            </div>
+            <span asp-validation-for="SEOTitle" class="table-danger"></span>
+        </div>
+        <div class="form-group row mt-2">
+            <div class="col-2">
+                <label asp-for="CreatedDate"></label>
+            </div>
+            <div class="col-10">
+                <input asp-for="CreatedDate" class="form-control" type="datetime" value="@DateTime.Now" readonly />
+            </div>
+            <span asp-validation-for="CreatedDate" class="table-danger"></span>
+        </div>
+        <div class="form-group row mt-2">
+            <div class="col-2">
+                <label asp-for="ModifiedDate"></label>
+            </div>
+            <div class="col-10">
+                <input asp-for="ModifiedDate" class="form-control" type="datetime" value="@DateTime.Now" readonly />
+            </div>
+            <span asp-validation-for="ModifiedDate" class="table-danger"></span>
+        </div>
+        <div class="form-group row mt-2">
+            <div class="col-2">
+                <label asp-for="MetaKeyword"></label>
+            </div>
+            <div class="col-10">
+                <input asp-for="MetaKeyword" class="form-control" />
+            </div>
+            <span asp-validation-for="MetaKeyword" class="table-danger"></span>
+        </div>
+
+        <div class="form-group row mt-2">
+            <div class="col-2">
+                <label asp-for="MetaDescription"></label>
+            </div>
+            <div class="col-10">
+                <textarea id="summernote" asp-for="MetaDescription" class="form-control"></textarea>
+            </div>
+            <span asp-validation-for="MetaDescription" class="table-danger"></span>
+        </div>*@
+                    <div class="form-group offset-3">
+                        <input type="submit" class="btn btn-primary" value="Create" />
+                        <a asp-action="Index" class="btn btn-success">Back To List</a>
+                    </div>
+                </div>
+            </form>
+
+        </div>
+    </section>
+

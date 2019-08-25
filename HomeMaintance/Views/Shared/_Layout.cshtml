@@ -74,6 +74,9 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                         <a class="nav-link" asp-area="Customer" asp-controller="Home" asp-action="Service">Hỗ trợ (Bảng báo giá)</a>
                     </li>
                     <li class="nav-item">
+                        <a class="nav-link" asp-area="Customer" asp-controller="Home" asp-action="HouseModel">Các mẫu nhà đẹp</a>
+                    </li>
+                    <li class="nav-item">
                         <a class="nav-link" asp-area="Customer" asp-controller="Home" asp-action="Gallery">
                             Công trình tiêu biểu
                         </a>
@@ -91,23 +94,25 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                             <a class="dropdown-item" asp-area="Admin" asp-controller="HumanResources" asp-action="Index">Nhân công </a>
                             <a class="dropdown-item" asp-area="Admin" asp-controller="Appointments" asp-action="Index">Danh sách cuộc hẹn </a>
                             <a class="dropdown-item" asp-area="Admin" asp-controller="Slide" asp-action="Index">Danh sách Slide </a>
+                            <a class="dropdown-item" asp-area="Admin" asp-controller="HouseModelCategory" asp-action="Index">Các mẫu nhà </a>
+                            <a class="dropdown-item" asp-area="Admin" asp-controller="HouseModel" asp-action="Index">Các mẫu nhà đẹp </a>
                         </div>
                     </li>
                     @*@if (SignInManager.IsSignedIn(User))
-                        {
-                        <form>
-                            <li class="w3">Hello @UserManager.GetUserName(User)</li>
-                            <li class="w3">
-                                <button type="submit" class="btn btn-link navbar-btn navbar-link">Logout</button>
-                            </li>
-                        </form>
-                        }
-                        else
-                        {
-                        <li class="w3">
-                            <a asp-area="Customer" asp-controller="SignIn" asp-action="SignInIndex" class="nav-link">Login</a>
-                        </li>
-                        }*@
+        {
+        <form>
+            <li class="w3">Hello @UserManager.GetUserName(User)</li>
+            <li class="w3">
+                <button type="submit" class="btn btn-link navbar-btn navbar-link">Logout</button>
+            </li>
+        </form>
+        }
+        else
+        {
+        <li class="w3">
+            <a asp-area="Customer" asp-controller="SignIn" asp-action="SignInIndex" class="nav-link">Login</a>
+        </li>
+        }*@
                     <partial name="_LoginPartial.cshtml" />
 
 

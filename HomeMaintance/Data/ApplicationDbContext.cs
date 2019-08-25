@@ -19,5 +19,8 @@ namespace HomeMaintance.Data
         public DbSet<HumanResources> HumanResources { get; set; }
         public DbSet<Users> Users { get; set; }
         public DbSet<Appointments> Appointments { get; set; }
+        public DbSet<HouseModelCategory> HouseModelCategories { get; set; }
+        public DbSet<HouseModels> HouseModels { get; set; }
+        public DbSet<HouseModelImages> HouseModelImages { get; set; }
     }
 }

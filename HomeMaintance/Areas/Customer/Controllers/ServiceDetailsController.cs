@@ -35,6 +35,8 @@ namespace HomeMaintance.Areas.Customer.Controllers
                 await _unitOfWork.Repository<Services>().UpdateAsync(curService);
             }
 
+            ViewData["DbContext"] = _unitOfWork;
+
             ServiceDetailVM.Services = _unitOfWork.Repository<Services>().GetAllInclude(s => s.Category).SingleOrDefault(s => s.Id == id);
             ServiceDetailVM.Appointments = new Appointments();
             ServiceDetailVM.ServicesTopView = _unitOfWork.Repository<Services>()

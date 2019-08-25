@@ -81,6 +81,69 @@ namespace HomeMaintance.Data.Migrations
                     b.ToTable("Categories");
                 });
 
+            modelBuilder.Entity("HomeMaintance.Models.HouseModelCategory", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<DateTime?>("CreatedDate");
+
+                    b.Property<string>("HouseModelCategoryName");
+
+                    b.Property<DateTime?>("ModifiedDate");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("HouseModelCategories");
+                });
+
+            modelBuilder.Entity("HomeMaintance.Models.HouseModelImages", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<long>("HouseModelId");
+
+                    b.Property<int?>("HouseModelsId");
+
+                    b.Property<string>("ImageUrl");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("HouseModelsId");
+
+                    b.ToTable("HouseModelImages");
+                });
+
+            modelBuilder.Entity("HomeMaintance.Models.HouseModels", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<DateTime?>("CreatedDate");
+
+                    b.Property<int>("HouseModelCategoryId");
+
+                    b.Property<string>("HouseModelName");
+
+                    b.Property<string>("ImageThumbnail");
+
+                    b.Property<DateTime?>("ModifiedDate");
+
+                    b.Property<DateTime?>("TopHot");
+
+                    b.Property<int>("ViewCount");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("HouseModelCategoryId");
+
+                    b.ToTable("HouseModels");
+                });
+
             modelBuilder.Entity("HomeMaintance.Models.HumanResources", b =>
                 {
                     b.Property<int>("Id")
@@ -336,6 +399,21 @@ namespace HomeMaintance.Data.Migrations
                     b.HasOne("HomeMaintance.Models.Users", "SalePerson")
                         .WithMany()
                         .HasForeignKey("SalePersonId");
+                });
+
+            modelBuilder.Entity("HomeMaintance.Models.HouseModelImages", b =>
+                {
+                    b.HasOne("HomeMaintance.Models.HouseModels", "HouseModels")
+                        .WithMany("HouseModelImages")
+                        .HasForeignKey("HouseModelsId");
+                });
+
+            modelBuilder.Entity("HomeMaintance.Models.HouseModels", b =>
+                {
+                    b.HasOne("HomeMaintance.Models.HouseModelCategory", "GetHouseModelCategory")
+                        .WithMany()
+                        .HasForeignKey("HouseModelCategoryId")
+                        .OnDelete(DeleteBehavior.Cascade);
                 });
 
             modelBuilder.Entity("HomeMaintance.Models.Services", b =>

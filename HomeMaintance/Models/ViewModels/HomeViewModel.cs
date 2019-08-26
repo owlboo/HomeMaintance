@@ -9,5 +9,7 @@ namespace HomeMaintance.Models.ViewModels
     {
         public IEnumerable<Services> Services { get; set; }
         public IEnumerable<HumanResources> HumanResources { get; set; }
+
+        public Feedback Feedback { get; set; }
     }
 }

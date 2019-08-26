@@ -19,8 +19,8 @@ namespace HomeMaintance.ViewComponents
 
         public async Task<IViewComponentResult> InvokeAsync()
         {
-            var lstSlide = _unitOfWork.Repository<Slide>().GetAll();
-            return View("Slide",lstSlide);
+            var lstSlide = await _unitOfWork.Repository<Slide>().GetAllAsync();
+            return View("Slide", lstSlide);
         }
     }
 }

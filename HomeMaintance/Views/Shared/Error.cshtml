@@ -3,20 +3,10 @@
     ViewData["Title"] = "Error";
 }
 
-<h1 class="text-danger">Error.</h1>
-<h2 class="text-danger">An error occurred while processing your request.</h2>
+<h1 class="text-danger">Sai định dạng dữ liệu.</h1>
+<h2 class="text-danger">Sai định dạng email hoặc số điện thoại.</h2>
 
-@if (Model.ShowRequestId)
-{
-    <p>
-        <strong>Request ID:</strong> <code>@Model.RequestId</code>
-    </p>
-}
-
-<h3>Development Mode</h3>
 <p>
-    Swapping to <strong>Development</strong> environment will display more detailed information about the error that occurred.
-</p>
-<p>
-    <strong>Development environment should not be enabled in deployed applications</strong>, as it can result in sensitive information from exceptions being displayed to end users. For local debugging, development environment can be enabled by setting the <strong>ASPNETCORE_ENVIRONMENT</strong> environment variable to <strong>Development</strong>, and restarting the application.
+    <strong>địa chỉ email phải bắt đầu bằng 1 ký tự + địa chỉ email là tập hợp của các ký tự a-z, 0-9 và có thể có các ký tự như dấu chấm, dấu gạch dưới + độ dài tối thiểu của email là 5, độ dài tối đa là 32 + tên miền của email có thể là tên miền cấp 1 or tên miền cấp 2.</strong>
+    <strong>Số điện thoại là số điện thoại của VietNam</strong>
 </p>

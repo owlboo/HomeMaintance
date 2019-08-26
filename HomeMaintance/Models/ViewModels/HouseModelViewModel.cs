@@ -9,5 +9,6 @@ namespace HomeMaintance.Models.ViewModels
     {
         public HouseModels HouseModel { get; set; }
         public List<HouseModelCategory> ModelCategories { get; set; }
+        public ICollection<HouseModelImages> Images { get; set; }
     }
 }

@@ -1,8 +1,152 @@
 ﻿@model HomeMaintance.Models.ViewModels.HouseModelViewModel
+@using ElectronicStore.Extensions
 @{
     ViewData["Title"] = "Edit";
     Layout = "~/Views/Admin/_LayoutAdmin.cshtml";
 }
+        <section class="contact py-lg-5 py-md-4 py-md-3 py-2">
+            <div class="container py-lg-5 py-md-4 py-md-3 py-2 ">
+                <div class="row">
+                    <div class="col-lg-8">
+                        <div class="w3_mg">
+                            <h3>Chỉnh sửa mẫu nhà</h3>
 
-<h2>Edit</h2>
+                        </div>
+                        <form method="post" asp-action="Edit" style="font-size: 1.2em" enctype="multipart/form-data">
+                            <div class="p-4 border rounded">
+                                <div class="text-danger" asp-validation-summary="ModelOnly"></div>
+                                <input hidden asp-for="HouseModel.Id" />
+                                <div class="form-group row">
+                                    <div class="col-4">
+                                        <label>Tên mẫu nhà</label>
+                                    </div>
+                                    <div class="col-8">
+                                        <input asp-for="HouseModel.HouseModelName" class="form-control" />
+                                    </div>
+                                    <span asp-validation-for="HouseModel.HouseModelName" class="table-danger"></span>
+                                </div>
+                                <br />
+                                <div class="form-group row mt-2">
+                                    <div class="col-4">
+                                        <label>Danh mục</label>
+                                    </div>
+                                    <div class="col-8">
+                                        <select asp-for="HouseModel.HouseModelCategoryId" asp-items="@Model.ModelCategories.ToSelectListItem("HouseModelCategoryName",@Model.HouseModel.HouseModelCategoryId)" class="form-control"></select>
+
+                                    </div>
+                                    <span asp-validation-for="HouseModel.HouseModelCategoryId" class="table-danger"></span>
+                                </div>
+                                <br />
+                                <div class="form-group row">
+                                    <div class="col-4">
+                                        <label>Mô tả ngắn</label>
+                                    </div>
+                                    <div class="col-8">
+                                        <input asp-for="HouseModel.Description" class="form-control" />
+                                    </div>
+                                    <span asp-validation-for="HouseModel.Description" class="table-danger"></span>
+                                </div>
+                                <br />
+                                <div class="form-group row">
+                                    <div class="col-4">
+                                        <label>Ngày tạo</label>
+                                    </div>
+                                    <div class="col-8">
+                                        <input asp-for="HouseModel.CreatedDate" type="datetime" value="@Model.HouseModel.CreatedDate" readonly class="form-control" />
+                                    </div>
+                                    <span asp-validation-for="HouseModel.CreatedDate" class="table-danger"></span>
+                                </div>
+                                <br />
+                                <div class="form-group row">
+                                    <div class="col-4">
+                                        <label>Ngày chỉnh sửa</label>
+                                    </div>
+                                    <div class="col-8">
+                                        <input asp-for="HouseModel.ModifiedDate" type="datetime" value="@DateTime.Now" readonly class="form-control" />
+                                    </div>
+                                    <span asp-validation-for="HouseModel.ModifiedDate" class="table-danger"></span>
+                                </div>
+                                <br />
+                                <br />
+                                <div class="form-group row">
+                                    <div class="col-4">
+                                        <label>Thêm ảnh</label>
+                                    </div>
+                                    <div class="col-8">
+                                        <input asp-for="HouseModel.HouseModelImages" type="file" name="files" class="form-control" multiple />
+                                    </div>
+                                    <span asp-validation-for="HouseModel.HouseModelImages" class="table-danger"></span>
+                                </div>
+                                <br />
+                                <div class="form-group">
+                                    <input type="submit" class="btn btn-primary float-right"  value="Cập nhật" />
+                                    <a asp-action="Index" class="btn btn-success float-right">Back To List</a>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                    <div class="col-lg-4">
+                        <div class=" w3_ban1">
+                            <h3>Hình hiển thị</h3>
+
+                            <form method="post" enctype="multipart/form-data">
+
+                                <div class="card">
+                                    <input hidden asp-for="HouseModel.Id" />
+                                    <img class="card-img-top" src="@Model.HouseModel.ImageThumbnail" alt="Card image cap">
+                                </div>
+                                <div class="card-body">
+                                    <div class="row form-group">
+                                        <div class="col-4">
+                                            <label>Đổi hình đại diện</label>
+                                        </div>
+                                        <div class="col-8">
+                                            <input asp-for="HouseModel.ImageThumbnail" type="file" class="form-control" name="files" />
+                                        </div>
+                                        
+                                    </div>
+                                </div>
+                                <button type="submit" class="btn btn-success float-lg-right" asp-action="ChangeThumbnail" asp-route-id="@Model.HouseModel.Id">Lưu</button>
+
+                            </form>
+                        </div>
+                    </div>
+                </div>
+                
+                
+
+            </div>
+
+        </section>
+            
+<br />
+
+<div class="w3_mg">
+    <h3>Hình ảnh</h3>
+    <hr />
+    <div class="row">
+        
+    </div>
+    <div class="row">
+
+        @foreach (var item in Model.Images)
+        {
+            <div class="col-md-4 col-sm-12 w3_ban1">
+                <form method="post">
+
+
+
+                    <div class="card">
+                        <input hidden asp-for="@item.Id" />
+                        <img class="card-img-top" src="@item.ImageUrl" alt="Card image cap">
+                    </div>
+                    <div class="card-body">
+                        <button type="submit" class="btn btn-danger" @*href="@Url.Action("DeleteImage","HouseModel", new { id = item.Id })"*@ asp-action="DeleteImage" asp-route-id="@item.Id"><i class="fas fa-trash-alt"></i></button>
+                    </div>
+
+                </form>
+            </div>
+        }
+    </div>
+</div>
 

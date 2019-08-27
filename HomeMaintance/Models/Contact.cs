@@ -10,10 +10,12 @@ namespace HomeMaintance.Models
     {
         public int Id { get; set; }
         [Required]
+        [Display(Name = "Họ tên")]
         public string Name { get; set; }
         [EmailAddress]
         [Required]
         public string Email { get; set; }
+        [Display(Name = "Lời nhắn")]
         public string Message { get; set; }
     }
 }

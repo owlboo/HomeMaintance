@@ -41,6 +41,7 @@ namespace HomeMaintance.Areas.Customer.Controllers
             ServiceDetailVM.Appointments = new Appointments();
             ServiceDetailVM.ServicesTopView = _unitOfWork.Repository<Services>()
                 .GetAllInclude(c => c.Category).OrderBy(s=>s.ViewCount).Take(5).ToList();
+            ServiceDetailVM.HouseModels = _unitOfWork.Repository<HouseModels>().GetAllInclude(c => c.HouseModelCategory).Take(5).ToList();
             return View(ServiceDetailVM);
         }
         [HttpPost]

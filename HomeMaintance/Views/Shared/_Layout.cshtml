@@ -2,6 +2,7 @@
 <!DOCTYPE html>
 <html>
 <head>
+    @using HomeMaintance.Ultilities
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>@ViewData["Title"] - HomeMaintance</title>
@@ -84,6 +85,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                     <li class="nav-item">
                         <a class="nav-link" asp-area="Customer" asp-controller="Home" asp-action="Contact">Liên hệ</a>
                     </li>
+                    @if(User.IsInRole(SD.SuperAdminEndUser)){
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                             Quản lý
@@ -98,21 +100,22 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                             <a class="dropdown-item" asp-area="Admin" asp-controller="HouseModel" asp-action="Index">Các mẫu nhà đẹp </a>
                         </div>
                     </li>
-                    @*@if (SignInManager.IsSignedIn(User))
-                    {
-                    <form>
-                        <li class="w3">Hello @UserManager.GetUserName(User)</li>
-                        <li class="w3">
-                            <button type="submit" class="btn btn-link navbar-btn navbar-link">Logout</button>
-                        </li>
-                    </form>
                     }
-                    else
-                    {
-                    <li class="w3">
-                        <a asp-area="Customer" asp-controller="SignIn" asp-action="SignInIndex" class="nav-link">Login</a>
-                    </li>
-                    }*@
+                    @*@if (SignInManager.IsSignedIn(User))
+        {
+        <form>
+            <li class="w3">Hello @UserManager.GetUserName(User)</li>
+            <li class="w3">
+                <button type="submit" class="btn btn-link navbar-btn navbar-link">Logout</button>
+            </li>
+        </form>
+        }
+        else
+        {
+        <li class="w3">
+            <a asp-area="Customer" asp-controller="SignIn" asp-action="SignInIndex" class="nav-link">Login</a>
+        </li>
+        }*@
                     <partial name="_LoginPartial.cshtml" />
 
 
@@ -128,25 +131,50 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
     </header>
 
     @await Component.InvokeAsync("Slide")
-    <div class="container body-content">
+    <div class="body-content">
         @RenderBody()
         <hr />
     </div>
     <!-- Footer-->
     <section class="footer">
-        <div class="container">
-            <h3>Fast Service</h3>
-            <div class="wrapper">
-                <ul class="social-icons icon-circle icon-zoom list-unstyled list-inline">
-                    <li> <a href="#"><i class="fab fa-facebook-f"></i></a></li>
-                    <li> <a href="#"><i class="fab fa-twitter"></i></a></li>
-                    <li> <a href="#"><i class="fab fa-linkedin-in"></i></a></li>
-                </ul>
-            </div>
-            <div class="copyright">
-                <p>© 2019 Nam Việt. All Rights Reserved | Design by <a href="https://w3layouts.com/">W3layouts</a></p>
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-lg-4">
+                    <br />
+                    <br />
+                    <div>
+                        <span><i class="fas fa-phone" style="height:10px; width:10px; color:white"></i></span><label style="margin-left:20px;color:white;">+84 968 501 615</label>
+                    </div>
+                    <br />
+                    <div>
+                        <span><i class="fas fa-map-marker-alt" style="height:10px; width:10px; color:white"></i></span><label style="margin-left:20px;color:white;">141/42, Đường số 28, Quận Gò Vấp, TP HCM</label>
+                    </div>
+                    <br />
+                    <div>
+                        <span><i class="fas fa-envelope-square" style="height:10px; width:10px; color:white"></i></span><label style="margin-left:20px;color:white;">admin@gmail.com</label>
+                    </div>  
+                </div>
+                <div class="col-lg-4">
+                    <h3>DOANH NGHIỆP TƯ NHÂN NAM VIỆT</h3>
+                    <div class="wrapper">
+                        <ul class="social-icons icon-circle icon-zoom list-unstyled list-inline">
+                            <li> <a href="#"><i class="fab fa-facebook-f"></i></a></li>
+                            <li> <a href="#"><i class="fab fa-twitter"></i></a></li>
+                            <li> <a href="#"><i class="fab fa-linkedin-in"></i></a></li>
+                        </ul>
+                    </div>
+                    <div class="copyright">
+                        <p>© 2019 Nam Việt. All Rights Reserved | Design by <a href="https://w3layouts.com/">W3layouts</a></p>
 
+                    </div>
+                </div>
+                <div class="col-lg-4">
+                    <div>
+                        Chỗ này select dịch vụ rồi bỏ vào theo thẻ a
+                    </div>
+                </div>
             </div>
+            
         </div>
     </section>
     <!-- /Footer-->

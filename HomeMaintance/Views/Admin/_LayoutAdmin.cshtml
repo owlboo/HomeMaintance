@@ -1,6 +1,7 @@
 ﻿<!DOCTYPE html>
 <html>
 <head>
+    @using HomeMaintance.Ultilities
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>@ViewData["Title"] - HomeMaintance</title>
@@ -85,18 +86,21 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                     <li class="nav-item">
                         <a class="nav-link" asp-area="Customer" asp-controller="Home" asp-action="Contact">Liên hệ</a>
                     </li>
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            Quản lý
-                        </a>
-                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                            <a class="dropdown-item" asp-area="Admin" asp-controller="Service" asp-action="Index">Dịch vụ</a>
-                            <a class="dropdown-item" asp-area="Admin" asp-controller="Category" asp-action="Index">Loại công việc </a>
-                            <a class="dropdown-item" asp-area="Admin" asp-controller="HumanResources" asp-action="Index">Nhân công </a>
-                            <a class="dropdown-item" asp-area="Admin" asp-controller="Appointments" asp-action="Index">Danh sách cuộc hẹn </a>
-                            <a class="dropdown-item" asp-area="Admin" asp-controller="Slide" asp-action="Index">Danh sách Slide </a>
-                        </div>
-                    </li>
+                    @if (User.IsInRole(SD.SuperAdminEndUser))
+                    {
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                Quản lý
+                            </a>
+                            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                <a class="dropdown-item" asp-area="Admin" asp-controller="Service" asp-action="Index">Dịch vụ</a>
+                                <a class="dropdown-item" asp-area="Admin" asp-controller="Category" asp-action="Index">Loại công việc </a>
+                                <a class="dropdown-item" asp-area="Admin" asp-controller="HumanResources" asp-action="Index">Nhân công </a>
+                                <a class="dropdown-item" asp-area="Admin" asp-controller="Appointments" asp-action="Index">Danh sách cuộc hẹn </a>
+                                <a class="dropdown-item" asp-area="Admin" asp-controller="Slide" asp-action="Index">Danh sách Slide </a>
+                            </div>
+                        </li>
+                    }
 
                     @*<li class="w3">
             <a href="#" class="nav-link" data-toggle="modal" data-target="#myModal">Login</a>
@@ -165,17 +169,27 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
     </div>
     <!-- Footer-->
     <section class="footer">
-        <div class="container">
-            <h3>Fast Service</h3>
-            <div class="wrapper">
-                <ul class="social-icons icon-circle icon-zoom list-unstyled list-inline">
-                    <li> <a href="#"><i class="fab fa-facebook-f"></i></a></li>
-                    <li> <a href="#"><i class="fab fa-twitter"></i></a></li>
-                    <li> <a href="#"><i class="fab fa-linkedin-in"></i></a></li>
-                </ul>
+        <div class="container row">
+            <div class="col-lg-4">
+                <div>
+                    <label><span><i class="fas fa-phone" style="background-color:blue;"></i></span></label>asdasdadadsds
+                </div>
             </div>
-            <div class="copyright">
-                <p>© 2019 Nam Việt. All Rights Reserved | Design by <a href="https://w3layouts.com/">W3layouts</a></p>
+            <div class="col-lg-4">
+                <h3>DOANH NGHIỆP TƯ NHÂN NAM VIỆT</h3>
+                <div class="wrapper">
+                    <ul class="social-icons icon-circle icon-zoom list-unstyled list-inline">
+                        <li> <a href="#"><i class="fab fa-facebook-f"></i></a></li>
+                        <li> <a href="#"><i class="fab fa-twitter"></i></a></li>
+                        <li> <a href="#"><i class="fab fa-linkedin-in"></i></a></li>
+                    </ul>
+                </div>
+                <div class="copyright">
+                    <p>© 2019 Nam Việt. All Rights Reserved | Design by <a href="https://w3layouts.com/">W3layouts</a></p>
+
+                </div>
+            </div>
+            <div class="col-lg-4">
 
             </div>
         </div>

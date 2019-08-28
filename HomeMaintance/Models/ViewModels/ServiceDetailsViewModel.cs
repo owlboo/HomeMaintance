@@ -11,5 +11,6 @@ namespace HomeMaintance.Models.ViewModels
         public Appointments Appointments { get; set; }
 
         public List<Services> ServicesTopView { get; set; }
+        public List<HouseModels> HouseModels { get; set; }
     }
 }

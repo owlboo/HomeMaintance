@@ -1,0 +1,27 @@
+﻿@model List<HouseModelCategory>
+@using HomeMaintance.Reposity
+@using HomeMaintance.Models
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    IUnitOfWork unitOfWork = (IUnitOfWork)ViewData["DbContext"];
+}
+
+    <section class="contact py-lg-5 py-md-4 py-md-3 py-2">
+        <div class="container py-lg-5 py-md-4 py-md-3 py-2">
+            <h2>CÁC MẪU NHÀ ĐẸP</h2>
+            <hr />
+            @foreach (var item in Model)
+            {
+                <div>
+                    <h3>@item.HouseModelCategoryName</h3>
+                    <hr />
+                    @{ 
+                        var lstHouseModel = unitOfWork.Repository<HouseModels>().GetAllInclude(c => c.HouseModelImages).ToList();
+                    }
+                    @Html.Partial("_HouseModelPartial.cshtml", lstHouseModel);
+                </div>
+            }
+        </div>
+    </section>
+

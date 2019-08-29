@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using HomeMaintance.Models;
 using HomeMaintance.Models.ViewModels;
 using HomeMaintance.Reposity;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
 namespace HomeMaintance.Areas.Admin.Controllers
@@ -23,9 +24,19 @@ namespace HomeMaintance.Areas.Admin.Controllers
                 SalePerson = _unitOfWork.Repository<Users>().GetAll()
             };
         }
-        public IActionResult Index()
+        public IActionResult Index(bool filter)
         {
-            var lstAppointments = _unitOfWork.Repository<Appointments>().GetAllInclude(c => c.SalePerson).ToList();
+            
+            var lstAppointments = new List<Appointments>();
+            if (!filter)
+            {
+                lstAppointments = _unitOfWork.Repository<Appointments>().GetAllInclude(c => c.SalePerson).OrderByDescending(c => c.CreatedDate).ToList();
+            }
+            else
+            {
+                lstAppointments = _unitOfWork.Repository<Appointments>().GetAllInclude(c => c.SalePerson).Where(c=>c.isConfirm==false).OrderByDescending(c => c.CreatedDate).ToList();
+
+            }
             return View(lstAppointments);
         }
         public IActionResult Edit(int? id)

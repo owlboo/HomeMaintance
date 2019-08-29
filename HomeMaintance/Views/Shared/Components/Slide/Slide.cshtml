@@ -1,5 +1,7 @@
 ﻿@model System.Collections.Generic.ICollection<HomeMaintance.Models.Slide>
 
+<link rel="stylesheet" href="~/css/animate.css" />
+<link rel="stylesheet" href="~/css/description.css" />
 <div class="w3_banner_info">
     <div class="slider">
         <div class="callbacks_container">
@@ -28,7 +30,7 @@
                                 <img src="~/images/SlideImages/@Model.ElementAt(i).Image" alt="Los Angeles" style="width: 100%; height: 100%">
                                 <div class="carousel-caption text">
                                     <h3>@Model.ElementAt(i).Name</h3>
-                                    <p class="word wisteria">Sự an toàn và hài lòng của bạn là động lực cho chúng tôi</p>
+                                    <p id="text_animate" >Sự an toàn và hài lòng của bạn là động lực cho chúng tôi</p>
                                 </div>
                             </div>
                         }
@@ -38,7 +40,7 @@
                                 <img src="~/images/SlideImages/@Model.ElementAt(i).Image" alt="Los Angeles"  style="width: 100%; height: 100%">
                                 <div class="carousel-caption text">
                                     <h3>@Model.ElementAt(i).Name</h3>
-                                    <p class="word wisteria">Sự an toàn và hài lòng của bạn là động lực cho chúng tôi</p>
+                                    <p id="text_animate" >Sự an toàn và hài lòng của bạn là động lực cho chúng tôi</p>
                                 </div>
                             </div>
                         }

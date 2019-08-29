@@ -92,7 +92,7 @@
 
                 <div class="col-md-3 col-sm-12 w3_ms6">
                     <div class="col-md-3 col-sm-12 w3_ms8">
-                        <img src="~/images/HouseModels/house-models-2.jpg" style="width:1000px;" alt="xt" class="img-fluid">
+                        <img src="~/images/HouseModels/house-models-2.jpg" style="width:500px;    max-width: 500px;" alt="xt" class="img-fluid">
                     </div>
                 </div>
                 <div class="col-md-3 col-sm-12 w3_ms4">
@@ -188,20 +188,20 @@
                                 <div class="container">
                                     <h3 class="title clr">THÔNG TIN LIÊN HỆ</h3>
                                     <div class=" contact-form">
-                                        <form asp-action="Index" method="post">
+                                        <form method="post" asp-action="CreateAppointment">
                                             <div class="row contact-bothside-agileinfo">
                                                 <div class="col-md-6 col-sm-6 col-xs-6 form-right form-left">
-                                                    <input type="text" name="Name" placeholder="Name" required="">
+                                                    <input id="txtName" type="text" name="txtName" placeholder="Họ và tên" required="">
                                                 </div>
                                                 <div class="col-md-6 col-sm-6 col-xs-6 form-right form-left">
-                                                    <input type="email" name="Email" placeholder="Email" required="">
+                                                    <input id="txtEmail" type="email" name="txtEmail" placeholder="Email" required="">
                                                 </div>
                                                 <div class="col-md-6 col-sm-6 col-xs-6 form-left form-right ">
-                                                    <input type="text" name="Phone" placeholder="Phone" required="">
+                                                    <input id="txtPhone" type="text" name="txtPhone" placeholder="Số điện thoại" required="">
                                                 </div>
-                                                <textarea name="Message" placeholder="Message" required=""></textarea>
+                                                <textarea id="txtMessage" name="txtMessage" placeholder="Nội dung" required=""></textarea>
 
-                                                <input type="submit" id="submitContact" value="SUBMIT">
+                                                <input id="submitContact" type="submit" value="SUBMIT" class="btn btn-primary">
                                             </div>
                                         </form>
                                     </div>
@@ -220,7 +220,7 @@
 <!-- /Conatct -->
 @section Scripts
 {
-
+   
     <script>
         // You can also use "$(window).load(function() {"
         $(function () {
@@ -413,4 +413,8 @@
 
     <script src="//cdnjs.cloudflare.com/ajax/libs/waypoints/2.0.3/waypoints.min.js"></script>
     <script src="jquery.counterup.min.js"></script>
+
+    <script>
+
+    </script>
 }

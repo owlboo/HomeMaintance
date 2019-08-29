@@ -102,5 +102,22 @@ namespace HomeMaintance.Areas.Customer.Controllers
             await _unitOfWork.Repository<Feedback>().InsertAsync(feedback);
             return RedirectToAction("Index");
         }
+
+        [HttpPost]
+        public async Task<IActionResult> CreateAppointment(string txtName =null, string txtPhone=null, string txtEmail = null, string txtMessage=null)
+        {
+            Appointments appointments = new Appointments()
+            {
+                CustomerName = txtName,
+                CustomerPhone = txtPhone,
+                CustomerEmail = txtEmail,
+                CustomerMessage = txtMessage,
+                CreatedDate = DateTime.Now,
+                AppointmentsName = "Khách hàng hẹn gặp"
+            };
+            _unitOfWork.Repository<Appointments>().Insert(appointments);
+            await _unitOfWork.Commit();
+            return RedirectToAction(nameof(Index));
+        }
     }
 }

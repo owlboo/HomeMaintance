@@ -6,6 +6,13 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="Models\DBDiagram\**" />
+    <Content Remove="Models\DBDiagram\**" />
+    <EmbeddedResource Remove="Models\DBDiagram\**" />
+    <None Remove="Models\DBDiagram\**" />
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="Microsoft.AspNetCore.App" />
     <PackageReference Include="Microsoft.AspNetCore.Razor.Design" Version="2.1.2" PrivateAssets="All" />
     <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="2.1.9" />
@@ -31,7 +38,6 @@
 
   <ItemGroup>
     <Folder Include="Areas\Identity\Services\" />
-    <Folder Include="Models\DBDiagram\" />
     <Folder Include="wwwroot\images\HouseModels\" />
     <Folder Include="wwwroot\images\ServiceImages\" />
   </ItemGroup>

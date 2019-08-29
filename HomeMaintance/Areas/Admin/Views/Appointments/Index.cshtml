@@ -12,6 +12,13 @@
                 <h3>Danh sách cuộc hẹn</h3>
             </div>
             <br />
+            <div class="align-content-end">
+                <form method="get" asp-action="Index">
+                    @Html.CheckBox("filter") Chỉ hiện những cuộc hẹn chưa gặp
+                    <button class="btn btn-success" type="submit">Lọc</button>
+                </form>
+                
+            </div>
             <br />
             <div class="row">
                 <table class="table table-striped">

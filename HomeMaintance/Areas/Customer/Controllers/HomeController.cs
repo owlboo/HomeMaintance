@@ -35,28 +35,7 @@ namespace HomeMaintance.Areas.Customer.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> IndexPost()
         {
-            //Validate email format
-            string emailRegex = @"^[a-z][a-z0-9_\.]{5,32}@[a-z0-9]{2,}(\.[a-z0-9]{2,4}){1,2}$";
-
-            string phoneRegex = @"(09|03[0-9])+([0-9]{8})\b";
-            Regex EmailRe = new Regex(emailRegex);
-            Regex PhoneRe = new Regex(phoneRegex);
-
-            if (!EmailRe.IsMatch(HttpContext.Request.Form["Email"].ToString()) || !PhoneRe.IsMatch(HttpContext.Request.Form["Phone"].ToString()))
-            {
-                return PartialView("Error");
-            }
-
-            Feedback feedback = new Feedback
-            {
-                SenderName = HttpContext.Request.Form["Name"],
-                Email = HttpContext.Request.Form["Email"],
-                Phone = HttpContext.Request.Form["Phone"],
-                Content = HttpContext.Request.Form["Message"],
-                CreatedDate = DateTime.Today
-            };
-            
-            await _unitOfWork.Repository<Feedback>().InsertAsync(feedback);
+           
 
             return RedirectToAction("Index", "Home");
         }
@@ -89,6 +68,39 @@ namespace HomeMaintance.Areas.Customer.Controllers
         public IActionResult Gallery()
         {
             return View();
+        }
+        public IActionResult Feedback()
+        {
+            return PartialView("Feedback");
+        }
+
+        [HttpPost, ActionName("Feedback")]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> FeedbackPost()
+        {
+            //Validate email format
+            string emailRegex = @"^[a-z][a-z0-9_\.]{5,32}@[a-z0-9]{2,}(\.[a-z0-9]{2,4}){1,2}$";
+
+            string phoneRegex = @"(09|03[0-9])+([0-9]{8})\b";
+            Regex EmailRe = new Regex(emailRegex);
+            Regex PhoneRe = new Regex(phoneRegex);
+
+            if (!EmailRe.IsMatch(HttpContext.Request.Form["Email"].ToString()) || !PhoneRe.IsMatch(HttpContext.Request.Form["Phone"].ToString()))
+            {
+                return PartialView("Error");
+            }
+
+            Feedback feedback = new Feedback
+            {
+                SenderName = HttpContext.Request.Form["Name"],
+                Email = HttpContext.Request.Form["Email"],
+                Phone = HttpContext.Request.Form["Phone"],
+                Content = HttpContext.Request.Form["Message"],
+                CreatedDate = DateTime.Today
+            };
+
+            await _unitOfWork.Repository<Feedback>().InsertAsync(feedback);
+            return RedirectToAction("Index");
         }
     }
 }

@@ -417,3 +417,5 @@ D:\Study\Visual Project\ASP.NET\HomeMaintance\HomeMaintance\obj\Debug\netcoreapp
 D:\Study\Visual Project\ASP.NET\HomeMaintance\HomeMaintance\obj\Debug\netcoreapp2.1\Razor\Areas\Admin\Views\HouseModel\Index.g.cshtml.cs
 D:\Study\Visual Project\ASP.NET\HomeMaintance\HomeMaintance\obj\Debug\netcoreapp2.1\HomeMaintance.csprojAssemblyReference.cache
 C:\Users\MR-BOO\Documents\GitHub\HomeMaintance\HomeMaintance\obj\Debug\netcoreapp2.1\Razor\Areas\Admin\Views\HouseModel\Edit.g.cshtml.cs
+D:\Study\Visual Project\ASP.NET\HomeMaintance\HomeMaintance\obj\Debug\netcoreapp2.1\Razor\Areas\Admin\Views\Feedback\Index.g.cshtml.cs
+D:\Study\Visual Project\ASP.NET\HomeMaintance\HomeMaintance\obj\Debug\netcoreapp2.1\Razor\Areas\Customer\Views\Home\Feedback.g.cshtml.cs

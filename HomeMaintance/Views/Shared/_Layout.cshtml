@@ -85,21 +85,23 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                     <li class="nav-item">
                         <a class="nav-link" asp-area="Customer" asp-controller="Home" asp-action="Contact">Liên hệ</a>
                     </li>
-                    @if(User.IsInRole(SD.SuperAdminEndUser)){
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            Quản lý
-                        </a>
-                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                            <a class="dropdown-item" asp-area="Admin" asp-controller="Service" asp-action="Index">Dịch vụ</a>
-                            <a class="dropdown-item" asp-area="Admin" asp-controller="Category" asp-action="Index">Loại công việc </a>
-                            <a class="dropdown-item" asp-area="Admin" asp-controller="HumanResources" asp-action="Index">Nhân công </a>
-                            <a class="dropdown-item" asp-area="Admin" asp-controller="Appointments" asp-action="Index">Danh sách cuộc hẹn </a>
-                            <a class="dropdown-item" asp-area="Admin" asp-controller="Slide" asp-action="Index">Danh sách Slide </a>
-                            <a class="dropdown-item" asp-area="Admin" asp-controller="HouseModelCategory" asp-action="Index">Các mẫu nhà </a>
-                            <a class="dropdown-item" asp-area="Admin" asp-controller="HouseModel" asp-action="Index">Các mẫu nhà đẹp </a>
-                        </div>
-                    </li>
+                    @if (User.IsInRole(SD.SuperAdminEndUser))
+                    {
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                Quản lý
+                            </a>
+                            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                <a class="dropdown-item" asp-area="Admin" asp-controller="Service" asp-action="Index">Dịch vụ</a>
+                                <a class="dropdown-item" asp-area="Admin" asp-controller="Category" asp-action="Index">Loại công việc </a>
+                                <a class="dropdown-item" asp-area="Admin" asp-controller="HumanResources" asp-action="Index">Nhân công </a>
+                                <a class="dropdown-item" asp-area="Admin" asp-controller="Appointments" asp-action="Index">Danh sách cuộc hẹn </a>
+                                <a class="dropdown-item" asp-area="Admin" asp-controller="Slide" asp-action="Index">Danh sách Slide </a>
+                                <a class="dropdown-item" asp-area="Admin" asp-controller="HouseModelCategory" asp-action="Index">Các mẫu nhà </a>
+                                <a class="dropdown-item" asp-area="Admin" asp-controller="HouseModel" asp-action="Index">Các mẫu nhà đẹp </a>
+                                <a class="dropdown-item" asp-area="Admin" asp-controller="Feedback" asp-action="Index">Danh sách phản hồi </a>
+                            </div>
+                        </li>
                     }
                     @*@if (SignInManager.IsSignedIn(User))
         {

@@ -104,6 +104,7 @@ namespace HomeMaintance.Areas.Admin.Controllers
             }
 
             slideFromDb.Name = slide.Name;
+            await _unitOfWork.Repository<Slide>().UpdateAsync(slideFromDb);
 
             return RedirectToAction("Index");
         }

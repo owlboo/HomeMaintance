@@ -423,3 +423,5 @@ C:\Users\MR-BOO\Documents\GitHub\HomeMaintance\HomeMaintance\obj\Debug\netcoreap
 C:\Users\MR-BOO\Documents\GitHub\HomeMaintance\HomeMaintance\obj\Debug\netcoreapp2.1\Razor\Areas\Customer\Views\Home\Feedback.g.cshtml.cs
 C:\Users\MR-BOO\Documents\GitHub\HomeMaintance\HomeMaintance\obj\Debug\netcoreapp2.1\Razor\Areas\Customer\Views\HouseModelCus\Index.g.cshtml.cs
 C:\Users\MR-BOO\Documents\GitHub\HomeMaintance\HomeMaintance\obj\Debug\netcoreapp2.1\Razor\Areas\Customer\Views\HouseModelCus\_HouseModelPartial.g.cshtml.cs
+D:\Study\Visual Project\ASP.NET\HomeMaintance\HomeMaintance\obj\Debug\netcoreapp2.1\Razor\Areas\Customer\Views\HouseModelCus\Index.g.cshtml.cs
+D:\Study\Visual Project\ASP.NET\HomeMaintance\HomeMaintance\obj\Debug\netcoreapp2.1\Razor\Areas\Customer\Views\HouseModelCus\_HouseModelPartial.g.cshtml.cs

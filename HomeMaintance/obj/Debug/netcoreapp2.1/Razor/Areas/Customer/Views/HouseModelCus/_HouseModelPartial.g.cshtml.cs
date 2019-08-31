@@ -85,7 +85,7 @@ WriteAttributeValue("", 322, item.ImageThumbnail, 322, 20, false);
             WriteLiteral("</h6>\r\n                ");
             EndContext();
             BeginContext(485, 119, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "b342fae1b0234770a8ebe90cfc15453c", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "27d14f138ab342c393e47c9eff48b3b9", async() => {
                 BeginContext(587, 13, true);
                 WriteLiteral("Xem chi tiết");
                 EndContext();

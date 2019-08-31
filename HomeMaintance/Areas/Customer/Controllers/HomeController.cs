@@ -67,7 +67,7 @@ namespace HomeMaintance.Areas.Customer.Controllers
 
         public IActionResult Gallery()
         {
-            return View();
+            return RedirectToAction("Index", "TypicalConstructionCustomer");
         }
         public IActionResult Feedback()
         {

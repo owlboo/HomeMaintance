@@ -37,9 +37,11 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Folder Include="Areas\Customer\Views\TypicalConstructionCustomer\" />
     <Folder Include="Areas\Identity\Services\" />
     <Folder Include="wwwroot\images\HouseModels\" />
     <Folder Include="wwwroot\images\ServiceImages\" />
+    <Folder Include="wwwroot\images\TypicalImages\" />
   </ItemGroup>
 
 </Project>

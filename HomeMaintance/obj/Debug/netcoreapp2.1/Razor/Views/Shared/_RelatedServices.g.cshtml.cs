@@ -69,7 +69,7 @@ using HomeMaintance.Models;
             WriteLiteral("    <div class=\"col-md-4 col-sm-12 w3_ban1\">\r\n        <div class=\"card\">\r\n            ");
             EndContext();
             BeginContext(287, 114, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("img", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagOnly, "328e4a7b90d4405899025284f3dedbda", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("img", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagOnly, "2b666b522c67401aa543e9ee4bd9eff4", async() => {
             }
             );
             __Microsoft_AspNetCore_Mvc_Razor_TagHelpers_UrlResolutionTagHelper = CreateTagHelper<global::Microsoft.AspNetCore.Mvc.Razor.TagHelpers.UrlResolutionTagHelper>();
@@ -107,7 +107,7 @@ AddHtmlAttributeValue("", 363, item.Thumbnail, 363, 15, false);
             WriteLiteral("</h6>\r\n                ");
             EndContext();
             BeginContext(519, 113, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "d350159fec6245b1834732583831ab5b", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "e35e4f6d225e4148929802a0c4297d7d", async() => {
                 BeginContext(621, 7, true);
                 WriteLiteral("Explore");
                 EndContext();

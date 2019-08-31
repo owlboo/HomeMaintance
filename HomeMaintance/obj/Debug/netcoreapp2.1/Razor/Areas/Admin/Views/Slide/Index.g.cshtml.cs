@@ -65,7 +65,7 @@ using HomeMaintance.Models;
             WriteLiteral("\r\n<section class=\"contact py-lg-5 py-md-4 py-md-3 py-2\">\r\n    <div class=\"container py-lg-5 py-md-4 py-md-3 py-2\">\r\n        <div class=\"w3_mg\">\r\n            <h3>Danh sách Slide</h3>\r\n        </div>\r\n        <div class=\"offset-10\">\r\n            ");
             EndContext();
             BeginContext(363, 92, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "b86a14ee9e1e448b8125fd056006f8fb", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "70538cc6a5d84a0d867ba983c3eca2b2", async() => {
                 BeginContext(407, 44, true);
                 WriteLiteral("<i class=\"fa fa-plus\"></i> &nbsp; Thêm Slide");
                 EndContext();
@@ -127,7 +127,7 @@ using HomeMaintance.Models;
             WriteLiteral("</td>\r\n                            <td>");
             EndContext();
             BeginContext(1079, 70, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("img", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.SelfClosing, "cbcb03201c76492da2360249789b571a", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("img", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.SelfClosing, "2a00f37ff7de4a6ba1898d348fa9c4be", async() => {
             }
             );
             __Microsoft_AspNetCore_Mvc_Razor_TagHelpers_UrlResolutionTagHelper = CreateTagHelper<global::Microsoft.AspNetCore.Mvc.Razor.TagHelpers.UrlResolutionTagHelper>();

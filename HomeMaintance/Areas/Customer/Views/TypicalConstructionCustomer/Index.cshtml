@@ -1,0 +1,30 @@
+﻿@model ICollection<TypicalConstruction>
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<section class="bannerbottom py-lg-5 py-md-4 py-md-3 py-2">
+    <div class="bannerbottom py-lg-5 py-md-4 py-md-3 py-2">
+        <div class="container">
+            <div class="row">
+                @foreach (var item in Model)
+                {
+                    <div class="col-md-4 col-sm-12 w3_ban1">
+                        <div class="card">
+                            <img class="card-img-top" src="~/images/TypicalImages/@item.Thumbnail" style="height:200px;" alt="Card image cap">
+                            <div class="card-body">
+                                <h5 class="card-title">@item.Name</h5>
+                                <p class="card-text" style="height:100px;">@item.Description</p>
+                                <p class="card-text" style="height:100px;">@item.CustomerName</p>
+                                <p class="card-text" style="height:100px;">@item.Address</p>
+                            </div>
+                        </div>
+                    </div>
+                }
+
+            </div>
+        </div>
+    </div>
+</section>
+

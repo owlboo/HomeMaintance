@@ -10,14 +10,14 @@
         "projectUniqueName": "D:\\Study\\Visual Project\\ASP.NET\\HomeMaintance\\HomeMaintance\\HomeMaintance.csproj",
         "projectName": "HomeMaintance",
         "projectPath": "D:\\Study\\Visual Project\\ASP.NET\\HomeMaintance\\HomeMaintance\\HomeMaintance.csproj",
-        "packagesPath": "C:\\Users\\DucPham\\.nuget\\packages\\",
+        "packagesPath": "C:\\Users\\Admin\\.nuget\\packages\\",
         "outputPath": "D:\\Study\\Visual Project\\ASP.NET\\HomeMaintance\\HomeMaintance\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
         ],
         "configFilePaths": [
-          "C:\\Users\\DucPham\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\Admin\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -53,7 +53,6 @@
               "version": "[2.1.2, )"
             },
             "Microsoft.NETCore.App": {
-              "suppressParent": "All",
               "target": "Package",
               "version": "[2.1.0, )",
               "autoReferenced": true

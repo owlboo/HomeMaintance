@@ -67,7 +67,7 @@ using HomeMaintance.Models;
             WriteLiteral("        <div class=\"container py-lg-5 py-md-4 py-md-3 py-2\">\r\n            <div class=\"w3_mg\">\r\n                <h3>Bảng loại công việc</h3>\r\n            </div>\r\n            <div class=\"offset-10\">\r\n                ");
             EndContext();
             BeginContext(412, 91, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "71b822f6ad534ee48e097ee8defb9143", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "eb24188be46a4f3fb049bf63c994981e", async() => {
                 BeginContext(456, 43, true);
                 WriteLiteral("<i class=\"fa fa-plus\"></i> &nbsp; Thêm mới");
                 EndContext();
@@ -142,7 +142,7 @@ using HomeMaintance.Models;
             WriteLiteral("</td>                                \r\n                                <td>\r\n                                    ");
             EndContext();
             BeginContext(1441, 55, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("partial", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.SelfClosing, "373e5f379cbb4de182ff3c42e3fdae9f", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("partial", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.SelfClosing, "cd986f9b1cbc462c8c95184401510d32", async() => {
             }
             );
             __Microsoft_AspNetCore_Mvc_TagHelpers_PartialTagHelper = CreateTagHelper<global::Microsoft.AspNetCore.Mvc.TagHelpers.PartialTagHelper>();

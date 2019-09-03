@@ -10,7 +10,7 @@
             <img class="card-img-top" style="height:200px;" src="@item.ImageThumbnail" alt="Card image cap">
             <div class="card-body">
                 <h6 class="card-text">@item.HouseModelName</h6>
-                <a asp-action="Index" asp-controller="ServiceDetails" asp-route-id="@item.Id" class="btn btn-primary">Xem chi tiết</a>
+                <a asp-action="ViewDetails" asp-controller="HouseModelCus" asp-route-id="@item.Id" class="btn btn-primary">Xem chi tiết</a>
             </div>
         </div>
     </div>

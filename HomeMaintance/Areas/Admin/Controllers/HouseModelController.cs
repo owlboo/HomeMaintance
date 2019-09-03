@@ -64,7 +64,7 @@ namespace HomeMaintance.Areas.Admin.Controllers
                 {
                     var uploads = Path.Combine(webRootPath, SD.HouseModelFolderImages);
                     var extension = Path.GetExtension(item.FileName);
-                    var name = houseModelFromDb.HouseModelName;
+                    var name = "";
                     if (i == 0)
                     {
                         name += "house-models-thumnail";
@@ -185,16 +185,16 @@ namespace HomeMaintance.Areas.Admin.Controllers
                 var uploads = Path.Combine(webRootPath, SD.HouseModelFolderImages);
                 var extension = Path.GetExtension(files[0].FileName);
                 var extension_old = Path.GetExtension(houseModelFromDb.ImageThumbnail);
-                var name = "house-models-thumnail";
+                var name = "house-models-thumnail"+ rand.Next(10, 99);
                 if (System.IO.File.Exists(Path.Combine(uploads, name + extension_old)))
                 {
                     System.IO.File.Delete(Path.Combine(uploads, name + extension));
                 }
-                using (var filestream = new FileStream(Path.Combine(uploads, name + rand.Next(10, 99) + extension), FileMode.Create))
+                using (var filestream = new FileStream(Path.Combine(uploads, name +  extension), FileMode.Create))
                 {
                     files[0].CopyTo(filestream);
                 }
-                houseModelFromDb.ImageThumbnail = @"\" + SD.HouseModelFolderImages + @"\" + name + rand.Next(10, 99) + extension;
+                houseModelFromDb.ImageThumbnail = @"\" + SD.HouseModelFolderImages + @"\" + name  + extension;
                 await _unitOfWork.Commit();
                 return RedirectToAction("Edit", new { id = houseModelFromDb.Id });
             }

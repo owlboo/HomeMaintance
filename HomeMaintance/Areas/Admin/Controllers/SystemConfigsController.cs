@@ -21,11 +21,25 @@ namespace HomeMaintance.Areas.Admin.Controllers
             _unitOfWork = unitOfWork;
             _hostingEnvironment = hostingEnvironment;
         }
-        public IActionResult Index()
+        public async Task<IActionResult> Index()
         {
             SystemConfig system = new SystemConfig();
             system = _unitOfWork.Repository<SystemConfig>().GetAll().FirstOrDefault();
-            if (system.CompanyName == null||system==null)
+            if(system == null)
+            {
+                system = new SystemConfig
+                {
+                    CompanyName = "",
+                    CompanyPhone = "",
+                    CompanyAddress = "",
+                    CompanyEmail = "",
+                    CompanyLogo = ""
+                };
+                _unitOfWork.Repository<SystemConfig>().Insert(system);
+                await _unitOfWork.Commit();
+                return View(system);
+            }
+            if (system.CompanyName == null || system == null)
             {
                 system.CompanyName = "Chưa đặt";
             }

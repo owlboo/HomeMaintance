@@ -306,7 +306,6 @@ C:\Users\MR-BOO\Documents\GitHub\HomeMaintance\HomeMaintance\bin\Debug\netcoreap
 C:\Users\MR-BOO\Documents\GitHub\HomeMaintance\HomeMaintance\bin\Debug\netcoreapp2.1\HomeMaintance.pdb
 C:\Users\MR-BOO\Documents\GitHub\HomeMaintance\HomeMaintance\bin\Debug\netcoreapp2.1\HomeMaintance.Views.dll
 C:\Users\MR-BOO\Documents\GitHub\HomeMaintance\HomeMaintance\bin\Debug\netcoreapp2.1\HomeMaintance.Views.pdb
-C:\Users\MR-BOO\Documents\GitHub\HomeMaintance\HomeMaintance\obj\Debug\netcoreapp2.1\HomeMaintance.csprojAssemblyReference.cache
 C:\Users\MR-BOO\Documents\GitHub\HomeMaintance\HomeMaintance\obj\Debug\netcoreapp2.1\HomeMaintance.csproj.CoreCompileInputs.cache
 C:\Users\MR-BOO\Documents\GitHub\HomeMaintance\HomeMaintance\obj\Debug\netcoreapp2.1\HomeMaintance.RazorAssemblyInfo.cache
 C:\Users\MR-BOO\Documents\GitHub\HomeMaintance\HomeMaintance\obj\Debug\netcoreapp2.1\HomeMaintance.RazorAssemblyInfo.cs
@@ -437,3 +436,4 @@ C:\Users\MR-BOO\Documents\GitHub\HomeMaintance\HomeMaintance\obj\Debug\netcoreap
 D:\Study\Visual Project\ASP.NET\HomeMaintance\HomeMaintance\obj\Debug\netcoreapp2.1\Razor\Areas\Admin\Views\SystemConfigs\Index.g.cshtml.cs
 D:\Study\Visual Project\ASP.NET\HomeMaintance\HomeMaintance\obj\Debug\netcoreapp2.1\Razor\Views\Shared\_FooterPartial.g.cshtml.cs
 D:\Study\Visual Project\ASP.NET\HomeMaintance\HomeMaintance\obj\Debug\netcoreapp2.1\UserSecretsAssemblyInfo.cs
+C:\Users\MR-BOO\Documents\GitHub\HomeMaintance\HomeMaintance\obj\Debug\netcoreapp2.1\Razor\Areas\Customer\Views\HouseModelCus\ViewDetails.g.cshtml.cs

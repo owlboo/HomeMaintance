@@ -44,6 +44,8 @@ namespace HomeMaintance
                 .AddDefaultUI()
                 .AddDefaultTokenProviders();
 
+            services.AddScoped<IDbInittializer, DbInittializer>();
+
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
             services.AddPaging(option =>
             {
@@ -54,7 +56,7 @@ namespace HomeMaintance
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
-        public void Configure(IApplicationBuilder app, IHostingEnvironment env)
+        public void Configure(IApplicationBuilder app, IHostingEnvironment env, IDbInittializer dbInittializer)
         {
             if (env.IsDevelopment())
             {
@@ -71,7 +73,10 @@ namespace HomeMaintance
             app.UseStaticFiles();
             app.UseCookiePolicy();
 
+            dbInittializer.Initialize();
+
             app.UseAuthentication();
+
 
             app.UseMvc(routes =>
             {

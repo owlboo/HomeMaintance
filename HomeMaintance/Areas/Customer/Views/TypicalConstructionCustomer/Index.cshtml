@@ -1,7 +1,11 @@
 ﻿@model ICollection<TypicalConstruction>
+@using HomeMaintance.Reposity
+@using HomeMaintance.Models
 @{
     ViewData["Title"] = "Index";
     Layout = "~/Views/Shared/_Layout.cshtml";
+        IUnitOfWork unitOfWork = (IUnitOfWork)ViewData["DbContext"];
+    var systemconf = unitOfWork.Repository<SystemConfig>().GetAll().FirstOrDefault();
 }
 
 <section class="bannerbottom py-lg-5 py-md-4 py-md-3 py-2">
@@ -27,4 +31,5 @@
         </div>
     </div>
 </section>
+@Html.Partial("~/Views/Shared/_FooterPartial.cshtml", systemconf);
 

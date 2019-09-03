@@ -272,6 +272,27 @@ namespace HomeMaintance.Data.Migrations
                     b.ToTable("Slides");
                 });
 
+            modelBuilder.Entity("HomeMaintance.Models.SystemConfig", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("CompanyAddress");
+
+                    b.Property<string>("CompanyEmail");
+
+                    b.Property<string>("CompanyLogo");
+
+                    b.Property<string>("CompanyName");
+
+                    b.Property<string>("CompanyPhone");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("SystemConfigs");
+                });
+
             modelBuilder.Entity("HomeMaintance.Models.TypicalConstruction", b =>
                 {
                     b.Property<int>("Id")

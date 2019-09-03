@@ -12535,23 +12535,23 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\Admin\\.nuget\\packages\\": {},
+    "C:\\Users\\MR-BOO\\.nuget\\packages\\": {},
     "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\Study\\Visual Project\\ASP.NET\\HomeMaintance\\HomeMaintance\\HomeMaintance.csproj",
+      "projectUniqueName": "C:\\Users\\MR-BOO\\Documents\\GitHub\\HomeMaintance\\HomeMaintance\\HomeMaintance.csproj",
       "projectName": "HomeMaintance",
-      "projectPath": "D:\\Study\\Visual Project\\ASP.NET\\HomeMaintance\\HomeMaintance\\HomeMaintance.csproj",
-      "packagesPath": "C:\\Users\\Admin\\.nuget\\packages\\",
-      "outputPath": "D:\\Study\\Visual Project\\ASP.NET\\HomeMaintance\\HomeMaintance\\obj\\",
+      "projectPath": "C:\\Users\\MR-BOO\\Documents\\GitHub\\HomeMaintance\\HomeMaintance\\HomeMaintance.csproj",
+      "packagesPath": "C:\\Users\\MR-BOO\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\MR-BOO\\Documents\\GitHub\\HomeMaintance\\HomeMaintance\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
       ],
       "configFilePaths": [
-        "C:\\Users\\Admin\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\MR-BOO\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [

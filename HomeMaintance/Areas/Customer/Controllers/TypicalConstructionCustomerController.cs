@@ -19,6 +19,7 @@ namespace HomeMaintance.Areas.Customer.Controllers
         }
         public IActionResult Index()
         {
+            ViewData["DbContext"] = _unitOfWork;
             var lstTypicalContruction = _unitOfWork.Repository<TypicalConstruction>().GetAll();
             return View(lstTypicalContruction);
         }

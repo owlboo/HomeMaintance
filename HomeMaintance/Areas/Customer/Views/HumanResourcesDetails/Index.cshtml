@@ -1,7 +1,11 @@
 ﻿@model HumanResources
+@using HomeMaintance.Reposity
+@using HomeMaintance.Models
 @{
     ViewData["Title"] = "Index";
     Layout = "~/Views/Admin/_LayoutAdmin.cshtml";
+    IUnitOfWork unitOfWork = (IUnitOfWork)ViewData["DbContext"];
+    var systemconf = unitOfWork.Repository<SystemConfig>().GetAll().FirstOrDefault();
 }
 
 <section class="contact py-lg-5 py-md-4 py-md-3 py-2">
@@ -13,7 +17,7 @@
         <div class="p-4 border rounded" style="font-size: 1.2em;">
             <div class="row">
                 <div class="col-4">
-                    <img src="~/images/HumanImages/@Model.Avatar" class="rounded-circle img-fluid"/>
+                    <img src="~/images/HumanImages/@Model.Avatar" class="rounded-circle img-fluid" />
                 </div>
                 <div class="col-8">
                     <div class="row">
@@ -44,6 +48,7 @@
 
     </div>
 </section>
+@Html.Partial("~/Views/Shared/_FooterPartial.cshtml", systemconf);
 @section Scripts
 {
     @{ await Html.RenderPartialAsync("_ValidationScriptsPartial");}

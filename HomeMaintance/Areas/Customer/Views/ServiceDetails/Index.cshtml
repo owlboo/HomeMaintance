@@ -4,20 +4,22 @@
 @model HomeMaintance.Models.ViewModels.ServiceDetailsViewModel
 @{
     ViewData["Title"] = "Index";
-    Layout = "~/Views/Admin/_LayoutAdmin.cshtml";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+
 }
 <br />
 <br />
 <br />
 <br />
 <style>
-    #section-view{
-        margin-top:100px;
-        display:block;
+    #section-view {
+        margin-top: 100px;
+        display: block;
     }
-    #img-th{
-        height:50px;
-        width:100px;
+
+    #img-th {
+        height: 50px;
+        width: 100px;
     }
 </style>
 
@@ -27,7 +29,7 @@
         <br />
         <br />
         <br />
-        
+
     </div>
     <div class="col-lg-8">
         <div class="border">
@@ -40,209 +42,210 @@
             <br /><br />
         </div>
         <hr />
-            <h2 class="text-dark">CÁC DỊCH VỤ LIÊN QUAN</h2>
-            <br />
+        <h2 class="text-dark">CÁC DỊCH VỤ LIÊN QUAN</h2>
+        <br />
 
-            <div class="row">
-                <hr />
-                @{
-                    var _unitOfWork = (IUnitOfWork)ViewData["DbContext"];
-                    var lstService = _unitOfWork.Repository<Services>().FindAll(s => s.CategoryId == Model.Services.CategoryId).ToList();
-                }
-                @Html.Partial("~/Views/Shared/_RelatedServices.cshtml", lstService);
-            </div>
+        <div class="row">
+            <hr />
+            @{
+                var _unitOfWork = (IUnitOfWork)ViewData["DbContext"];
+                var lstService = _unitOfWork.Repository<Services>().FindAll(s => s.CategoryId == Model.Services.CategoryId).ToList();
+                var systemconf = _unitOfWork.Repository<SystemConfig>().GetAll().FirstOrDefault();
+            }
+            @Html.Partial("~/Views/Shared/_RelatedServices.cshtml", lstService);
+        </div>
     </div>
 
-        <div class="float-right col-3">
-            <div class="navbar-right" id="section-view">
+    <div class="float-right col-3">
+        <div class="navbar-right" id="section-view">
+            <div>
+
                 <div>
+                    <h4 class="text-dark"><b>CÁC DỊCH VỤ ĐƯỢC XEM NHIỀU NHẤT</b></h4>
+                    <hr style="border-top: 1.5px solid;" />
+                    <ul class="ml-5">
+                        @foreach (var item in Model.ServicesTopView)
+                        {
+                            <li><a class="text-info" asp-action="Index" asp-route-id="@item.Id">@item.ServiceName</a></li>
+                        }
+                    </ul>
+                </div>
 
-                    <div>
-                        <h4 class="text-dark"><b>CÁC DỊCH VỤ ĐƯỢC XEM NHIỀU NHẤT</b></h4>
-                        <hr style="border-top: 1.5px solid;" />
-                        <ul class="ml-5">
-                            @foreach (var item in Model.ServicesTopView)
-                            {
-                                <li><a class="text-info" asp-action="Index" asp-route-id="@item.Id">@item.ServiceName</a></li>
-                            }
-                        </ul>
-                    </div>
-
-                    <br />
-                    <div>
-                        <h4><b>CÁC CÔNG TRÌNH ĐÃ THỰC HIỆN</b></h4>
-                        <hr style="border-top: 1.5px solid;" />
-                        <ul class="ml-5">
-                            @foreach (var item in Model.ServicesTopView.Where(s => s.IsDone))
-                            {
-                                <li>@item.ServiceName</li>
-                            }
-                        </ul>
-                    </div>
-                    <div>
-                        <h4 class="text-dark"><b>CÁC MẪU NHÀ ĐẸP</b></h4>
-                        <hr style="border-top: 1.5px solid;" />
-                        <div class="w3_banner_info">
-                            <div class="slider">
-                                <div class="callbacks_container">
-                                    <div id="demo" class="carousel slide" data-ride="carousel">
-                                        <!-- Indicators -->
-                                        <ul class="carousel-indicators">
-                                            @for (int i = 0; i < @Model.HouseModels.Count; i++)
+                <br />
+                <div>
+                    <h4><b>CÁC CÔNG TRÌNH ĐÃ THỰC HIỆN</b></h4>
+                    <hr style="border-top: 1.5px solid;" />
+                    <ul class="ml-5">
+                        @foreach (var item in Model.ServicesTopView.Where(s => s.IsDone))
+                        {
+                            <li>@item.ServiceName</li>
+                        }
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="text-dark"><b>CÁC MẪU NHÀ ĐẸP</b></h4>
+                    <hr style="border-top: 1.5px solid;" />
+                    <div class="w3_banner_info">
+                        <div class="slider">
+                            <div class="callbacks_container">
+                                <div id="demo" class="carousel slide" data-ride="carousel">
+                                    <!-- Indicators -->
+                                    <ul class="carousel-indicators">
+                                        @for (int i = 0; i < @Model.HouseModels.Count; i++)
+                                        {
+                                            if (i == 0)
                                             {
-                                                if (i == 0)
-                                                {
-                                                    <li data-target="#demo" data-slide-to="@i" class="active"></li>
-                                                }
-                                                else
-                                                {
-                                                    <li data-target="#demo" data-slide-to="@i"></li>
-                                                }
+                                                <li data-target="#demo" data-slide-to="@i" class="active"></li>
                                             }
-                                        </ul>
-                                        <!-- The slideshow -->
-                                        <div class="carousel-inner">
-                                            @for (int i = 0; i < @Model.HouseModels.Count; i++)
+                                            else
                                             {
-                                                if (i == 0)
-                                                {
-                                                    <div class="carousel-item active">
-                                                        <img src="@Model.HouseModels.ElementAt(i).ImageThumbnail" alt="Los Angeles" style="width: 100%; height: 100%">
-
-                                                    </div>
-                                                }
-                                                else
-                                                {
-                                                    <div class="carousel-item active">
-                                                        <img src="@Model.HouseModels.ElementAt(i).ImageThumbnail" alt="Los Angeles" style="width: 100%; height: 100%">
-
-                                                    </div>
-                                                }
+                                                <li data-target="#demo" data-slide-to="@i"></li>
                                             }
-                                        </div>
+                                        }
+                                    </ul>
+                                    <!-- The slideshow -->
+                                    <div class="carousel-inner">
+                                        @for (int i = 0; i < @Model.HouseModels.Count; i++)
+                                        {
+                                            if (i == 0)
+                                            {
+                                                <div class="carousel-item active">
+                                                    <img src="@Model.HouseModels.ElementAt(i).ImageThumbnail" alt="Los Angeles" style="width: 100%; height: 100%">
 
+                                                </div>
+                                            }
+                                            else
+                                            {
+                                                <div class="carousel-item active">
+                                                    <img src="@Model.HouseModels.ElementAt(i).ImageThumbnail" alt="Los Angeles" style="width: 100%; height: 100%">
 
-                                        <!-- Left and right controls -->
-                                        <a class="carousel-control-prev" href="#demo" data-slide="prev">
-                                            <span class="carousel-control-prev-icon"></span>
-                                        </a>
-                                        <a class="carousel-control-next" href="#demo" data-slide="next">
-                                            <span class="carousel-control-next-icon"></span>
-                                        </a>
-
+                                                </div>
+                                            }
+                                        }
                                     </div>
-                                </div>
 
+
+                                    <!-- Left and right controls -->
+                                    <a class="carousel-control-prev" href="#demo" data-slide="prev">
+                                        <span class="carousel-control-prev-icon"></span>
+                                    </a>
+                                    <a class="carousel-control-next" href="#demo" data-slide="next">
+                                        <span class="carousel-control-next-icon"></span>
+                                    </a>
+
+                                </div>
                             </div>
+
                         </div>
                     </div>
-
                 </div>
+
             </div>
         </div>
+    </div>
 </div>
 <div>
-@*<div id="left" class="">
-    <div class="float-left">
-        <div class="float-right col-4">
-            <h4>Các dịch vụ được xem nhiều nhất</h4>
-            <hr style="border-top: 1.5px solid;" />
-            <ul class="ml-5">
-                @foreach (var item in Model.ServicesTopView)
-                {
-                    <li><a class="text-info" asp-action="Index" asp-route-id="@item.Id">@item.ServiceName</a></li>
-                }
-            </ul>
-            <br />
-            <h4>Các dự án đã thực hiện được xem nhiều nhất</h4>
-            <ul class="ml-5">
-                @foreach (var item in Model.ServicesTopView.Where(s => s.IsDone))
-                {
-                    <li>@item.ServiceName</li>
-                }
-            </ul>
+    @*<div id="left" class="">
+        <div class="float-left">
+            <div class="float-right col-4">
+                <h4>Các dịch vụ được xem nhiều nhất</h4>
+                <hr style="border-top: 1.5px solid;" />
+                <ul class="ml-5">
+                    @foreach (var item in Model.ServicesTopView)
+                    {
+                        <li><a class="text-info" asp-action="Index" asp-route-id="@item.Id">@item.ServiceName</a></li>
+                    }
+                </ul>
+                <br />
+                <h4>Các dự án đã thực hiện được xem nhiều nhất</h4>
+                <ul class="ml-5">
+                    @foreach (var item in Model.ServicesTopView.Where(s => s.IsDone))
+                    {
+                        <li>@item.ServiceName</li>
+                    }
+                </ul>
 
-        </div>
-        <div class="col-8">
-            <h2 class="text-dark">Dịch vụ: @Model.Services.ServiceName</h2>
-            <hr style="border-top: 1.5px solid;" />
-            <p class="text-dark" style="font-style: italic; font-size: 13px; padding-left: 10px;">@Model.Services.CreatedDate</p>
-            <hr style="border-top: 1.5px solid;" />
-            <p class="text-dark" style="font-style: italic; font-size: 13px; padding-left: 10px;">Lượt xem: @Model.Services.ViewCount</p>
-            <hr style="border-top: 1.5px solid;" />
-            <br />
-            @Html.Raw(@Model.Services.Description)
-            <br /><br />*@
+            </div>
+            <div class="col-8">
+                <h2 class="text-dark">Dịch vụ: @Model.Services.ServiceName</h2>
+                <hr style="border-top: 1.5px solid;" />
+                <p class="text-dark" style="font-style: italic; font-size: 13px; padding-left: 10px;">@Model.Services.CreatedDate</p>
+                <hr style="border-top: 1.5px solid;" />
+                <p class="text-dark" style="font-style: italic; font-size: 13px; padding-left: 10px;">Lượt xem: @Model.Services.ViewCount</p>
+                <hr style="border-top: 1.5px solid;" />
+                <br />
+                @Html.Raw(@Model.Services.Description)
+                <br /><br />*@
 
+    @*</div>*@
+    <section class="contact py-lg-5 py-md-4 py-md-3 py-2">
+        <div class="container py-lg-5 py-md-4 py-md-3 py-2">
+            <div class="w3_mg">
+                <h4><b>DOANH NGHIỆP TƯ NHÂN NAM VIỆT</b></h4>
+                <p class=" my-lg-4 my-md-3 my-sm-2 my-2">Hãy để lại thông tin hoặc liên hệ với chúng tôi để nhận được những sự tư vấn tận tình nhất để giúp bạn có thể lựa chọn dịch vụ phù hợp cho chính mình</p>
+                <!-- Button trigger modal -->
+                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+                    LIÊN HỆ VỚI CHÚNG TÔI
+                </button>
 
-        @*</div>*@
-        <section class="contact py-lg-5 py-md-4 py-md-3 py-2">
-            <div class="container py-lg-5 py-md-4 py-md-3 py-2">
-                <div class="w3_mg">
-                    <h4><b>DOANH NGHIỆP TƯ NHÂN NAM VIỆT</b></h4>
-                    <p class=" my-lg-4 my-md-3 my-sm-2 my-2">Hãy để lại thông tin hoặc liên hệ với chúng tôi để nhận được những sự tư vấn tận tình nhất để giúp bạn có thể lựa chọn dịch vụ phù hợp cho chính mình</p>
-                    <!-- Button trigger modal -->
-                    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
-                        LIÊN HỆ VỚI CHÚNG TÔI
-                    </button>
+                <!-- Modal -->
+                <br />
+                <br />
+                <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true" style="padding-top:100px;">
+                    <div class="modal-dialog" role="document">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="exampleModalLabel">DOANH NGHIỆP TƯ NHÂN NAM VIỆT</h5>
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                            </div>
+                            <div class="modal-body">
+                                <div class="contact" id="contact">
+                                    <div class="container">
+                                        <h3 class="title clr">THÔNG TIN CỦA BẠN</h3>
+                                        <div class=" contact-form">
+                                            <form method="post">
 
-                    <!-- Modal -->
-                    <br />
-                    <br />
-                    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true" style="padding-top:100px;">
-                        <div class="modal-dialog" role="document">
-                            <div class="modal-content">
-                                <div class="modal-header">
-                                    <h5 class="modal-title" id="exampleModalLabel">DOANH NGHIỆP TƯ NHÂN NAM VIỆT</h5>
-                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                        <span aria-hidden="true">&times;</span>
-                                    </button>
-                                </div>
-                                <div class="modal-body">
-                                    <div class="contact" id="contact">
-                                        <div class="container">
-                                            <h3 class="title clr">THÔNG TIN CỦA BẠN</h3>
-                                            <div class=" contact-form">
-                                                <form method="post">
-
-                                                    <div class="row contact-bothside-agileinfo">
-                                                        <div class="col-md-12 col-sm-12 col-xs-12 form-right form-left">
-                                                            <input type="text" placeholder="Name" asp-for="@Model.Appointments.CustomerName" required="" class="form-control">
-                                                        </div>
-
+                                                <div class="row contact-bothside-agileinfo">
+                                                    <div class="col-md-12 col-sm-12 col-xs-12 form-right form-left">
+                                                        <input type="text" placeholder="Name" asp-for="@Model.Appointments.CustomerName" required="" class="form-control">
                                                     </div>
-                                                    <div class="row contact-bothside-agileinfo">
-                                                        <div class="col-md-12 col-sm-12 col-xs-12 form-right form-left">
-                                                            <input type="email" asp-for="@Model.Appointments.CustomerEmail" placeholder="Email" required="" class="form-control">
-                                                        </div>
+
+                                                </div>
+                                                <div class="row contact-bothside-agileinfo">
+                                                    <div class="col-md-12 col-sm-12 col-xs-12 form-right form-left">
+                                                        <input type="email" asp-for="@Model.Appointments.CustomerEmail" placeholder="Email" required="" class="form-control">
                                                     </div>
-                                                    <div class="row contact-bothside-agileinfo">
-                                                        <div class="col-md-12 col-sm-12 col-xs-12 form-right form-left ">
-                                                            <input type="text" asp-for="@Model.Appointments.CustomerPhone" placeholder="Phone" required="" class="form-control">
-                                                        </div>
+                                                </div>
+                                                <div class="row contact-bothside-agileinfo">
+                                                    <div class="col-md-12 col-sm-12 col-xs-12 form-right form-left ">
+                                                        <input type="text" asp-for="@Model.Appointments.CustomerPhone" placeholder="Phone" required="" class="form-control">
                                                     </div>
-                                                    <div class="row contact-bothside-agileinfo">
-                                                        <textarea asp-for="@Model.Appointments.CustomerMessage" placeholder="Message" required="" class="form-control"></textarea>
-                                                    </div>
-                                                    <div class="row contact-bothside-agileinfo">
-                                                        <input type="submit" asp-action="CreateAppointment" value="SUBMIT">
-                                                    </div>
-                                                </form>
-                                            </div>
+                                                </div>
+                                                <div class="row contact-bothside-agileinfo">
+                                                    <textarea asp-for="@Model.Appointments.CustomerMessage" placeholder="Message" required="" class="form-control"></textarea>
+                                                </div>
+                                                <div class="row contact-bothside-agileinfo">
+                                                    <input type="submit" asp-action="CreateAppointment" value="SUBMIT">
+                                                </div>
+                                            </form>
                                         </div>
                                     </div>
                                 </div>
-
                             </div>
+
                         </div>
                     </div>
                 </div>
             </div>
-        </section>
-    </div>
+        </div>
+    </section>
+</div>
 </div>
 <div class="clearfix">
 </div>
+@Html.Partial("~/Views/Shared/_FooterPartial.cshtml", systemconf);
 
 
 

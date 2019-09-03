@@ -20,6 +20,7 @@ namespace HomeMaintance.Areas.Customer.Controllers
 
         public IActionResult Index()
         {
+            ViewData["DbContext"] = _unitOfWork;
             var lstModelCategory = _unitOfWork.Repository<HouseModelCategory>().GetAll().ToList();
             ViewData["DbContext"] = _unitOfWork;
             return View(lstModelCategory);

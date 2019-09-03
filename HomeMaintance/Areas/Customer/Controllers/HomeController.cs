@@ -24,7 +24,7 @@ namespace HomeMaintance.Areas.Customer.Controllers
         }
         public IActionResult Index()
         {
-
+            ViewData["DbContext"] = _unitOfWork;
             HomeVM.Services = _unitOfWork.Repository<Services>().GetAll();
             HomeVM.HumanResources = _unitOfWork.Repository<HumanResources>().GetAll();
             HomeVM.Feedback = new Feedback();

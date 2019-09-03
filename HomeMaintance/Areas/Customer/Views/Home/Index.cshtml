@@ -1,6 +1,10 @@
 ﻿@model HomeMaintance.Models.ViewModels.HomeViewModel
+@using HomeMaintance.Reposity
+@using HomeMaintance.Models
 @{
     ViewData["Title"] = "Home Page";
+    IUnitOfWork unitOfWork = (IUnitOfWork)ViewData["DbContext"];
+    var systemconf = unitOfWork.Repository<SystemConfig>().GetAll().FirstOrDefault();
 }
 <link rel="stylesheet" href="~/lib/bootstrap/dist/css/jquery-ui.css" />
 <script src="~/lib/jquery/dist/jquery.min.js"></script>
@@ -22,8 +26,8 @@
                 @foreach (var item in Model.Services)
                 {
                     <div class="col-md-4 col-sm-12 w3_ban1">
-                        <div class="card" >
-                            <img class="card-img-top" src="~/images/ServiceImages/@item.Thumbnail" style="height:200px;"  alt="Card image cap">
+                        <div class="card">
+                            <img class="card-img-top" src="~/images/ServiceImages/@item.Thumbnail" style="height:200px;" alt="Card image cap">
                             <div class="card-body">
                                 <h5 class="card-title">@item.ServiceName</h5>
                                 <p class="card-text" style="height:100px;">@item.ShortDescription</p>
@@ -90,18 +94,18 @@
                 </div>
             </div>
 
-                <div class="col-md-3 col-sm-12 w3_ms6">
-                    <div class="col-md-3 col-sm-12 w3_ms8">
-                        <img src="~/images/HouseModels/house-models-2.jpg" style="width:500px;    max-width: 500px;" alt="xt" class="img-fluid">
-                    </div>
+            <div class="col-md-3 col-sm-12 w3_ms6">
+                <div class="col-md-3 col-sm-12 w3_ms8">
+                    <img src="~/images/HouseModels/house-models-2.jpg" style="width:500px;    max-width: 500px;" alt="xt" class="img-fluid">
                 </div>
-                <div class="col-md-3 col-sm-12 w3_ms4">
+            </div>
+            <div class="col-md-3 col-sm-12 w3_ms4">
 
-                    <h4 class="mb-lg-4 mb-md-3 mb-sm-2 mb-2">Tầm nhìn</h4>
-                    <p>Trở thành niềm tin và biểu tượng của xây dựng Việt Nam</p>
-                    <p>Trở thành một doanh nghiệp đáng tin cậy trong việc xây dựng và sửa chữa</p>
-                    <p>Với thông điệp "An toàn là trên hết" sẽ mang đến cho bạn những công trình chất lượng và an toàn nhất</p>
-                </div>
+                <h4 class="mb-lg-4 mb-md-3 mb-sm-2 mb-2">Tầm nhìn</h4>
+                <p>Trở thành niềm tin và biểu tượng của xây dựng Việt Nam</p>
+                <p>Trở thành một doanh nghiệp đáng tin cậy trong việc xây dựng và sửa chữa</p>
+                <p>Với thông điệp "An toàn là trên hết" sẽ mang đến cho bạn những công trình chất lượng và an toàn nhất</p>
+            </div>
         </div>
     </div>
 </section>
@@ -212,15 +216,16 @@
                     </div>
                 </div>
             </div>
-            
-            <partial name="Feedback"/>
+
+            <partial name="Feedback" />
         </div>
     </div>
 </section>
+@Html.Partial("~/Views/Shared/_FooterPartial.cshtml", systemconf);
 <!-- /Conatct -->
 @section Scripts
 {
-   
+
     <script>
         // You can also use "$(window).load(function() {"
         $(function () {

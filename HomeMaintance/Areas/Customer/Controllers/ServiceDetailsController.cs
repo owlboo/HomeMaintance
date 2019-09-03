@@ -17,6 +17,7 @@ namespace HomeMaintance.Areas.Customer.Controllers
         public ServiceDetailsViewModel ServiceDetailVM { get; set; }
         public ServiceDetailsController(IUnitOfWork unitOfWork)
         {
+            ViewData["DbContext"] = _unitOfWork;
             _unitOfWork = unitOfWork;
             ServiceDetailVM = new ServiceDetailsViewModel();
         }

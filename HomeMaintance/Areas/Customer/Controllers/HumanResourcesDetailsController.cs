@@ -19,6 +19,7 @@ namespace HomeMaintance.Areas.Customer.Controllers
         }
         public IActionResult Index(int? id)
         {
+            ViewData["DbContext"] = _unitOfWork;
             if (id == null) return NotFound();
             var human = _unitOfWork.Repository<HumanResources>().GetById(id);
             if (human == null) return NotFound("Không tìm thấy");

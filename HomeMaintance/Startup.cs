@@ -13,6 +13,7 @@ using HomeMaintance.Data;
 using HomeMaintance.Reposity;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using ReflectionIT.Mvc.Paging;
 
 namespace HomeMaintance
 {
@@ -44,6 +45,10 @@ namespace HomeMaintance
                 .AddDefaultTokenProviders();
 
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
+            services.AddPaging(option =>
+            {
+                option.ViewName = "Bootstrap4";
+            });
             services.AddScoped<IUnitOfWork, UnitOfWork>();
             services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
         }

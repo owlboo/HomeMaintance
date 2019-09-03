@@ -46,7 +46,6 @@ D:\Study\Visual Project\ASP.NET\HomeMaintance\HomeMaintance\bin\Debug\netcoreapp
 D:\Study\Visual Project\ASP.NET\HomeMaintance\HomeMaintance\obj\Debug\netcoreapp2.1\HomeMaintance.csproj.CoreCompileInputs.cache
 D:\Study\Visual Project\ASP.NET\HomeMaintance\HomeMaintance\obj\Debug\netcoreapp2.1\HomeMaintance.RazorAssemblyInfo.cache
 D:\Study\Visual Project\ASP.NET\HomeMaintance\HomeMaintance\obj\Debug\netcoreapp2.1\HomeMaintance.RazorAssemblyInfo.cs
-D:\Study\Visual Project\ASP.NET\HomeMaintance\HomeMaintance\obj\Debug\netcoreapp2.1\UserSecretsAssemblyInfo.cs
 D:\Study\Visual Project\ASP.NET\HomeMaintance\HomeMaintance\obj\Debug\netcoreapp2.1\HomeMaintance.AssemblyInfoInputs.cache
 D:\Study\Visual Project\ASP.NET\HomeMaintance\HomeMaintance\obj\Debug\netcoreapp2.1\HomeMaintance.AssemblyInfo.cs
 D:\Study\Visual Project\ASP.NET\HomeMaintance\HomeMaintance\obj\Debug\netcoreapp2.1\HomeMaintance.TagHelpers.input.cache
@@ -435,3 +434,6 @@ C:\Users\MR-BOO\Documents\GitHub\HomeMaintance\HomeMaintance\obj\Debug\netcoreap
 C:\Users\MR-BOO\Documents\GitHub\HomeMaintance\HomeMaintance\obj\Debug\netcoreapp2.1\Razor\Areas\Customer\Views\TypicalConstructionCustomer\Index.g.cshtml.cs
 C:\Users\MR-BOO\Documents\GitHub\HomeMaintance\HomeMaintance\obj\Debug\netcoreapp2.1\Razor\Areas\Admin\Views\SystemConfigs\Index.g.cshtml.cs
 C:\Users\MR-BOO\Documents\GitHub\HomeMaintance\HomeMaintance\obj\Debug\netcoreapp2.1\Razor\Views\Shared\_FooterPartial.g.cshtml.cs
+D:\Study\Visual Project\ASP.NET\HomeMaintance\HomeMaintance\obj\Debug\netcoreapp2.1\Razor\Areas\Admin\Views\SystemConfigs\Index.g.cshtml.cs
+D:\Study\Visual Project\ASP.NET\HomeMaintance\HomeMaintance\obj\Debug\netcoreapp2.1\Razor\Views\Shared\_FooterPartial.g.cshtml.cs
+D:\Study\Visual Project\ASP.NET\HomeMaintance\HomeMaintance\obj\Debug\netcoreapp2.1\UserSecretsAssemblyInfo.cs

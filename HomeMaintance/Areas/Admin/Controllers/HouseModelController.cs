@@ -10,6 +10,7 @@ using HomeMaintance.Ultilities;
 using Microsoft.AspNetCore.Hosting.Internal;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using ReflectionIT.Mvc.Paging;
 
 namespace HomeMaintance.Areas.Admin.Controllers
 {
@@ -30,10 +31,13 @@ namespace HomeMaintance.Areas.Admin.Controllers
             };
             _hostingEnvironment = hostingEnvironment;
         }
-        public IActionResult Index()
+        public IActionResult Index(int page = 1)
         {
-            var houseModels = _unitOfWork.Repository<HouseModels>().GetAllInclude(c => c.HouseModelCategory).ToList();
-            return View(houseModels);
+            var houseModels = _unitOfWork.Repository<HouseModels>().GetAllInclude(c => c.HouseModelCategory)
+                .OrderByDescending(h => h.CreatedDate).AsEnumerable();
+            var model = PagingList.Create(houseModels, 5, page);
+
+            return View(model);
         }
         public IActionResult Create()
         {
@@ -68,8 +72,8 @@ namespace HomeMaintance.Areas.Admin.Controllers
                     else
                     {
                         name += "house-models-" + i;
-                    }                   
-                    using (var filestream = new FileStream(Path.Combine(uploads, name+extension), FileMode.Create))
+                    }
+                    using (var filestream = new FileStream(Path.Combine(uploads, name + extension), FileMode.Create))
                     {
                         files[i].CopyTo(filestream);
                     }
@@ -95,7 +99,7 @@ namespace HomeMaintance.Areas.Admin.Controllers
                 return NotFound();
             }
 
-            HouseModelVM.HouseModel = _unitOfWork.Repository<HouseModels>().GetSingleInclude(c=>c.Id==id);
+            HouseModelVM.HouseModel = _unitOfWork.Repository<HouseModels>().GetSingleInclude(c => c.Id == id);
             HouseModelVM.Images = _unitOfWork.Repository<HouseModelImages>().FindAll(c => c.HouseModelId == id).ToList();
             return View(HouseModelVM);
         }
@@ -124,7 +128,7 @@ namespace HomeMaintance.Areas.Admin.Controllers
                     var extension = Path.GetExtension(item.FileName);
                     Random rand = new Random();
                     var name = "house-models-" + rand.Next(10, 99);
-                    
+
                     using (var filestream = new FileStream(Path.Combine(uploads, name + extension), FileMode.Create))
                     {
                         item.CopyTo(filestream);
@@ -134,7 +138,7 @@ namespace HomeMaintance.Areas.Admin.Controllers
                         HouseModelId = HouseModelVM.HouseModel.Id,
                         ImageUrl = @"\" + SD.HouseModelFolderImages + @"\" + name + extension
                     };
-                     _unitOfWork.Repository<HouseModelImages>().Insert(modelImages);
+                    _unitOfWork.Repository<HouseModelImages>().Insert(modelImages);
                     await _unitOfWork.Commit();
                 }
             }
@@ -152,23 +156,23 @@ namespace HomeMaintance.Areas.Admin.Controllers
         [HttpPost]
         public async Task<IActionResult> DeleteImage(int? id)
         {
-            if(id == null)
+            if (id == null)
             {
                 return NotFound();
             }
             var imageFromDb = await _unitOfWork.Repository<HouseModelImages>().FindAsync(c => c.Id == id);
-            if(imageFromDb == null)
+            if (imageFromDb == null)
             {
                 return NotFound();
             }
             _unitOfWork.Repository<HouseModelImages>().Delete(imageFromDb);
             await _unitOfWork.Commit();
-            return RedirectToAction("Edit",new { id = imageFromDb.HouseModelId });
+            return RedirectToAction("Edit", new { id = imageFromDb.HouseModelId });
         }
         [HttpPost]
         public async Task<IActionResult> ChangeThumbnail(int? id)
         {
-            if(id == null)
+            if (id == null)
             {
                 return NotFound();
             }
@@ -176,20 +180,21 @@ namespace HomeMaintance.Areas.Admin.Controllers
             string webRootPath = _hostingEnvironment.WebRootPath;
             var files = HttpContext.Request.Form.Files;
             Random rand = new Random();
-            if(files.Count!=0 && files[0] != null)
+            if (files.Count != 0 && files[0] != null)
             {
                 var uploads = Path.Combine(webRootPath, SD.HouseModelFolderImages);
                 var extension = Path.GetExtension(files[0].FileName);
                 var extension_old = Path.GetExtension(houseModelFromDb.ImageThumbnail);
                 var name = "house-models-thumnail";
-                if (System.IO.File.Exists(Path.Combine(uploads, name + extension_old))){
+                if (System.IO.File.Exists(Path.Combine(uploads, name + extension_old)))
+                {
                     System.IO.File.Delete(Path.Combine(uploads, name + extension));
                 }
-                using(var filestream = new FileStream(Path.Combine(uploads, name+ rand.Next(10, 99) + extension), FileMode.Create))
+                using (var filestream = new FileStream(Path.Combine(uploads, name + rand.Next(10, 99) + extension), FileMode.Create))
                 {
                     files[0].CopyTo(filestream);
                 }
-                houseModelFromDb.ImageThumbnail = @"\" + SD.HouseModelFolderImages + @"\" + name+rand.Next(10,99) + extension;
+                houseModelFromDb.ImageThumbnail = @"\" + SD.HouseModelFolderImages + @"\" + name + rand.Next(10, 99) + extension;
                 await _unitOfWork.Commit();
                 return RedirectToAction("Edit", new { id = houseModelFromDb.Id });
             }

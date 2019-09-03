@@ -1,4 +1,4 @@
-﻿@model List<HomeMaintance.Models.Appointments>
+﻿@model ReflectionIT.Mvc.Paging.PagingList<HomeMaintance.Models.Appointments>
 @{
     ViewData["Title"] = "Index";
     Layout = "~/Views/Admin/_LayoutAdmin.cshtml";
@@ -102,7 +102,9 @@
                         }
                 </table>
             </div>
-
+            <nav aria-label="HouseModel Paging" class="float-right clearfix">
+                <vc:pager paging-list="@Model"></vc:pager>
+            </nav>
         </div>
     </section>
 @section Scripts{

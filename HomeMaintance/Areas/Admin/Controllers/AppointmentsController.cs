@@ -7,6 +7,7 @@ using HomeMaintance.Models.ViewModels;
 using HomeMaintance.Reposity;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using ReflectionIT.Mvc.Paging;
 
 namespace HomeMaintance.Areas.Admin.Controllers
 {
@@ -24,7 +25,7 @@ namespace HomeMaintance.Areas.Admin.Controllers
                 SalePerson = _unitOfWork.Repository<Users>().GetAll()
             };
         }
-        public IActionResult Index(bool filter)
+        public IActionResult Index(bool filter,int page=1)
         {
             
             var lstAppointments = new List<Appointments>();
@@ -37,7 +38,9 @@ namespace HomeMaintance.Areas.Admin.Controllers
                 lstAppointments = _unitOfWork.Repository<Appointments>().GetAllInclude(c => c.SalePerson).Where(c=>c.isConfirm==false).OrderByDescending(c => c.CreatedDate).ToList();
 
             }
-            return View(lstAppointments);
+
+            var model = PagingList.Create(lstAppointments, 5, page);
+            return View(model);
         }
         public IActionResult Edit(int? id)
         {

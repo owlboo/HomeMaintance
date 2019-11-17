@@ -2,6 +2,7 @@
 @using HomeMaintance.Reposity
 @using HomeMaintance.Models
 @model HomeMaintance.Models.ViewModels.ServiceDetailsViewModel
+@using HomeMaintance.Models.ViewModels
 @{
     ViewData["Title"] = "Index";
     Layout = "~/Views/Shared/_Layout.cshtml";
@@ -24,7 +25,7 @@
 </style>
 
 <div class="row">
-    <div class="col-lg-1 float-right">
+    <div class="col-lg-2 float-right">
         <br />
         <br />
         <br />
@@ -51,12 +52,18 @@
                 var _unitOfWork = (IUnitOfWork)ViewData["DbContext"];
                 var lstService = _unitOfWork.Repository<Services>().FindAll(s => s.CategoryId == Model.Services.CategoryId).ToList();
                 var systemconf = _unitOfWork.Repository<SystemConfig>().GetAll().FirstOrDefault();
+                FooterViewModel footerView = new FooterViewModel
+                {
+                    SystemConfigs = _unitOfWork.Repository<SystemConfig>().GetAll().FirstOrDefault(),
+                    Services = _unitOfWork.Repository<Services>().GetAll().Take(6).ToList()
+                };
+                //FooterViewModel ft = ViewBag.Footer;
             }
-            @Html.Partial("~/Views/Shared/_RelatedServices.cshtml", lstService);
+            @Html.Partial("~/Views/Shared/_RelatedServices.cshtml", lstService)
         </div>
     </div>
 
-    <div class="float-right col-3">
+    <div class="float-right col-lg-2">
         <div class="navbar-right" id="section-view">
             <div>
 
@@ -72,7 +79,7 @@
                 </div>
 
                 <br />
-                <div>
+                @*<div>
                     <h4><b>CÁC CÔNG TRÌNH ĐÃ THỰC HIỆN</b></h4>
                     <hr style="border-top: 1.5px solid;" />
                     <ul class="ml-5">
@@ -81,15 +88,15 @@
                             <li>@item.ServiceName</li>
                         }
                     </ul>
-                </div>
-                <div>
+                </div>*@
+                @*<div>
                     <h4 class="text-dark"><b>CÁC MẪU NHÀ ĐẸP</b></h4>
                     <hr style="border-top: 1.5px solid;" />
                     <div class="w3_banner_info">
                         <div class="slider">
                             <div class="callbacks_container">
                                 <div id="demo" class="carousel slide" data-ride="carousel">
-                                    <!-- Indicators -->
+
                                     <ul class="carousel-indicators">
                                         @for (int i = 0; i < @Model.HouseModels.Count; i++)
                                         {
@@ -103,7 +110,7 @@
                                             }
                                         }
                                     </ul>
-                                    <!-- The slideshow -->
+
                                     <div class="carousel-inner">
                                         @for (int i = 0; i < @Model.HouseModels.Count; i++)
                                         {
@@ -125,7 +132,7 @@
                                     </div>
 
 
-                                    <!-- Left and right controls -->
+
                                     <a class="carousel-control-prev" href="#demo" data-slide="prev">
                                         <span class="carousel-control-prev-icon"></span>
                                     </a>
@@ -138,7 +145,7 @@
 
                         </div>
                     </div>
-                </div>
+                </div>*@
 
             </div>
         </div>
@@ -181,7 +188,7 @@
     <section class="contact py-lg-5 py-md-4 py-md-3 py-2">
         <div class="container py-lg-5 py-md-4 py-md-3 py-2">
             <div class="w3_mg">
-                <h4><b>DOANH NGHIỆP TƯ NHÂN NAM VIỆT</b></h4>
+                <h4><b>XÂY DỰNG NAM VIỆT</b></h4>
                 <p class=" my-lg-4 my-md-3 my-sm-2 my-2">Hãy để lại thông tin hoặc liên hệ với chúng tôi để nhận được những sự tư vấn tận tình nhất để giúp bạn có thể lựa chọn dịch vụ phù hợp cho chính mình</p>
                 <!-- Button trigger modal -->
                 <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
@@ -195,7 +202,7 @@
                     <div class="modal-dialog" role="document">
                         <div class="modal-content">
                             <div class="modal-header">
-                                <h5 class="modal-title" id="exampleModalLabel">DOANH NGHIỆP TƯ NHÂN NAM VIỆT</h5>
+                                <h5 class="modal-title" id="exampleModalLabel">XÂY DỰNG NAM VIỆT</h5>
                                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                     <span aria-hidden="true">&times;</span>
                                 </button>
@@ -242,10 +249,9 @@
         </div>
     </section>
 </div>
-</div>
 <div class="clearfix">
 </div>
-@Html.Partial("~/Views/Shared/_FooterPartial.cshtml", systemconf);
+@Html.Partial("~/Views/Shared/_FooterPartial.cshtml", footerView);
 
 
 

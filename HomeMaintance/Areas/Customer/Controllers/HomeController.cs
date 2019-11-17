@@ -17,10 +17,12 @@ namespace HomeMaintance.Areas.Customer.Controllers
         private readonly IUnitOfWork _unitOfWork;
         [BindProperty]
         public HomeViewModel HomeVM { get; set; }
+        public FooterViewModel FooterView { get; set; }
         public HomeController(IUnitOfWork unitOfWork)
         {
             _unitOfWork = unitOfWork;
             HomeVM = new HomeViewModel();
+                     
         }
         public IActionResult Index()
         {
@@ -28,7 +30,6 @@ namespace HomeMaintance.Areas.Customer.Controllers
             HomeVM.Services = _unitOfWork.Repository<Services>().GetAll();
             HomeVM.HumanResources = _unitOfWork.Repository<HumanResources>().GetAll();
             HomeVM.Feedback = new Feedback();
-
             return View(HomeVM);
         }
         [HttpPost,ActionName("Index")]
@@ -40,37 +41,42 @@ namespace HomeMaintance.Areas.Customer.Controllers
             return RedirectToAction("Index", "Home");
         }
 
-        public IActionResult Contact()
+        public async Task<IActionResult> Contact()
         {
+            ViewData["DbContext"] = _unitOfWork;
             return View();
         }
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Contact(Contact contact)
         {
+            
             if (!ModelState.IsValid) return View();
-
             await _unitOfWork.Repository<Contact>().InsertAsync(contact);
 
             return RedirectToAction("Index", "Home");
         }
 
-        public IActionResult About()
+        public async Task<IActionResult> About()
         {
+            ViewData["DbContext"] = _unitOfWork;
             return View();
         }
 
-        public IActionResult Service()
+        public async Task<IActionResult> Service()
         {
+            ViewData["DbContext"] = _unitOfWork;
             return View();
         }
 
-        public IActionResult Gallery()
+        public async Task<IActionResult> Gallery()
         {
+            ViewData["DbContext"] = _unitOfWork;
             return RedirectToAction("Index", "TypicalConstructionCustomer");
         }
-        public IActionResult Feedback()
+        public async Task<IActionResult> Feedback()
         {
+            ViewData["DbContext"] = _unitOfWork;
             return PartialView("Feedback");
         }
 

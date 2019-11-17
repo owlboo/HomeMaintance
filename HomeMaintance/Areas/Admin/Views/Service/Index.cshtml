@@ -3,6 +3,9 @@
     ViewData["Title"] = "Index";
     Layout = "~/Views/Admin/_LayoutAdmin.cshtml";
 }
+<br />
+<br />
+<script type="text/javascript" src="~/js/Services.js"></script>
 <section class="contact py-lg-5 py-md-4 py-md-3 py-2">
     <div class="container py-lg-5 py-md-4 py-md-3 py-2">
         <div class="w3_mg">
@@ -27,21 +30,29 @@
                 <tbody>
                     @foreach (var item in Model)
                     {
-                    <tr>
-                        <td>@Html.DisplayFor(m => item.ServiceName)</td>
-                        <td>@Html.DisplayFor(m => item.MetaTitle)</td>
-                        <td>@item.CreatedDate.ToString("d")</td>
-                        <td>@item.ModifiedDate.ToString("d")</td>
-                        <td>@Html.DisplayFor(m => item.IsDone)</td>
-                        <td>@Html.DisplayFor(m => item.Category.CategoryName)</td>
-                        <td>
-                            <partial model="@item.Id" name="~/Views/Admin/_TableButtonPartial.cshtml" />
-                        </td>
-                    </tr>
+                        <tr>
+                            <td>@Html.DisplayFor(m => item.ServiceName)</td>
+                            <td>@Html.DisplayFor(m => item.MetaTitle)</td>
+                            <td>@item.CreatedDate.ToString("d")</td>
+                            <td>@item.ModifiedDate.ToString("d")</td>
+                            <td>@Html.DisplayFor(m => item.IsDone)</td>
+                            <td>@Html.DisplayFor(m => item.Category.CategoryName)</td>
+                            @*<td>
+                                    <partial model="@item.Id" name="~/Views/Admin/_TableButtonPartial.cshtml" />
+                                </td>*@
+                            <td style="width:100%">
+                                <div class="btn-group" role="group" style="height:44px; ">
+                                    <a type="button" class="btn btn-success" asp-controller="Service" asp-action="Edit" asp-route-id="@item.Id"><i class="fas fa-edit"></i></a>
+                                    <a type="button" class="btn btn-danger" asp-controller="Service" asp-action="Delete" asp-route-id="@item.Id"><i class="fas fa-trash-alt"></i></a>
+                                </div>
+                            </td>
+                        </tr>
                     }
                 </tbody>
             </table>
         </div>
     </div>
 </section>
+
+   
 

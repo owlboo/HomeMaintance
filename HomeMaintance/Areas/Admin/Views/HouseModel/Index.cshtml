@@ -31,12 +31,16 @@
                     <tr>
                         <td style="width: 20%;">@Html.DisplayFor(m => item.HouseModelName)</td>
                         <td style="width: 20%;">@Html.DisplayFor(m => item.HouseModelCategory.HouseModelCategoryName)</td>
-                        <td><img src="@item.ImageThumbnail" width="50%;"/></td>
+                        <td><img src="@item.ImageThumbnail" width="50%;" /></td>
                         <td style="width: 20%;">@Html.DisplayFor(m => item.Description)</td>
                         <td style="width: 20%;">@Html.DisplayFor(m => item.CreatedDate)</td>
                         <td style="width: 20%;">@Html.DisplayFor(m => item.ModifiedDate)</td>
-                        <td >
-                            <partial model="@item.Id" name="_TableButtonPartial"/>
+
+                        <td style="width:100%">
+                            <div class="btn-group" role="group" style="height:44px; ">
+                                <a type="button" class="btn btn-success" asp-controller="HouseModel" asp-action="Edit" asp-route-id="@item.Id"><i class="fas fa-edit"></i></a>
+                                <a type="button" class="btn btn-danger" asp-controller="HouseModel" asp-action="Delete" asp-route-id="@item.Id" onclick="$('.top-alert').notify('Delete success', {position: 'top center'});"><i class="fas fa-trash-alt"></i></a>
+                            </div>
                         </td>
                     </tr>
                 }

@@ -1,11 +1,19 @@
 ﻿@model HomeMaintance.Models.ViewModels.HouseModelDetails
 @using HomeMaintance.Reposity
 @using HomeMaintance.Models
+@using HomeMaintance.Models.ViewModels
 @{
     ViewData["Title"] = "ViewDetails";
     Layout = "~/Views/Shared/_Layout.cshtml";
     IUnitOfWork unitOfWork = (IUnitOfWork)ViewData["DbContext"];
-    var systemconf = unitOfWork.Repository<SystemConfig>().GetAll().FirstOrDefault();
+    //var systemconf = unitOfWork.Repository<SystemConfig>().GetAll().FirstOrDefault();
+    //FooterViewModel ft = ViewBag.Footer;
+
+    FooterViewModel footerView = new FooterViewModel
+    {
+        SystemConfigs = unitOfWork.Repository<SystemConfig>().GetAll().FirstOrDefault(),
+        Services = unitOfWork.Repository<Services>().GetAll().Take(6).ToList()
+    };
 }
 
 <section class="contact py-lg-5 py-md-4 py-md-3 py-2">
@@ -35,5 +43,5 @@
 <br />
 <br />
 <br />
-@Html.Partial("~/Views/Shared/_FooterPartial.cshtml", systemconf);
+@Html.Partial("~/Views/Shared/_FooterPartial.cshtml", footerView)
 

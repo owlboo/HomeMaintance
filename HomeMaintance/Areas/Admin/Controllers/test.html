@@ -1,0 +1,123 @@
+@{
+    ViewBag.Title = "Xác nhận tài khoản";
+    Layout = "~/Views/Shared/_FrontEnd_Home_Layout.cshtml";
+}
+@section header{
+    @*<link href="~/Content/FrontEnd/css/login-form.css" rel="stylesheet" />*@
+    <link href="@Url.Content("~/Content/FrontEnd/css/register-form.css")" rel="stylesheet" media="none" onload="if(media!='all')media='all'"/>
+    <link href="@Url.Content("~/Content/Themes/css/Login.css")" rel="stylesheet" media="none" onload="if(media!='all')media='all'"/>
+    <link href="@Url.Content("~/Content/Kendo/kendo.bootstrap.min.css?vs=25072017")" rel="stylesheet" media="none" onload="if(media!='all')media='all'"/>
+    <link href="@Url.Content("~/Content/Kendo/kendo.common.min.css?vs=25072017")" rel="stylesheet" media="none" onload="if(media!='all')media='all'"/>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js?vs=25072017"></script>
+    <style type="text/css">
+        .parsley-error-list
+        {
+            margin-left: 1px !important;
+        }
+        .k-dropdown-wrap .k-select {
+            top: 15px;
+            border: none;
+            right: -5px;
+        }
+        .k-textbox > input, .k-autocomplete .k-input, .k-picker-wrap .k-input, .k-numeric-wrap .k-input, .k-dropdown-wrap .k-input, .k-selectbox .k-input {
+            padding: .177em 5px;
+        }
+    </style>
+}
+<div style="padding-top: 90px; padding-bottom: 30px; background-image: url(/Content/Themes/images/bglogin.jpg);">
+    <div class="form" style="background-color: transparent;">
+        <div class="tab-content-login">
+            <div id="signup">
+                <h1 class="text-center" style="font-size: 23px !important; margin-bottom: 25px;">Kiểm tra tin nhắn và nhập mã code xác nhận <br />Hoàn tất đăng ký</h1>
+
+                @using (Html.BeginForm("ConfirmAccount", "Account", FormMethod.Post, new { enctype = "multipart/form-data", id = "SignIn" }))
+                {
+                    @Html.AntiForgeryToken()
+                    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                    @*<div class="field-wrap">
+                        <p class="intro">
+                            Số điện thoại @ViewBag.Phone
+                        </p>
+                    </div>*@
+
+                    <div class="field-wrap">
+                        @(Html.Kendo().ComboBox()
+                            .Name("TypeFieldName")
+                            .Filter("contains")
+                            .Placeholder("Chọn Lĩnh Vực")
+                            .AutoBind(true)
+                            .SelectedIndex(0)
+                            .DataValueField("id")
+                            .DataTextField("TypeFieldName")
+                            .DataSource(ds =>
+                            {
+                                ds.Read("TypeField", "Account");
+                            })
+                            .SelectedIndex(0)
+                            .Suggest(true)
+                            .HtmlAttributes(new { style = "width:100%; height: 40px;" })
+                        )
+                    </div>
+
+                    <div class="field-wrap">
+                        <input type="text" name="StoreName" placeholder="Tên/website doanh nghiệp" required />
+                    </div>
+
+                    <div class="field-wrap">
+                        <input type="text" name="codeConfirm" placeholder="Nhập mã xác nhận" required />
+                    </div>
+                    {
+                        if (ViewBag.Error != "")
+                        {
+                            <div class="field-wrap">
+                                <ul id="lb-error" class="parsley-error-list-signin">
+                                    <li class="required" style="display: list-item;">&nbsp; @ViewBag.Error</li>
+                                </ul>
+                            </div>
+                        }
+                        
+                    }
+                    
+                    <div class="field-wrap" id="replaycode">
+                        <input type="button" name="btn_confirmcode" value="Nhận lại mã" />
+                        @*<a href="#">Nhận lại mã</a>*@
+                    </div>
+
+                    <div class="field-wrap">
+                        <input type="submit" value="HOÀN TẤT ĐĂNG KÝ!" class="button button-block" name="action:ConfirmAccount" onclick="javascript: $('#focus-form').parsley('validate');" />
+                        <img class="img-ajax-loader-signin" id="ajax-loading" src="@Url.Content("~/Content/FrontEnd/AjaxLoader/ajax-loader(9).gif")" />
+                    </div>
+                    <div class="field-wrap">
+                        <p class="text-center bold">Liên lạc ngay nếu gặp sự cố: @ViewBag.HotLine</p>
+                    </div>
+
+                    <div class="field-wrap">
+                        <a href="#help-popup1"><i class="ion-help"></i></a>
+                        <div id="help-popup1" class="help-window">
+                            <div>
+                                <a href="#close"><i class="ion-close-circled"></i></a>
+                                <p class="intro black"><span>Cần hỗ trợ?</span> Drop us a line with your issue and we'll get back at you with a solution.</p>
+                                <div class="need-help">
+                                    <a href="#" class="dark">Liên hệ ngay</a>
+                                </div>
+                            </div>
+                        </div>
+                        <a class="login return-button-extra" href="@Url.Action("SignUp", new {email = @ViewBag.Email})">Quay lại</a>
+                    </div>
+                    <input type="hidden" value="@ViewBag.Email" name="Emails" />
+                    <input type="hidden" value="@ViewBag.Phone" name="phone" />
+                    <input type="hidden" value="@ViewBag.Voice" name="voice" />
+                }
+            </div>
+        </div><!-- tab-content -->
+
+    </div>
+</div>
+@section footer{
+    <script type="text/javascript" src="@Url.Content("~/Scripts/jquery-2.1.4.min.js?vs=25072017")"></script>
+    <script type="text/javascript" src="@Url.Content("~/Scripts/Parsley/Parseley.js")"></script>
+    <script type="text/javascript" src="@Url.Content("~/Scripts/Parsley/messages.vn.js")" ></script>
+    <script type="text/javascript" src="@Url.Content("~/Scripts/Kendo/kendo.all.min.js?vs=25072017")"></script>
+    <script type="text/javascript" src="@Url.Content("~/Scripts/Kendo/kendo.aspnetmvc.min.js?vs=25072017")"></script>
+    <script type="text/javascript" src="@Url.Content("~/Scripts/Kendo/jquery-migrate-1.2.1.min.js?vs=25072017")"></script>
+}

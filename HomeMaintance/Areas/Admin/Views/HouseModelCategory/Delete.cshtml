@@ -1,0 +1,89 @@
+﻿@model HouseModelCategory
+@{
+    ViewData["Title"] = "Edit";
+    Layout = "~/Views/Admin/_LayoutAdmin.cshtml";
+}
+
+<section class="contact py-lg-5 py-md-4 py-md-3 py-2">
+    <div class="container py-lg-5 py-md-4 py-md-3 py-2">
+        <div class="w3_mg">
+            <h3>Sửa danh mục nhà cửa</h3>
+
+        </div>
+        <form method="post" asp-action="Delete" style="font-size: 1.2em">
+            <div class="p-4 border rounded">
+                <div class="text-danger" asp-validation-summary="ModelOnly"></div>
+
+                <div class="form-group row">
+                    <div class="col-2">
+                        <label>Tên loại mẫu nhà</label>
+                    </div>
+                    <div class="col-10">
+                        <input asp-for="HouseModelCategoryName" class="form-control" />
+                    </div>
+                    <span asp-validation-for="HouseModelCategoryName" class="table-danger"></span>
+                </div>
+                <div class="form-group row mt-2">
+                    <div class="col-2">
+                        <label>Ngày tạo</label>
+                    </div>
+                    <div class="col-10">
+                        <input asp-for="CreatedDate" class="form-control" readonly />
+                    </div>
+                </div>
+                <div class="form-group row mt-2">
+                    <div class="col-2">
+                        <label>Ngày chỉnh sửa</label>
+                    </div>
+                    <div class="col-10">
+                        <input asp-for="ModifiedDate" class="form-control" type="datetime" value="@DateTime.Now" readonly />
+                    </div>
+                </div>
+                @*<div class="form-group row mt-2">
+                        <div class="col-2">
+                            <label asp-for="CreatedDate"></label>
+                        </div>
+                        <div class="col-10">
+                            <input asp-for="CreatedDate" class="form-control" id="created" type="datetime" readonly value="@Model.CreatedDate.ToString("G")" />
+                        </div>
+                        <span asp-validation-for="CreatedDate" class="table-danger"></span>
+                    </div>
+                    <div class="form-group row mt-2">
+                        <div class="col-2">
+                            <label asp-for="ModifiedDate"></label>
+                        </div>
+                        <div class="col-10">
+                            <input asp-for="ModifiedDate" class="form-control" id="modified" readonly type="datetime" value="@DateTime.Now" />
+                        </div>
+                        <span asp-validation-for="ModifiedDate" class="table-danger"></span>
+                    </div>*@
+                @*<div class="form-group row mt-2">
+                        <div class="col-2">
+                            <label asp-for="MetaKeyword"></label>
+                        </div>
+                        <div class="col-10">
+                            <input asp-for="MetaKeyword" class="form-control" />
+                        </div>
+                        <span asp-validation-for="MetaKeyword" class="table-danger"></span>
+                    </div>
+
+                    <div class="form-group row mt-2">
+                        <div class="col-2">
+                            <label asp-for="MetaDescription"></label>
+                        </div>
+                        <div class="col-10">
+                            <textarea id="summernote" asp-for="MetaDescription" class="form-control"></textarea>
+                        </div>
+                        <span asp-validation-for="MetaDescription" class="table-danger"></span>
+                    </div>*@
+                <div class="form-group offset-3">
+                    <input type="submit" class="btn btn-danger" value="Xóa" />
+                    <a asp-action="Index" class="btn btn-success">Back To List</a>
+                </div>
+            </div>
+        </form>
+
+    </div>
+</section>
+
+

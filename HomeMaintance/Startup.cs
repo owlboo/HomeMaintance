@@ -14,6 +14,9 @@ using HomeMaintance.Reposity;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using ReflectionIT.Mvc.Paging;
+using System.Net;
+using AspNetCoreRateLimit;
+using Microsoft.Extensions.Logging;
 
 namespace HomeMaintance
 {
@@ -36,6 +39,11 @@ namespace HomeMaintance
                 options.MinimumSameSitePolicy = SameSiteMode.None;
             });
 
+            services.Configure<ForwardedHeadersOptions>(options =>
+            {
+                options.KnownProxies.Add(IPAddress.Parse("0.0.0.0"));
+            });
+
             services.AddDbContext<ApplicationDbContext>(options =>
                 options.UseSqlServer(
                     Configuration.GetConnectionString("DefaultConnection")));
@@ -44,7 +52,7 @@ namespace HomeMaintance
                 .AddDefaultUI()
                 .AddDefaultTokenProviders();
 
-            services.AddScoped<IDbInittializer, DbInittializer>();
+            //services.AddScoped<IDbInittializer, DbInittializer>();
 
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
             services.AddPaging(option =>
@@ -53,10 +61,18 @@ namespace HomeMaintance
             });
             services.AddScoped<IUnitOfWork, UnitOfWork>();
             services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
+
+            services.AddMemoryCache();
+            services.Configure<IpRateLimitOptions>(Configuration.GetSection("IpRateLimiting"));
+            services.Configure<IpRateLimitPolicies>(Configuration.GetSection("IpRateLimitPolicies"));
+            services.AddSingleton<IIpPolicyStore, MemoryCacheIpPolicyStore>();
+            services.AddSingleton<IRateLimitCounterStore, MemoryCacheRateLimitCounterStore>();
+            services.AddSingleton<IIpPolicyStore, DistributedCacheIpPolicyStore>();
+            services.AddSingleton<IRateLimitCounterStore, DistributedCacheRateLimitCounterStore>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
-        public void Configure(IApplicationBuilder app, IHostingEnvironment env, IDbInittializer dbInittializer)
+        public void Configure(IApplicationBuilder app, IHostingEnvironment env, ILoggerFactory loggerFactory)
         {
             if (env.IsDevelopment())
             {
@@ -73,9 +89,14 @@ namespace HomeMaintance
             app.UseStaticFiles();
             app.UseCookiePolicy();
 
-            dbInittializer.Initialize();
+            //dbInittializer.Initialize();
 
             app.UseAuthentication();
+
+            loggerFactory.AddConsole(Configuration.GetSection("Logging"));
+            loggerFactory.AddDebug();
+
+            app.UseIpRateLimiting();
 
 
             app.UseMvc(routes =>

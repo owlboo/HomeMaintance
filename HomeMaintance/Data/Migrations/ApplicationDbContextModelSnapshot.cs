@@ -100,6 +100,23 @@ namespace HomeMaintance.Data.Migrations
                     b.ToTable("Contacts");
                 });
 
+            modelBuilder.Entity("HomeMaintance.Models.ErrorLog", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<DateTime>("CreatedDate");
+
+                    b.Property<string>("Exception");
+
+                    b.Property<string>("Path");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("ErrorLogs");
+                });
+
             modelBuilder.Entity("HomeMaintance.Models.Feedback", b =>
                 {
                     b.Property<int>("Id")

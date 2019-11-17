@@ -80,6 +80,33 @@ namespace HomeMaintance.Areas.Admin.Controllers
             }
             return RedirectToAction(nameof(Index));
         }
+        
+        public async Task<IActionResult> Delete (int? Id)
+        {
+            if (Id == null)
+            {
+                return NotFound();
+            }
+            AppointmentsVM.Appointments = _unitOfWork.Repository<Appointments>().Find(c => c.Id == Id);
+            return View(AppointmentsVM);
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> Delete(int Id)
+        {
+
+            var appFromDb = await _unitOfWork.Repository<Appointments>().FindAsync(a => a.Id == Id);
+
+            if (appFromDb == null)
+            {
+                return NotFound();
+            }
+
+            await _unitOfWork.Repository<Appointments>().DeleteAsync(appFromDb);
+            await _unitOfWork.Commit();
+            return RedirectToAction(nameof(Index));
+        }
 
     }
 }

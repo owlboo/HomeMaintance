@@ -16,6 +16,7 @@ namespace HomeMaintance.Areas.Customer.Controllers
         private readonly IUnitOfWork _unitOfWork;
         [BindProperty]
         public HouseModelDetails HouseVM { get; set; }
+        public FooterViewModel FooterView { get; set; }
         public HouseModelCusController(IUnitOfWork unitOfWork)
         {
             _unitOfWork = unitOfWork;
@@ -26,11 +27,13 @@ namespace HomeMaintance.Areas.Customer.Controllers
         {
             var lstModelCategory = _unitOfWork.Repository<HouseModelCategory>().GetAll().ToList();
             ViewData["DbContext"] = _unitOfWork;
+
             return View(lstModelCategory);
         }
         public IActionResult GetHouseModel(int? id)
         {
-            if(id == null)
+            ViewData["DbContext"] = _unitOfWork;
+            if (id == null)
             {
                 return NotFound();
             }
@@ -40,7 +43,8 @@ namespace HomeMaintance.Areas.Customer.Controllers
         }
         public IActionResult ViewDetails(int? id)
         {
-            if(id == null)
+
+            if (id == null)
             {
                 return NotFound();
             }

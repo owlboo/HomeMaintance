@@ -58,7 +58,7 @@
 
                         @*<td>@Html.DisplayFor(m => item.AppointmentDate, new { @id = "date", @value = "", @type = "text" })</td>*@
                         listTimeMark[1] = listTimeMark[1].Substring(0, 5);
-                        
+
                         <td>@listTimeMark[1] @listTimeMark[2]</td>
                     }
                     else
@@ -95,8 +95,11 @@
                         <td>Chưa gặp</td>
                     }
 
-                    <td>
-                        <partial model="@item.Id" name="~/Views/Admin/_TableButtonPartial.cshtml" />
+                    <td style="width:100%">
+                        <div class="btn-group" role="group" style="height:44px; ">
+                            <a type="button" class="btn btn-success" asp-controller="Appointment" asp-action="Edit" asp-route-id="@item.Id"><i class="fas fa-edit"></i></a>
+                            <a type="button" class="btn btn-danger" asp-controller="Appointment" asp-action="Delete" asp-route-id="@item.Id" onclick="$('.top-alert').notify('Delete success', {position: 'top center'});"><i class="fas fa-trash-alt"></i></a>
+                        </div>
                     </td>
                 </tr>
                         }

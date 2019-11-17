@@ -7,6 +7,7 @@ using HomeMaintance.Data;
 using HomeMaintance.Models;
 using HomeMaintance.Models.ViewModels;
 using HomeMaintance.Reposity;
+using HomeMaintance.Ultilities;
 using Microsoft.AspNetCore.Hosting.Internal;
 using Microsoft.AspNetCore.Mvc;
 
@@ -54,7 +55,7 @@ namespace HomeMaintance.Areas.Admin
             var serviceFromDb = await _unitOfWork.Repository<Services>().GetByIdAsync(ServicesVM.Services.Id);
             if (files.Count != 0)
             {
-                var uploads = Path.Combine(webRootPath, @"images\ServiceImages");
+                var uploads = Path.Combine(webRootPath, @"images/ServiceImages");
                 var extension = Path.GetExtension(files[0].FileName);
                 var fileName = Path.Combine(uploads, serviceFromDb.ServiceName + extension);
                 using (var fileStream = new FileStream(Path.Combine(uploads, fileName), FileMode.Create))
@@ -95,7 +96,7 @@ namespace HomeMaintance.Areas.Admin
             var serviceFromDb = await _unitOfWork.Repository<Services>().GetByIdAsync(ServicesVM.Services.Id);
             if (files.Count != 0)
             {
-                var uploads = Path.Combine(webRootPath, @"images\ServiceImages");
+                var uploads = Path.Combine(webRootPath, @"images/ServiceImages");
                 var extension = Path.GetExtension(files[0].FileName);
                 var fileName = Path.Combine(uploads, serviceFromDb.ServiceName + extension);
 
@@ -131,7 +132,7 @@ namespace HomeMaintance.Areas.Admin
             return RedirectToAction("Index");
         }
 
-        public async Task<IActionResult> Details(int? id)
+        public IActionResult Details(int? id)
         {
             if (id == null) return NotFound();
             ServicesVM.Services = _unitOfWork.Repository<Services>().GetAllInclude(s => s.Category).SingleOrDefault(s => s.Id == id);
@@ -142,14 +143,50 @@ namespace HomeMaintance.Areas.Admin
             ServicesVM.Categories = _unitOfWork.Repository<Category>().GetAll();
             return View(ServicesVM);
         }
-        
+        public IActionResult Delete(int? id)
+        {
+            try
+            {
+                if (id == null) return NotFound();
+                ServicesVM.Services = _unitOfWork.Repository<Services>().GetAllInclude(s => s.Category).SingleOrDefault(s => s.Id == id);
+                if (ServicesVM.Services == null)
+                {
+                    return NotFound();
+                }
+                ServicesVM.Categories = _unitOfWork.Repository<Category>().GetAll();
+                return View(ServicesVM);
+            }
+            catch (Exception e)
+            {
+                string path = "/Admin/Sevices/Delete";
+                LogHelpers log = new LogHelpers();
+                log.WriteLogToDb(path, e.ToString());
+                throw;
+            }
+            
+        }
+        [HttpPost]
         public async Task<IActionResult> Delete(int id)
         {
-            var serviceFromDb = await _unitOfWork.Repository<Services>().GetByIdAsync(id);
-            if (serviceFromDb == null) return NotFound();
-            await _unitOfWork.Repository<Services>().DeleteAsync(serviceFromDb);
+            try
+            {
+                var serviceFromDb = await _unitOfWork.Repository<Services>().FindAsync(x => x.Id == id);
+                if(serviceFromDb == null)
+                {
+                    return NotFound();
+                }
+                await _unitOfWork.Repository<Services>().DeleteAsync(serviceFromDb);
+                await _unitOfWork.Commit();
+                return RedirectToAction(nameof(Index));
+            }
+            catch (Exception e)
+            {
+                string path = "/Admin/Sevices/Delete";
+                LogHelpers log = new LogHelpers();
+                log.WriteLogToDb(path, e.ToString());
+                throw;
+            }
 
-            return RedirectToAction("Index");
         }
     }
 }

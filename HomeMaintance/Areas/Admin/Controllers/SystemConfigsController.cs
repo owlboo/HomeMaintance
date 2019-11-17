@@ -62,38 +62,50 @@ namespace HomeMaintance.Areas.Admin.Controllers
             return View(system);
         }
         [HttpPost]
+        [ValidateAntiForgeryToken]
+
         public async Task<IActionResult> UpdateConfig(SystemConfig model)
         {
-
-            if (!ModelState.IsValid)
+            try
             {
-                return NotFound();
-            }
-
-            await _unitOfWork.Repository<SystemConfig>().UpdateAsync(model);
-            await _unitOfWork.Commit();
-
-
-            var webRootPath = _hostingEnvironment.WebRootPath;
-           
-            var files = HttpContext.Request.Form.Files;
-            Random rand = new Random();
-            string name = "logo"+rand.Next(10,99);
-            var systemFromDb = _unitOfWork.Repository<SystemConfig>().Find(c => c.Id == model.Id);
-            
-            if(files.Count > 0)
-            {
-                var upload = Path.Combine(webRootPath, SD.SystemLogoFolder);
-                var extension = Path.GetExtension(files[0].FileName);
-                using(var filestream = new FileStream(Path.Combine(upload, name + extension), FileMode.Create))
+                if (!ModelState.IsValid)
                 {
-                    files[0].CopyTo(filestream);
+                    return NotFound();
                 }
-                systemFromDb.CompanyLogo = @"\" + SD.SystemLogoFolder + @"\" + name  + extension;
-                await _unitOfWork.Commit();
-            }
 
-            return RedirectToAction(nameof(Index));
+                await _unitOfWork.Repository<SystemConfig>().UpdateAsync(model);
+                await _unitOfWork.Commit();
+
+
+                var webRootPath = _hostingEnvironment.WebRootPath;
+
+                var files = HttpContext.Request.Form.Files;
+                Random rand = new Random();
+                string name = "logo" + rand.Next(10, 99);
+                var systemFromDb = _unitOfWork.Repository<SystemConfig>().Find(c => c.Id == model.Id);
+
+                if (files.Count > 0)
+                {
+                    var upload = Path.Combine(webRootPath, SD.SystemLogoFolder);
+                    var extension = Path.GetExtension(files[0].FileName);
+                    using (var filestream = new FileStream(Path.Combine(upload, name + extension), FileMode.Create))
+                    {
+                        files[0].CopyTo(filestream);
+                    }
+                    systemFromDb.CompanyLogo = @"/" + SD.SystemLogoFolder + @"/" + name + extension;
+                    await _unitOfWork.Commit();
+                }
+
+                return RedirectToAction(nameof(Index));
+            }
+            catch (Exception e)
+            {
+                string path = "/Admin/SystemConfigs/UpdateConfig";
+                LogHelpers log = new LogHelpers();
+                log.WriteLogToDb(path, e.ToString());
+                throw;
+            }
+            
         }
     }
 }

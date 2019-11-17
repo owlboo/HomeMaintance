@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using HomeMaintance.Models;
 using HomeMaintance.Reposity;
+using HomeMaintance.Ultilities;
 using Microsoft.AspNetCore.Mvc;
 
 namespace HomeMaintance.Areas.Admin.Controllers
@@ -74,13 +75,34 @@ namespace HomeMaintance.Areas.Admin.Controllers
             return RedirectToAction("Index");
         }
 
+        public IActionResult Delete(int? id)
+        {
+            if (id == null) return NotFound();
+            var categoryFromDb =  _unitOfWork.Repository<Category>().GetByIdAsync(id);
+            if (categoryFromDb == null) return NotFound();
+            return View(categoryFromDb);
+        }
+
+        [ValidateAntiForgeryToken]
+        [HttpPost]
         public async Task<IActionResult> Delete(int id)
         {
-            var categoryFromDb = await _unitOfWork.Repository<Category>().GetByIdAsync(id);
-            if (categoryFromDb == null) return NotFound();
-            await _unitOfWork.Repository<Category>().DeleteAsync(categoryFromDb);
+            try
+            {
+                var categoryFromDb = await _unitOfWork.Repository<Category>().GetByIdAsync(id);
+                if (categoryFromDb == null) return NotFound();
+                await _unitOfWork.Repository<Category>().DeleteAsync(categoryFromDb);
 
-            return RedirectToAction("Index");
+                return RedirectToAction("Index");
+            }
+            catch (Exception e)
+            {
+                string path = "/Admin/Category/Delte";
+                LogHelpers log = new LogHelpers();
+                log.WriteLogToDb(path, e.ToString());
+                throw;
+            }
+            
         }
 
         public async Task<IActionResult> Details(int? id)

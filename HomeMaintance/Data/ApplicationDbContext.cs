@@ -27,5 +27,6 @@ namespace HomeMaintance.Data
         public DbSet<TypicalConstruction> TypicalConstructions { get; set; }
         public DbSet<Feedback> Feedbacks { get; set; }
         public DbSet<SystemConfig> SystemConfigs { get; set; }
+        public DbSet<ErrorLog> ErrorLogs { get; set; }
     }
 }

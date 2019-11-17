@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using HomeMaintance.Models;
+using HomeMaintance.Models.ViewModels;
 using HomeMaintance.Reposity;
 using Microsoft.AspNetCore.Mvc;
 
@@ -12,6 +13,7 @@ namespace HomeMaintance.Areas.Customer.Controllers
     public class HumanResourcesDetailsController : Controller
     {
         private readonly IUnitOfWork _unitOfWork;
+        public FooterViewModel FooterView { get; set; }
 
         public HumanResourcesDetailsController(IUnitOfWork unitOfWork)
         {

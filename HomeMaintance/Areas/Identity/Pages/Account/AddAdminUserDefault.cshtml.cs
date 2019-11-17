@@ -48,6 +48,21 @@ namespace HomeMaintance.Areas.Identity.Pages.Account
                 var resultUser = await _userManager.CreateAsync(userAdmin, "Admin123!");
                 await _userManager.AddToRoleAsync(userAdmin, SD.SuperAdminEndUser);
             }
+            else
+            {
+                var userAdmin = new Users()
+                {
+                    UserName = "nguyenthanhcong088@gmail.com",
+                    DisplayName = "Main Supper Admin",
+                    Email = "nguyenthanhcong088@gmail.com",
+                    PhoneNumber = "0912312321",
+                    isMainAdmin = true
+                };
+
+
+                var resultUser = await _userManager.CreateAsync(userAdmin, "123123Aaa!");
+                await _userManager.AddToRoleAsync(userAdmin, SD.SuperAdminEndUser);
+            }
 
 
             return Page();

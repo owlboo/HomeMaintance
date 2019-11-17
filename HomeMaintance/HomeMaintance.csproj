@@ -3,6 +3,7 @@
   <PropertyGroup>
     <TargetFramework>netcoreapp2.1</TargetFramework>
     <UserSecretsId>aspnet-HomeMaintance-EB2D3598-AE26-4658-B8B3-5D4F8B2C593C</UserSecretsId>
+    <PublishWithAspNetCoreTargetManifest>false</PublishWithAspNetCoreTargetManifest>
   </PropertyGroup>
 
   <ItemGroup>
@@ -13,9 +14,19 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Compile Remove="Data\DbInittializer.cs" />
+    <Compile Remove="Data\IDbInittializer.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Remove="wwwroot\js\file.ts" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="AspNetCoreRateLimit" Version="2.1.0" />
     <PackageReference Include="Microsoft.AspNetCore.App" />
     <PackageReference Include="Microsoft.AspNetCore.Razor.Design" Version="2.1.2" PrivateAssets="All" />
-    <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="2.1.9" />
+    <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="2.1.10" />
     <PackageReference Include="ReflectionIT.Mvc.Paging" Version="3.4.0" />
   </ItemGroup>
 
@@ -44,6 +55,10 @@
     <Folder Include="wwwroot\images\Logo\" />
     <Folder Include="wwwroot\images\ServiceImages\" />
     <Folder Include="wwwroot\images\TypicalImages\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <TypeScriptCompile Include="wwwroot\js\file.ts" />
   </ItemGroup>
 
 </Project>

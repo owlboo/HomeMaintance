@@ -15,11 +15,17 @@ namespace HomeMaintance.Areas.Customer.Controllers
         private readonly IUnitOfWork _unitOfWork;
         [BindProperty]
         public ServiceDetailsViewModel ServiceDetailVM { get; set; }
+        public FooterViewModel FooterView { get; set; }
         public ServiceDetailsController(IUnitOfWork unitOfWork)
         {
             ViewData["DbContext"] = _unitOfWork;
             _unitOfWork = unitOfWork;
             ServiceDetailVM = new ServiceDetailsViewModel();
+            //FooterView = new FooterViewModel
+            //{
+            //    SystemConfigs = _unitOfWork.Repository<SystemConfig>().GetAll().FirstOrDefault(),
+            //    Services = _unitOfWork.Repository<Services>().GetAll().ToList()
+            //};
         }
         public async Task<IActionResult> Index(int? id)
         {

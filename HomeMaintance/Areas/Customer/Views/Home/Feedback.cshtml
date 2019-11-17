@@ -1,4 +1,16 @@
-﻿<div class="modal fade" id="FeedbackModal" tabindex="-1" role="dialog" aria-labelledby="FeedbackModalLabel" aria-hidden="true">
+﻿@using HomeMaintance.Reposity
+@using HomeMaintance.Models
+@using HomeMaintance.Models.ViewModels
+@{ 
+    IUnitOfWork unitOfWork = (IUnitOfWork)ViewData["DbContext"];
+    var systemconf = unitOfWork.Repository<SystemConfig>().GetAll().FirstOrDefault();
+    FooterViewModel footerView = new FooterViewModel
+    {
+        SystemConfigs = unitOfWork.Repository<SystemConfig>().GetAll().FirstOrDefault(),
+        Services = unitOfWork.Repository<Services>().GetAll().Take(6).ToList()
+    };
+}
+<div class="modal fade" id="FeedbackModal" tabindex="-1" role="dialog" aria-labelledby="FeedbackModalLabel" aria-hidden="true">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-header">

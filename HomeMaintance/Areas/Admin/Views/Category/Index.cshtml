@@ -26,15 +26,21 @@
                 <tbody>
                     @foreach (var item in Model)
                     {
-                        <tr>
-                            <td>@Html.DisplayFor(m => item.CategoryName)</td>
-                            <td>@Html.DisplayFor(m => item.MetaTitle)</td>
-                            <td>@item.CreatedDate.ToString("d")</td>
-                            <td>@item.ModifiedDate.ToString("d")</td>
-                            <td>
-                                <partial model="@item.Id" name="_TableButtonPartial" />
-                            </td>
-                        </tr>
+                    <tr>
+                        <td>@Html.DisplayFor(m => item.CategoryName)</td>
+                        <td>@Html.DisplayFor(m => item.MetaTitle)</td>
+                        <td>@item.CreatedDate.ToString("d")</td>
+                        <td>@item.ModifiedDate.ToString("d")</td>
+                        @*<td>
+                            <partial model="@item.Id" name="_TableButtonPartial" />
+                        </td>*@
+                        <td style="width:100%">
+                            <div class="btn-group" role="group" style="height:44px; ">
+                                <a type="button" class="btn btn-success" asp-controller="Category" asp-action="Edit" asp-route-id="@item.Id"><i class="fas fa-edit"></i></a>
+                                <a type="button" class="btn btn-danger" asp-controller="Category" asp-action="Delete" asp-route-id="@item.Id" onclick="$('.top-alert').notify('Delete success', {position: 'top center'});"><i class="fas fa-trash-alt"></i></a>
+                            </div>
+                        </td>
+                    </tr>
                     }
                 </tbody>
             </table>

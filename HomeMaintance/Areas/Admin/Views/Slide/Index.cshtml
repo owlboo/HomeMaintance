@@ -27,12 +27,11 @@
                         <tr>
                             <td>@Html.DisplayFor(m => item.Name)</td>
                             <td><img src="~/images/SlideImages/@item.Image" width="100" height="100"/></td>
-                            <td style="width:150px">
-                                <div class="btn-group" role="group">
-                                    <a type="button" class="btn btn-primary" href="@Url.Action("Edit/"+item.Id)"><i class="fas fa-edit"></i></a>
-                                    <a type="button" class="btn btn-danger" href="@Url.Action("Delete/"+item.Id)" onclick="$('.top-alert').notify('Delete success', {position: 'top center'});"><i class="fas fa-trash-alt"></i></a>
+                            <td style="width:100%">
+                                <div class="btn-group" role="group" style="height:44px; ">
+                                    <a type="button" class="btn btn-success" asp-controller="Slide" asp-action="Edit" asp-route-id="@item.Id"><i class="fas fa-edit"></i></a>
+                                    <a type="button" class="btn btn-danger" asp-controller="Slide" asp-action="Delete" asp-route-id="@item.Id" onclick="$('.top-alert').notify('Delete success', {position: 'top center'});"><i class="fas fa-trash-alt"></i></a>
                                 </div>
-
                             </td>
                         </tr>
                     }

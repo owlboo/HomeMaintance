@@ -44,9 +44,11 @@ namespace HomeMaintance.Areas.Admin.Controllers
             var slideFromDb = await _unitOfWork.Repository<Slide>().GetByIdAsync(slide.Id);
             if (files.Count != 0)
             {
-                var uploads = Path.Combine(webRootPath, @"images\SlideImages");
+                var uploads = Path.Combine(webRootPath, @"images/SlideImages");
                 var extension = Path.GetExtension(files[0].FileName);
-                var fileName = Path.Combine(uploads, slideFromDb.Name + extension);
+                Random rand = new Random();
+                //var fileName = Path.Combine(uploads, slideFromDb.Name + extension);
+                var fileName = "slide" + rand.Next(10, 99) + extension;
                 using (var fileStream = new FileStream(Path.Combine(uploads, fileName), FileMode.Create))
                 {
                     await files[0].CopyToAsync(fileStream);
@@ -83,9 +85,10 @@ namespace HomeMaintance.Areas.Admin.Controllers
             var slideFromDb = await _unitOfWork.Repository<Slide>().GetByIdAsync(slide.Id);
             if (files.Count != 0)
             {
-                var uploads = Path.Combine(webRootPath, @"images\SlideImages");
+                var uploads = Path.Combine(webRootPath, @"images/SlideImages");
                 var extension = Path.GetExtension(files[0].FileName);
-                var fileName = Path.Combine(uploads, slide.Name + extension);
+                Random random = new Random();
+                var fileName = "slidex-" + random.Next(10, 100) + extension;
                 if (System.IO.File.Exists(Path.Combine(uploads, fileName)))
                 {
                     System.IO.File.Exists(Path.Combine(uploads, fileName));
@@ -109,13 +112,38 @@ namespace HomeMaintance.Areas.Admin.Controllers
             return RedirectToAction("Index");
         }
 
-        public async Task<IActionResult> Delete(int id)
-        {
-            var slideFromDb = await _unitOfWork.Repository<Slide>().GetByIdAsync(id);
-            if (slideFromDb == null) return NotFound();
-            await _unitOfWork.Repository<Slide>().DeleteAsync(slideFromDb);
 
-            return RedirectToAction("Index");
+
+        public IActionResult Delete(int? id)
+        {
+            if (id == null) return NotFound();
+
+            var slideFromDb = _unitOfWork.Repository<Slide>().GetById(id);
+
+            return View(slideFromDb);
+            
+            
+        }
+        
+        [HttpPost, ActionName("Delete")]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> DeletePost(int id)
+        {
+            try
+            {
+                var slideFromDb = await _unitOfWork.Repository<Slide>().GetByIdAsync(id);
+                if (slideFromDb == null) return NotFound();
+                await _unitOfWork.Repository<Slide>().DeleteAsync(slideFromDb);
+
+                return RedirectToAction("Index");
+            }
+            catch (Exception e)
+            {
+                LogHelpers log = new LogHelpers();
+                string path = "/Admin/Slide/Delete";
+                log.WriteLogToDb(path, e.ToString());
+                throw;
+            }
         }
     }
 }

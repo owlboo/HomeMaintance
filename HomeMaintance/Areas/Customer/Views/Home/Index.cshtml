@@ -1,10 +1,17 @@
 ﻿@model HomeMaintance.Models.ViewModels.HomeViewModel
 @using HomeMaintance.Reposity
 @using HomeMaintance.Models
+@using HomeMaintance.Models.ViewModels
 @{
-    ViewData["Title"] = "Home Page";
-    IUnitOfWork unitOfWork = (IUnitOfWork)ViewData["DbContext"];
-    var systemconf = unitOfWork.Repository<SystemConfig>().GetAll().FirstOrDefault();
+        ViewData["Title"] = "Home Page";
+        IUnitOfWork unitOfWork = (IUnitOfWork)ViewData["DbContext"];
+        var systemconf = unitOfWork.Repository<SystemConfig>().GetAll().FirstOrDefault();
+        FooterViewModel footerView = new FooterViewModel
+        {
+            SystemConfigs = unitOfWork.Repository<SystemConfig>().GetAll().FirstOrDefault(),
+            Services = unitOfWork.Repository<Services>().GetAll().Take(6).ToList()
+        };
+    //FooterViewModel ft = ViewBag.Footer;
 }
 <link rel="stylesheet" href="~/lib/bootstrap/dist/css/jquery-ui.css" />
 <script src="~/lib/jquery/dist/jquery.min.js"></script>
@@ -19,22 +26,38 @@
         });
     });
 </script>
+
+@await Component.InvokeAsync("Slide")
 <section class="bannerbottom py-lg-5 py-md-4 py-md-3 py-2">
     <div class="bannerbottom py-lg-5 py-md-4 py-md-3 py-2">
         <div class="container">
             <div class="row">
+
                 @foreach (var item in Model.Services)
                 {
-                    <div class="col-md-4 col-sm-12 w3_ban1">
-                        <div class="card">
-                            <img class="card-img-top" src="~/images/ServiceImages/@item.Thumbnail" style="height:200px;" alt="Card image cap">
-                            <div class="card-body">
-                                <h5 class="card-title">@item.ServiceName</h5>
-                                <p class="card-text" style="height:100px;">@item.ShortDescription</p>
-                                <a asp-action="Index" asp-controller="ServiceDetails" asp-route-id="@item.Id" class="btn btn-primary">Explore</a>
-                            </div>
+                <div class="col-md-3 col-sm-12 w3_ban1">
+                    <div class="card" style="background-color:aliceblue; border:none;">
+                        <img class="card-img-top" src="~/images/ServiceImages/@item.Thumbnail" style="height:200px;" alt="Card image cap">
+                        <div class="card-body">
+                            <h5 class="card-title">@item.ServiceName</h5>
+                            @if (item.ShortDescription.Length > 50)
+                                {
+                            <p class="card-text" style="height:100px;">
+                                @item.ShortDescription.Substring(0, 45) ....
+                            </p>
+                                }
+                                else
+                                {
+                            <p class="card-text" style="height:100px;">
+                                @item.ShortDescription
+                            </p>
+                                }
+
+
+                            <a asp-action="Index" asp-controller="ServiceDetails" asp-route-id="@item.Id" class="btn btn-outline-primary">Xem chi tiết</a>
                         </div>
                     </div>
+                </div>
                 }
 
             </div>
@@ -64,6 +87,9 @@
                                 <li>Số điện thoại: @item.PhoneNumber</li>
                                 <li>Vai trò: @item.Role</li>
                             </ul>
+                            @*<label>Kinh nghiệm: @item.ExperienceYears năm</label>
+                            <label>Số điện thoại: @item.PhoneNumber</label>
+                            <label>Vai trò: @item.Role</label>*@
                         </div>
                     }
                     <!-- Full-width slides/quotes -->
@@ -118,23 +144,23 @@
             <div class="row">
                 <div class="col-sm-6 stats_grid_right">
                     <div class="skillbar" data-percent="78">
-                        <span class="skillbar-title" style="background: #f1703a;width: 78%;">NỘI THẤT</span>
+                        <span class="skillbar-title" style="background: #f1703a;width: 85%;">NỘI THẤT</span>
                         <p class="skillbar-bar" style="background: #f88c5e;"></p>
-                        <span class="skill-bar-percent">78%</span>
+                        <span class="skill-bar-percent">85%</span>
                     </div>
                     <!-- End Skill Bar -->
 
                     <div class="skillbar" data-percent="94">
-                        <span class="skillbar-title" style="background: #2980b9;width:70%;">NGOẠI THẤT</span>
+                        <span class="skillbar-title" style="background: #2980b9;width:83%;">NGOẠI THẤT</span>
                         <p class="skillbar-bar" style="background: #3498db;"></p>
-                        <span class="skill-bar-percent">70%</span>
+                        <span class="skill-bar-percent">83%</span>
                     </div>
                     <!-- End Skill Bar -->
 
                     <div class="skillbar" data-percent="76">
-                        <span class="skillbar-title" style="background: #a0d034;width:70%;">SÂN VƯỜN</span>
+                        <span class="skillbar-title" style="background: #a0d034;width:80%;">SÂN VƯỜN</span>
                         <p class="skillbar-bar" style="background: #b2ec2f;"></p>
-                        <span class="skill-bar-percent">70%</span>
+                        <span class="skill-bar-percent">80%</span>
                     </div>
                     <!-- End Skill Bar -->
                 </div>
@@ -147,16 +173,16 @@
                     <!-- End Skill Bar -->
 
                     <div class="skillbar" data-percent="64">
-                        <span class="skillbar-title" style="background: #2980b9;width:75%">ĐIỆN NƯỚC</span>
-                        <p class="skillbar-bar" style="background: #3498db;"></p>    
-                        <span class="skill-bar-percent">75%</span>
+                        <span class="skillbar-title" style="background: #2980b9;width:88%">ĐIỆN NƯỚC</span>
+                        <p class="skillbar-bar" style="background: #3498db;"></p>
+                        <span class="skill-bar-percent">88%</span>
                     </div>
                     <!-- End Skill Bar -->
 
                     <div class="skillbar" data-percent="84">
-                        <span class="skillbar-title" style="background: #a0d034;width:70%">TRANG TRÍ</span>
+                        <span class="skillbar-title" style="background: #a0d034;width:86%">TRANG TRÍ</span>
                         <p class="skillbar-bar" style="background: #b2ec2f;"></p>
-                        <span class="skill-bar-percent">70%</span>
+                        <span class="skill-bar-percent">86%</span>
                     </div>
                 </div>
             </div>
@@ -221,7 +247,7 @@
         </div>
     </div>
 </section>
-@Html.Partial("~/Views/Shared/_FooterPartial.cshtml", systemconf);
+@Html.Partial("~/Views/Shared/_FooterPartial.cshtml", footerView)
 <!-- /Conatct -->
 @section Scripts
 {

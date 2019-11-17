@@ -45,7 +45,7 @@ namespace HomeMaintance.Areas.Admin.Controllers
             var humanFromDb = await _unitOfWork.Repository<HumanResources>().GetByIdAsync(humanResources.Id);
             if (files.Count != 0)
             {
-                var uploads = Path.Combine(webRootPath, @"images\HumanImages");
+                var uploads = Path.Combine(webRootPath, @"images/HumanImages");
                 var extension = Path.GetExtension(files[0].FileName);
                 var fileName = Path.Combine(uploads, humanFromDb.PersonName + extension);
                 using (var fileStream = new FileStream(Path.Combine(uploads, fileName), FileMode.Create))
@@ -57,8 +57,8 @@ namespace HomeMaintance.Areas.Admin.Controllers
             }
             else
             {
-                var uploads = Path.Combine(webRootPath, @"images\HumanImages\"+SD.DefaultHumanImage);
-                System.IO.File.Copy(uploads,webRootPath+ @"\images\HumanImages\"+ humanResources.Id+".png");
+                var uploads = Path.Combine(webRootPath, @"images/HumanImages/"+SD.DefaultHumanImage);
+                System.IO.File.Copy(uploads,webRootPath+ @"/images/HumanImages/"+ humanResources.Id+".png");
                 humanResources.Avatar = humanResources.Id + ".png";
             }
             await _unitOfWork.Commit();
@@ -137,8 +137,17 @@ namespace HomeMaintance.Areas.Admin.Controllers
             return View(humanResourcesFromDb);
         }
 
-        
         public async Task<IActionResult> Delete(int? id)
+        {
+            if (id == null) return NotFound();
+            var humanResourcesFromDb = await _unitOfWork.Repository<HumanResources>().GetByIdAsync(id);
+            if (humanResourcesFromDb == null) return NotFound();
+            return View(humanResourcesFromDb);
+        }
+
+        [ValidateAntiForgeryToken]
+        [HttpPost]
+        public async Task<IActionResult> Delete(int id)
         {
             var humanResourcesFromDb = await _unitOfWork.Repository<HumanResources>().GetByIdAsync(id);
             if (humanResourcesFromDb == null) return NotFound();

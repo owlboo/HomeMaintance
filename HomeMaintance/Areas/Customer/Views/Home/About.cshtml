@@ -1,4 +1,17 @@
-﻿@{
+﻿@using HomeMaintance.Models.ViewModels
+@using HomeMaintance.Reposity
+@using HomeMaintance.Models
+@using HomeMaintance.Models.ViewModels
+@{
+    IUnitOfWork unitOfWork = (IUnitOfWork)ViewData["DbContext"];
+    var systemconf = unitOfWork.Repository<SystemConfig>().GetAll().FirstOrDefault();
+    FooterViewModel footerView = new FooterViewModel
+    {
+        SystemConfigs = unitOfWork.Repository<SystemConfig>().GetAll().FirstOrDefault(),
+        Services = unitOfWork.Repository<Services>().GetAll().Take(6).ToList()
+    };
+}
+@{
     ViewData["Title"] = "About";
 }
 <section class="about py-lg-5 py-md-4 py-md-3 py-2" id="about">
@@ -7,34 +20,34 @@
             <h3 class="mb-lg-4 mb-md-3 mb-sm-2 mb-2">Giới thiệu</h3>
             <div class="row">
                 <div class="col-md-6 com-sm-6 w3three_al1">
-                    <h4 class="mb-lg-4 mb-md-3 mb-sm-2 mb-2">Take A Look About Our Company</h4>
-                    <p class="mb-lg-4 mb-md-3 mb-sm-2 mb-2">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s.</p>
-                    <a href="#">Read More</a>
+                    <h4 class="mb-lg-4 mb-md-3 mb-sm-2 mb-2">MỘT SỐ DỊCH VỤ CỦA CHÚNG TÔI</h4>
+                    <p class="mb-lg-4 mb-md-3 mb-sm-2 mb-2"></p>
+                    <a asp-action="Index" asp-controller="Home" asp-area="Customer">Xem thêm</a>
                 </div>
                 <div class="col-md-6 com-sm-6 w3three_al">
                     <img src="~/images/ab.jpg" alt="" class="img-fluid">
                 </div>
             </div>
             <div class="w3_acd">
-                <h4>Why Choose Us</h4>
+                <h4>TẠI SAO CHỌN CHÚNG TÔI ?</h4>
                 <div class="w3-agileits-team-title">
 
 
                     <div id="horizontalTab">
-                        <ul class=" resp-tabs-list">
-                            <li>
-                                <h5>Interior Designs</h5>
-                            </li>
-                            <li>
-                                <h5>Exterior Designs</h5>
-                            </li>
-                            <li>
-                                <h5>Gardening</h5>
-                            </li>
-                            <li>
-                                <h5>Roofing</h5>
-                            </li>
-                        </ul>
+                        @*<ul class=" resp-tabs-list">
+                                <li>
+                                    <h5>Thiết kế nội thất</h5>
+                                </li>
+                                <li>
+                                    <h5>Thiết kế ngoại thất</h5>
+                                </li>
+                                <li>
+                                    <h5>Gardening</h5>
+                                </li>
+                                <li>
+                                    <h5>Tol/Mái nhà</h5>
+                                </li>
+                            </ul>*@
                         <div class=" resp-tabs-container">
                             <div class="tab1">
                                 <div class="row">
@@ -42,21 +55,26 @@
                                         <div class="test-wel">
 
                                             <p>
-                                                Masagni dolores eoquie int Basmodi temporant, ut laboreas dolore magnam aliquam kuytase uaeraquis autem vel eum iure
-                                                reprehend.Unicmquam eius, Basmodi temurer sehsMunim.
+                                                Với tay nghề và kĩ năng cao chúng tôi sẽ đem đến cho bạn sự hài lòng tuyệt đối.
                                             </p>
                                             <ul>
                                                 <li>
-                                                    <i class="fas fa-check"></i>Lorem Ipsum is simply dummy text
+                                                    <i class="fas fa-check"></i>Nội thất
                                                 </li>
                                                 <li>
-                                                    <i class="fas fa-check"></i>Lorem Ipsum is simply dummy text
+                                                    <i class="fas fa-check"></i>Ngoại thất
                                                 </li>
                                                 <li>
-                                                    <i class="fas fa-check"></i>Lorem Ipsum is simply dummy text
+                                                    <i class="fas fa-check"></i>Sân vườn
                                                 </li>
                                                 <li>
-                                                    <i class="fas fa-check"></i>Lorem Ipsum is simply dummy text
+                                                    <i class="fas fa-check"></i>Tol/Mái nhà
+                                                </li>
+                                                <li>
+                                                    <i class="fas fa-check"></i>Điện nước
+                                                </li>
+                                                <li>
+                                                    <i class="fas fa-check"></i>Trang trí
                                                 </li>
                                             </ul>
                                         </div>
@@ -66,97 +84,96 @@
                                     </div>
                                 </div>
                             </div>
-
+                            <br />
                             <div class="tab2">
                                 <div class="row">
                                     <div class="col-md-6 com-sm-6 w3three_al4">
                                         <div class="test-wel">
 
                                             <p>
-                                                Masagni dolores eoquie int Basmodi temporant, ut laboreas dolore magnam aliquam kuytase uaeraquis autem vel eum iure
-                                                reprehend.Unicmquam eius, Basmodi temurer sehsMunim.
+                                                Đội ngủ nhân lực hùng hậu
                                             </p>
                                             <ul>
                                                 <li>
-                                                    <i class="fas fa-check"></i>Lorem Ipsum is simply dummy text
+                                                    <i class="fas fa-check"></i>2 Kiến trúc sư
                                                 </li>
                                                 <li>
-                                                    <i class="fas fa-check"></i>Lorem Ipsum is simply dummy text
+                                                    <i class="fas fa-check"></i>5 Thợ chính
                                                 </li>
                                                 <li>
-                                                    <i class="fas fa-check"></i>Lorem Ipsum is simply dummy text
+                                                    <i class="fas fa-check"></i>10 Thợ phụ
                                                 </li>
                                                 <li>
-                                                    <i class="fas fa-check"></i>Lorem Ipsum is simply dummy text
+                                                    <i class="fas fa-check"></i>Hơn 20 nhân công hỗ trợ xây dựng
                                                 </li>
                                             </ul>
                                         </div>
                                     </div>
                                     <div class="col-md-6 com-sm-6 w3three_al5">
-                                        <img src="images/ab2.jpg" alt="" class="img-fluid">
+                                        <img src="~/images/xay-dung-doi-ngu.jpg" alt="" class="img-fluid">
                                     </div>
                                 </div>
                             </div>
+                            <br />
                             <div class="tab3">
                                 <div class="row">
                                     <div class="col-md-6 com-sm-6 w3three_al6">
                                         <div class="test-wel">
 
                                             <p>
-                                                Masagni dolores eoquie int Basmodi temporant, ut laboreas dolore magnam aliquam kuytase uaeraquis autem vel eum iure
-                                                reprehend.Unicmquam eius, Basmodi temurer sehsMunim.
+                                                Chúng tôi luôn đảm bảo an toàn và chất lượng khi thi công các công trình với các thiết bị hỗ trợ hiện đại
                                             </p>
-                                            <ul>
-                                                <li>
-                                                    <i class="fas fa-check"></i>Lorem Ipsum is simply dummy text
-                                                </li>
-                                                <li>
-                                                    <i class="fas fa-check"></i>Lorem Ipsum is simply dummy text
-                                                </li>
-                                                <li>
-                                                    <i class="fas fa-check"></i>Lorem Ipsum is simply dummy text
-                                                </li>
-                                                <li>
-                                                    <i class="fas fa-check"></i>Lorem Ipsum is simply dummy text
-                                                </li>
-                                            </ul>
+                                            @*<ul>
+                                                    <li>
+                                                        <i class="fas fa-check"></i>Lorem Ipsum is simply dummy text
+                                                    </li>
+                                                    <li>
+                                                        <i class="fas fa-check"></i>Lorem Ipsum is simply dummy text
+                                                    </li>
+                                                    <li>
+                                                        <i class="fas fa-check"></i>Lorem Ipsum is simply dummy text
+                                                    </li>
+                                                    <li>
+                                                        <i class="fas fa-check"></i>Lorem Ipsum is simply dummy text
+                                                    </li>
+                                                </ul>*@
                                         </div>
                                     </div>
                                     <div class="col-md-6 com-sm-6 w3three_al7">
-                                        <img src="images/ab3.jpg" alt="" class="img-fluid">
+                                        <img src="~/images/construction_tools.png" alt="" class="img-fluid">
                                     </div>
                                 </div>
                             </div>
-                            <div class="tab4">
-                                <div class="row">
-                                    <div class="col-md-6 com-sm-6 w3three_al8">
-                                        <div class="test-wel">
+                            @*<div class="tab4">
+                                    <div class="row">
+                                        <div class="col-md-6 com-sm-6 w3three_al8">
+                                            <div class="test-wel">
 
-                                            <p>
-                                                Masagni dolores eoquie int Basmodi temporant, ut laboreas dolore magnam aliquam kuytase uaeraquis autem vel eum iure
-                                                reprehend.Unicmquam eius, Basmodi temurer sehsMunim.
-                                            </p>
-                                            <ul>
-                                                <li>
-                                                    <i class="fas fa-check"></i>Lorem Ipsum is simply dummy text
-                                                </li>
-                                                <li>
-                                                    <i class="fas fa-check"></i>Lorem Ipsum is simply dummy text
-                                                </li>
-                                                <li>
-                                                    <i class="fas fa-check"></i>Lorem Ipsum is simply dummy text
-                                                </li>
-                                                <li>
-                                                    <i class="fas fa-check"></i>Lorem Ipsum is simply dummy text
-                                                </li>
-                                            </ul>
+                                                <p>
+                                                    Masagni dolores eoquie int Basmodi temporant, ut laboreas dolore magnam aliquam kuytase uaeraquis autem vel eum iure
+                                                    reprehend.Unicmquam eius, Basmodi temurer sehsMunim.
+                                                </p>
+                                                <ul>
+                                                    <li>
+                                                        <i class="fas fa-check"></i>Lorem Ipsum is simply dummy text
+                                                    </li>
+                                                    <li>
+                                                        <i class="fas fa-check"></i>Lorem Ipsum is simply dummy text
+                                                    </li>
+                                                    <li>
+                                                        <i class="fas fa-check"></i>Lorem Ipsum is simply dummy text
+                                                    </li>
+                                                    <li>
+                                                        <i class="fas fa-check"></i>Lorem Ipsum is simply dummy text
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6 com-sm-6 w3three_al9">
+                                            <img src="images/ab4.jpg" alt="" class="img-fluid">
                                         </div>
                                     </div>
-                                    <div class="col-md-6 com-sm-6 w3three_al9">
-                                        <img src="images/ab4.jpg" alt="" class="img-fluid">
-                                    </div>
-                                </div>
-                            </div>
+                                </div>*@
                         </div>
 
 
@@ -166,3 +183,4 @@
         </div>
     </div>
 </section>
+@Html.Partial("~/Views/Shared/_FooterPartial.cshtml", footerView);

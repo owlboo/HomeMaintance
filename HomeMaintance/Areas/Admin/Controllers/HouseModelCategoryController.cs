@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using HomeMaintance.Models;
 using HomeMaintance.Reposity;
+using HomeMaintance.Ultilities;
 using Microsoft.AspNetCore.Mvc;
 
 namespace HomeMaintance.Areas.Admin.Controllers
@@ -62,17 +63,35 @@ namespace HomeMaintance.Areas.Admin.Controllers
             await _unitOfWork.Commit();
             return RedirectToAction(nameof(Index));
         }
-
-        public async Task<IActionResult> Delete (int? id)
+        public async Task<IActionResult> Delete(int? id)
         {
-            if(id==null)
+            if (id == null)
             {
                 return NotFound();
             }
-            var houseCateDelete = await _unitOfWork.Repository<HouseModelCategory>().GetByIdAsync(id);
-            _unitOfWork.Repository<HouseModelCategory>().Delete(houseCateDelete);
-            await _unitOfWork.Commit();
-            return RedirectToAction(nameof(Index));
+            var houseModelCate = _unitOfWork.Repository<HouseModelCategory>().Find(h => h.Id == id);
+            return View(houseModelCate);
+        }
+        [ValidateAntiForgeryToken]
+        [HttpPost]
+        public async Task<IActionResult> Delete (int id)
+        {
+            try
+            {
+
+                var houseCateDelete = await _unitOfWork.Repository<HouseModelCategory>().GetByIdAsync(id);
+                _unitOfWork.Repository<HouseModelCategory>().Delete(houseCateDelete);
+                await _unitOfWork.Commit();
+                return RedirectToAction(nameof(Index));
+            }
+            catch (Exception e)
+            {
+                LogHelpers log = new LogHelpers();
+                string path = "/Admin/HouseModelCategory/Delete";
+                log.WriteLogToDb(path, e.ToString());
+                throw;
+            }
+            
         }
     }
 }

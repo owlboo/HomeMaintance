@@ -1,4 +1,16 @@
-﻿
+﻿@using HomeMaintance.Models.ViewModels
+@using HomeMaintance.Reposity
+@using HomeMaintance.Models
+@using HomeMaintance.Models.ViewModels
+@{
+    IUnitOfWork unitOfWork = (IUnitOfWork)ViewData["DbContext"];
+    var systemconf = unitOfWork.Repository<SystemConfig>().GetAll().FirstOrDefault();
+    FooterViewModel footerView = new FooterViewModel
+    {
+        SystemConfigs = unitOfWork.Repository<SystemConfig>().GetAll().FirstOrDefault(),
+        Services = unitOfWork.Repository<Services>().GetAll().Take(6).ToList()
+    };
+}
 @{
     ViewData["Title"] = "Service";
     Layout = "~/Views/Shared/_Layout.cshtml";
@@ -8,13 +20,13 @@
     <div class="container py-lg-5 py-md-4 py-md-3 py-2">
         <div class="w3_mg">
             <h3>Bảng báo giá</h3>
-                
+
         </div>
         <div class="row">
             <div class="col-4">
                 <img src="~/images/bang-bao-gia-demo.jpg" width="250" height="250" />
-                <button type="button" class="btn btn-primary mt-2 offset-2" data-toggle="modal" data-target="#exampleModal">
-                    Quick Views
+                <button type="button" class="btn btn-outline-primary mt-2 offset-2" data-toggle="modal" data-target="#exampleModal">
+                    Xem nhanh
                 </button>
                 <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                     <div class="modal-dialog" role="document">
@@ -27,8 +39,8 @@
 
             <div class="col-4">
                 <img src="~/images/bang-gia-xay-nha-phan-tho.jpg" width="250" height="250" />
-                <button type="button" class="btn btn-primary mt-2 offset-2" data-toggle="modal" data-target="#exampleModal-1">
-                    Quick Views
+                <button type="button" class="btn btn-outline-primary mt-2 offset-2" data-toggle="modal" data-target="#exampleModal-1">
+                    Xem nhanh
                 </button>
                 <div class="modal fade" id="exampleModal-1" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                     <div class="modal-dialog" role="document">
@@ -41,8 +53,8 @@
 
             <div class="col-4">
                 <img src="~/images/xay-dung-nha-tron-goi.jpg" width="250" height="250" />
-                <button type="button" class="btn btn-primary mt-2 offset-2" data-toggle="modal" data-target="#exampleModal-2">
-                    Quick Views
+                <button type="button" class="btn btn-outline-primary mt-2 offset-2" data-toggle="modal" data-target="#exampleModal-2">
+                    Xem nhanh
                 </button>
                 <div class="modal fade" id="exampleModal-2" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                     <div class="modal-dialog" role="document">
@@ -53,9 +65,10 @@
                 </div>
             </div>
         </div>
-            
+
     </div>
 </section>
+@Html.Partial("~/Views/Shared/_FooterPartial.cshtml", footerView)
 @section Scripts
 {
     <script src="~/lib/bootstrap/dist/js/jquery-1.7.2.js"></script>

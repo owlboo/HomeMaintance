@@ -80,13 +80,13 @@ namespace HomeMaintance.Areas.Admin.Controllers
                     HouseModelImages modelImages = new HouseModelImages
                     {
                         HouseModelId = HouseModelVM.HouseModel.Id,
-                        ImageUrl = @"\" + SD.HouseModelFolderImages + @"\" + name + extension
+                        ImageUrl = @"/" + SD.HouseModelFolderImages + @"/" + name + extension
                     };
                     _unitOfWork.Repository<HouseModelImages>().Insert(modelImages);
                     await _unitOfWork.Commit();
                     i++;
                 }
-                houseModelFromDb.ImageThumbnail = @"\" + SD.HouseModelFolderImages + @"\" + "house-models-thumnail" + Path.GetExtension(files[0].FileName);
+                houseModelFromDb.ImageThumbnail = @"/" + SD.HouseModelFolderImages + @"/" + "house-models-thumnail" + Path.GetExtension(files[0].FileName);
             }
             await _unitOfWork.Commit();
             return RedirectToAction(nameof(Index));
@@ -107,6 +107,8 @@ namespace HomeMaintance.Areas.Admin.Controllers
 
         [HttpPost]
         [ActionName("Edit")]
+        [ValidateAntiForgeryToken]
+
         public async Task<IActionResult> EditPost(int id)
         {
             if (id != HouseModelVM.HouseModel.Id)
@@ -154,6 +156,8 @@ namespace HomeMaintance.Areas.Admin.Controllers
         }
 
         [HttpPost]
+        [ValidateAntiForgeryToken]
+
         public async Task<IActionResult> DeleteImage(int? id)
         {
             if (id == null)
@@ -199,6 +203,31 @@ namespace HomeMaintance.Areas.Admin.Controllers
                 return RedirectToAction("Edit", new { id = houseModelFromDb.Id });
             }
             return RedirectToAction("Edit", new { id = houseModelFromDb.Id });
+        }
+
+        public IActionResult Delete(int? id)
+        {
+            if (id == null)
+            {
+                return NotFound();
+            }
+
+            HouseModelVM.HouseModel = _unitOfWork.Repository<HouseModels>().GetSingleInclude(c => c.Id == id);
+            HouseModelVM.Images = _unitOfWork.Repository<HouseModelImages>().FindAll(c => c.HouseModelId == id).ToList();
+            return View(HouseModelVM);
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> Delete(int id)
+        {
+            var houseModel = await _unitOfWork.Repository<HouseModels>().FindAsync(c => c.Id == id);
+            if(houseModel == null)
+            {
+                return null;
+            }
+            await _unitOfWork.Repository<HouseModels>().DeleteAsync(houseModel);
+            await _unitOfWork.Commit();
+            return RedirectToAction(nameof(Index));
         }
     }
 }

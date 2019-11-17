@@ -5,6 +5,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using HomeMaintance.Models;
 using HomeMaintance.Reposity;
+using HomeMaintance.Ultilities;
 using Microsoft.AspNetCore.Hosting.Internal;
 using Microsoft.AspNetCore.Mvc;
 
@@ -42,7 +43,7 @@ namespace HomeMaintance.Areas.Admin.Controllers
             var typicalFromDb = await _unitOfWork.Repository<TypicalConstruction>().GetByIdAsync(typicalConstruction.Id);
             if (files.Count != 0)
             {
-                var uploads = Path.Combine(webRootPath, @"images\TypicalImages");
+                var uploads = Path.Combine(webRootPath, @"images/TypicalImages");
                 var extension = Path.GetExtension(files[0].FileName);
                 var fileName = Path.Combine(uploads, typicalFromDb.Name + extension);
                 using (var fileStream = new FileStream(Path.Combine(uploads, fileName), FileMode.Create))
@@ -111,13 +112,34 @@ namespace HomeMaintance.Areas.Admin.Controllers
             return RedirectToAction("Index");
         }
 
+        public IActionResult Delete(int? id)
+        {
+            if (id == null) return NotFound();
+
+            var typicalFromDb = _unitOfWork.Repository<TypicalConstruction>().GetById(id);
+
+            return View(typicalFromDb);
+        }
+
+        [ValidateAntiForgeryToken]
         public async Task<IActionResult> Delete(int id)
         {
-            var typicalFromDb = await _unitOfWork.Repository<TypicalConstruction>().GetByIdAsync(id);
-            if (typicalFromDb == null) return NotFound();
-            await _unitOfWork.Repository<TypicalConstruction>().DeleteAsync(typicalFromDb);
+            try
+            {
+                var typicalFromDb = await _unitOfWork.Repository<TypicalConstruction>().GetByIdAsync(id);
+                if (typicalFromDb == null) return NotFound();
+                await _unitOfWork.Repository<TypicalConstruction>().DeleteAsync(typicalFromDb);
 
-            return RedirectToAction("Index");
+                return RedirectToAction("Index");
+            }
+            catch (Exception e)
+            {
+                LogHelpers log = new LogHelpers();
+                string path = "/Admin/Typical/Delete";
+                log.WriteLogToDb(path, e.ToString());
+                throw;
+            }
+            
         }
 
 
